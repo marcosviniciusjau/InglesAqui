@@ -7,7 +7,7 @@ class ApostilasController extends Controller
 {
     public static function index()
     {
-        parent::isProtected();
+      
         $model = new ApostilasModel();
         $model->getAllRows();
         parent::render('Apostilas/apostilas',$model);

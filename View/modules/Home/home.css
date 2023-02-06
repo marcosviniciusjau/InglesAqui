@@ -1,72 +1,105 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
-#sobre{
-background-color:#5D0101;
-
-}
-#guias1{
-background-color:#5D0101;
-
-
-}
-#sobre1{
-background-color:#020D2B;
-padding-left: 10%;
-}
-#mensagem{
-background-color:#020D2B;
-padding-left: 10%;
-padding-top: 5%;
-}
-#subtitulo{
-      
-      font-family: 'Playfair Display', serif;
-      font-size: 14;
-      color:white;
-
-
-      ;
+@font-face {
+  font-family: Montserrat;
+  src: url('/View/modules/Home/fonts/montserrat/Montserrat-BoldItalic.ttf'); 
   }
 
-  #texto{
-      
+  @font-face {
+  font-family: Forum;
+  src: url('/View/modules/Home/fonts/forum/Forum-Regular.ttf'); 
+  }
+
+#sobre{
+  background-color:#020D2B;
+  padding-left: 10%;
+  }
+
+  .thumbnail { 
+    top:-50px; 
+    left:-35px; 
+    display:block; 
+    z-index:999; 
+    cursor: pointer; 
+    transition-property: all; 
+    transition-duration: 0.3s; 
+    transition-timing-function: ease; 
+  } 
+
+  .thumbnail:hover { 
+    transform: scale(1.1); 
+
+  }
+  #guias{
+    background-color: #5D0101;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  
+  #guias1{
+  background-color:#5D0101;
+  }
+  
+  #mensagem{
+  background-color:#020D2B;
+  padding-left: 10%;
+  padding-top: 5%;
+  padding-right: 5%;
+  }
+
+  #livros{
+ margin-right: 3%;
+    padding-top: 10%;
+   padding-bottom: 10%;
+  
+ }
+
+ .botao:hover {
+  background-color: #01071a;
+  color: white;
+}
+
+  .botao{
+    padding-top: 15%;
+    transition-duration: 0.4s;
+    padding: 10px 24px;
+    border-radius: 20px;
+    color:#ffffff;
+    background-color: #020D2B;
+  }
+#contato{
+ 
+  padding-top: 5%;
+    background-color: #5D0101;
+    padding-left: 18%;
+    padding-right: 16%;
+    
+}
+#contato_img{
+
+background-color:#5D0101;
+}
+
+#titulo{    
+  font-family: 'Forum', cursive;
+  color:#ffffff;
+  text-align: center;
+  }
+
+#subtitulo{     
+      font-family: 'Playfair Display', serif;
+      font-size: 80%;
+      color:white;
+  }
+
+  #texto{  
       font-family: 'Playfair Display', serif;
       font-size: 6;
-      color:white
-      
-
-      ;
-  }
-  @font-face {
-font-family: Montserrat;
-src: url('/View/modules/Home/fonts/montserrat/Montserrat-BoldItalic.ttf'); 
-}
-@font-face {
-font-family: Forum;
-src: url('/View/modules/Home/fonts/forum/Forum-Regular.ttf'); 
-}
-#titulo{
-      
-  font-family: 'Forum', cursive;
-  color:white;
+      color:white;
   }
 
-  #guias{
-      background-color: #5D0101;
-      padding-left: 10%;
-      padding-right: 10%;
-      ;
-  }
-
-  #contato{
-      background-color: #5D0101;
-      padding-left: 16%;
-      padding-right: 16%;
-      ;
-  }
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
@@ -117,3 +150,4 @@ src: url('/View/modules/Home/fonts/forum/Forum-Regular.ttf');
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
 }
+

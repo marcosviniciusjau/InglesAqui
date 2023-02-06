@@ -11,6 +11,9 @@ switch ($url)
             HomeController::index();
         break;
          
+        case'home_css':
+            HomeController::css();
+            
         case '/apostilas':
             ApostilasController::index();
             break;
@@ -30,7 +33,7 @@ switch ($url)
             ClienteController::index();
       
 
-            case '/apostilas_desc':
+        case '/apostilas_desc':
                 ApostilasController::ver();
                 break;
               
