@@ -14,7 +14,7 @@ class ProdutoController extends Controller
     public static function index()
     {
         
-        parent::isProtected();
+      
         
         $model = new ProdutoModel();
        
@@ -30,7 +30,7 @@ class ProdutoController extends Controller
     public static function form(ProdutoModel $_model = null)
     {
         
-        parent::isProtected();
+
 
         $model = ($_model == null) ? new ProdutoModel() : $_model;
 
@@ -42,7 +42,7 @@ class ProdutoController extends Controller
    
     public static function save()
     {
-        parent::isProtected();
+     
         
         $model = new ProdutoModel();
 
@@ -80,8 +80,7 @@ class ProdutoController extends Controller
 
     public static function ver()
     {
-        parent::isProtected();
-
+     
         try {
             if (isset($_GET['id'])) {
                 $model = new ProdutoModel();

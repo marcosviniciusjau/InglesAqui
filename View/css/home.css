@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+#sobre{
+  background-color:#020D2B;
+  padding-left: 10%;
+  padding-right: 8%;
+  }
+  #sobre1{
+    background-color:#020D2B;
+    
+    }
+#guias{
+  background-color: #5D0101;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 5%;
+  }
+  
+#guias1{
+  background-color:#5D0101;
+  }
+
+#livros{
+  margin-right: 3%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+    }
+   
+.botao:hover {
+  background-color: #01071a;
+  color: white;
+    }
+   
+.botao{
+  padding-top: 15%;
+  transition-duration: 0.4s;
+  padding: 10px 24px;
+  border-radius: 20px;
+  color:#ffffff;
+  font-family: 'Forum', cursive;
+  font-size: large;
+  background-color: #020D2B;
+     }
+   
+.thumbnail { 
+  top:-50px; 
+  left:-35px; 
+  display:block; 
+  z-index:999; 
+  cursor: pointer; 
+  transition-property: all; 
+  transition-duration: 0.3s; 
+  transition-timing-function: ease; 
+    } 
+
+.thumbnail:hover { 
+  transform: scale(1.1);
+   }
+
+#mensagem{
+  background-color:#020D2B;
+  padding-left: 10%;
+  padding-top: 5%;
+  padding-right: 5%;
+  }
+
+#contato{
+  padding: 9% 14% 0%;
+  background-color: #5D0101;   
+  }
+
+#contato_img{
+  background-color:#5D0101;
+  }
+
+div h1{
+  font-family: 'Forum', cursive;
+  
+  color:#ffffff;
+  }
+
+div h2{
+  padding-top: 5%;
+  font-family: 'Aboreto', cursive;
+  font-size: 1px;
+  color:white;
+  word-spacing: 5px;
+  letter-spacing: 5px;
+   }
+
+div p{  
+  padding-top: 5%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10%;
+  color:white;
+  }
+
+#titulo_mensagem{    
+  font-family: 'Forum', cursive;
+  color:#ffffff;
+  text-align: center;
+}
+
+#titulo_contato{     
+  font-family: 'Aboreto', cursive;
+  font-size: 14px;
+  font-weight: 150;
+  color:white;
+  word-spacing: 5px;
+  letter-spacing: 5px;    
+}
+
+#rede_social{  
+  font-family: 'Forum', cursive;
+  font-size: 30px;
+  color:white;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.b-example-divider {
+  height: 3rem;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.b-example-vr {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+}
+
+.bi {
+  vertical-align: -.125em;
+  fill: currentColor;
+}
+
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}

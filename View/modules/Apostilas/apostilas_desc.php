@@ -6,7 +6,8 @@
      
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="greenlife.css" />
 <link rel="stylesheet" type="text/css" href="produto.css" />
@@ -23,22 +24,26 @@
      @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
-     #texto{
-            
-            font-family: 'Playfair Display', serif;
-            
+     #valor{
+      font-family: 'Montserrat', sans-serif;
+         font-size:25px; 
             color:black
             
 
             ;
         }
-      #titulo{
-            
-            font-family: 'Forum',cursive;
-            color:black;
-          
-            }
-
+        #texto{  
+    font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      color:black;
+      
+  }
+        #titulo{    
+    font-family: 'Forum', cursive;
+    color:black;
+   
+    font-size:25px;
+    }
     #sobre{
       padding-left: 8%;
           
@@ -47,8 +52,17 @@
     #contato{
             padding-left: 8%;
          
-            ;
-        }
+    }
+        .botao{
+    padding-top: 15%;
+    transition-duration: 0.4s;
+    padding: 10px 24px;
+    border-radius: 20px;
+    color:#ffffff;
+    font-family: 'Forum', cursive;
+    font-size: large;
+    background-color: #020D2B;
+  }
     </style>
 
   <?php include PATH_VIEW . 'includes/cabecalho.php' ?>
@@ -67,19 +81,16 @@
 
     <div  id="sobre" >
    
-    <h2 id="titulo" class="display-5"><b><font size="6" color="black" style="font-family: Corbel"> <?= $model->nome ?></h2></font></b>
+    <h2 id="titulo" class="display-5"> <?= $model->nome ?></h2>
     
-    <p id="texto"><font size="5">R$ <?= $model->valor ?></p></font>
+    <p id="valor">R$ <?= $model->valor ?></p>
     
-    <p id="titulo"><font size="5" color="black">Descrição:</p></font>
+    <p id="titulo">Descrição:</p>
   
     <p id="texto"><?= $model->descricao ?></p>
    <BR>
 
-   <a class='btn btn-sm btn-primary' href="/cadCliente"><center><b>Comprar</b></center></a>
-   <br>
-<a class='btn btn-sm btn-primary' style="background-color: #020D2B"><center><b>Adicionar ao carrinho</b></center></a><br>
-
+   <a href="/apostilas"><button class="botao">Comprar</button></a>
       </div>
 
     </div>

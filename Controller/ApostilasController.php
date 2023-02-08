@@ -15,8 +15,7 @@ class ApostilasController extends Controller
     }
     public static function ver()
     {
-        parent::isProtected();
-
+      
         try {
             if (isset($_GET['id'])) {
                 $model = new ProdutoModel();
@@ -59,8 +58,7 @@ class ApostilasController extends Controller
     public static function desc(ProdutoModel $_model = null)
     {
         
-        parent::isProtected();
-
+   
         $model = ($_model == null) ? new ProdutoModel() : $_model;
 
        

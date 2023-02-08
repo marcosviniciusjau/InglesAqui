@@ -6,8 +6,10 @@
      
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="/View/Imagens/icon.png" type="image/icon type">
- 
-    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="greenlife.css" />
 <link rel="stylesheet" type="text/css" href="produto.css" />
@@ -25,27 +27,27 @@
   <?php include PATH_VIEW . 'includes/cabecalho.php' ?>
  
   <br>
-
-  <font size="10" style= "font-family: Sugar & Spice"><center>── Apostilas ──</center></font>
+  <h1 class="display-5" id="titulo">── Apostilas ──</h1>
+  
 <br>
-<div class="container text-center">
+<div class="container ">
     <div class="row">
     <?php foreach($model->rows as $item): ?>
       <div class="col">
   
   <div class="thumbnail">  
  
-  <div class="card" style="width: 12rem;">
+  <div class="card" style="width: 13rem;">
   
 
-   <img  src="/View/Uploads/<?= $item->imagem ?>" class="card-img-top"  alt="...">
+   <img  src="/View/Uploads/<?= $item->imagem ?>" class="card-img-top"  alt="">
    
       <div class="card-body">
-      <h5 class="card-title"><center><?= $item->nome ?></center></h5>
-      <p class="card-text"> <font face="Arial Light" size="5">  R$ <?= $item->valor ?></font></p>
+      <h1 class="card-title" id="texto"><?= $item->nome ?></h1>
+      <p class="card-text" id="texto">  R$ <?= $item->valor ?></p>
     
+      <a href="/apostilas_desc?id=<?= $item->id ?>"><button class="botao">Ver mais</button></a>
 
-    <a class='btn btn-sm btn-primary' href="/apostilas_desc?id=<?= $item->id ?>"><center><b>Comprar</b></center></a>
      </div>
   </div>
   </center>
@@ -70,7 +72,35 @@
 </html>
 
 <style type="text/css">
+    #texto{  
+    font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      color:black;
+      font-style: bold;
+      text-align:center;
+  }
+   #titulo{    
+    font-family: 'Forum', cursive;
+    color:black;
+    text-align: center;
     
+    }
+    #produto{    
+    font-family: 'Forum', cursive;
+    color:black;
+    text-align: center;
+    font-size:25px;
+    }
+   .botao{
+    padding-top: 15%;
+    transition-duration: 0.4s;
+    padding: 10px 24px;
+    border-radius: 20px;
+    color:#ffffff;
+    font-family: 'Forum', cursive;
+    font-size: large;
+    background-color: #020D2B;
+  }
     body {
     margin: 0;
     padding: 0;
