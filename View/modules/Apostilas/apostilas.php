@@ -44,7 +44,7 @@
    
       <div class="card-body">
       <h1 class="card-title" id="texto"><?= $item->nome ?></h1>
-      <p class="card-text" id="texto">  R$ <?= $item->valor ?></p>
+      <p class="card-text" id="texto">  R$ <?=number_format($item->valor,2, ',', '.') ?></p>
     
       <a href="/apostilas_desc?id=<?= $item->id ?>"><button class="botao">Ver mais</button></a>
 
@@ -77,7 +77,7 @@
       font-size: 18px;
       color:black;
       font-style: bold;
-      text-align:center;
+     
   }
    #titulo{    
     font-family: 'Forum', cursive;
