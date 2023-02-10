@@ -50,6 +50,7 @@ class ProdutoController extends Controller
         $model->nome = $_POST['nome'];
         $model->valor = $_POST['valor'];
         $model->descricao = $_POST['descricao'];
+        $model->id_hotmart = $_POST['id_hotmart'];
    
         try {
          

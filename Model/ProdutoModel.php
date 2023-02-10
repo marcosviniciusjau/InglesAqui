@@ -9,9 +9,10 @@ use \Exception;
 class ProdutoModel extends Model
 {
     public $id, $nome ;
-    public $valor,$descricao, $imagem;
+    public $valor,$descricao,$id_hotmart, $imagem;
     
-   
+    public $arr_produtos;
+
     public function save()
     {
         $dao = new ProdutoDAO(); 
@@ -54,6 +55,14 @@ class ProdutoModel extends Model
         
           $dao = new ProdutoDAO();
          $this->rows = $dao->select();
+    }
+
+    public function getAllRowsId(int $id)
+    {
+     
+        
+          $dao = new ProdutoDAO();
+         $this->arr_produtos = $dao->getAllRowsId($id);
     }
 
     public function getById(int $id)

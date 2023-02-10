@@ -51,17 +51,17 @@
      </div>
      
         <div id="livros">
-       <img src="View/Imagens/livro1.jpg"  width="200" height="300" class="thumbnail" >
+        <a href="/apostilas_desc?id=1"><img src="View/Imagens/livro1.jpg"  width="200" height="300" class="thumbnail" ></a>
        </div>
 
         <div id="livros">
-        <img src="View/Imagens/livro2.jpg"  width="200" height="300" class="thumbnail">
-        <br>
+        <a href="/apostilas_desc?id=7"><img src="View/Imagens/livro2.jpg"  width="200" height="300" class="thumbnail" ></a>
+       <br>
         <a href="/apostilas"><button class="botao">Ver mais</button></a>
         </div>
 
         <div id="livros"> 
-        <img src="View/Imagens/livro3.jpg"  width="200" height="300" class="thumbnail">     
+        <a href="/apostilas_desc?id=3"><img src="View/Imagens/livro3.jpg"  width="200" height="300" class="thumbnail" ></a>
         </div> 
 
        </div>

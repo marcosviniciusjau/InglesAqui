@@ -33,7 +33,7 @@
   </div>
 </div>
      
-
+<div class="form-group">
      <label class="col-md-4 control-label" for="Valor">Valor:</label>  
   <div class="col-md-4">
   <input id="valor" name="valor" value="<?= $model->valor ?>" placeholder="Preço" class="form-control input-md">
@@ -43,15 +43,21 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="descricao">Descricao:</label>  
   <div class="col-md-4">
-  <textarea id="descricao" name="descricao"   value="<?= $model->descricao ?>" placeholder="Descriçao" class="form-control input-md"></textarea>
+  <input id="descricao" name="descricao"   value="<?= $model->descricao ?>" placeholder="Descriçao" class="form-control input-md">
  </div>
 </div>
-
+<div class="form-group">
+  <label class="col-md-4 control-label" for="id_hotmart">Id Hotmart:</label>  
+  <div class="col-md-4">
+  <input id="id_hotmart" name="id_hotmart" type="text" value="<?= $model->id_hotmart ?>" placeholder="Id Hotmart" class="form-control input-md">
+    
+  </div>
+</div>
 
 <div class="form-group">
   <label class="col-md-4 control-label" for="arquivo_up">Foto:</label>
   <div class="col-md-4">  
-    <input id="arquivo_up" name="arquivo_up"  value="<?=  $model->imagem = $nome_unico ?>" class="input-file" type="file" >
+    <input id="arquivo_up" name="arquivo_up"  value="<?=  $model->imagem  ?>" class="input-file" type="file" >
   </div>
 </div>
        
