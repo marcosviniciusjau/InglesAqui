@@ -10,7 +10,7 @@
  */
 namespace App\Controller;
 
-
+use App\Model\ProdutoModel;
 /**
  * Classe abstrata Controller para armazenar métodos comuns às classes Controller.
  * Manual do PHP => https://www.php.net/manual/pt_BR/language.oop5.abstract.php
@@ -40,14 +40,20 @@ abstract class Controller
             exit('Arquivo da View não encontrado. Arquivo: ' . $view);
     }
     
-    protected static function isAuthenticated()
+    public static function ver()
     {
-        if(!isset($_SESSION['usuario_logado']))
-            header("location: /login_usuario");
-    } 
-    protected static function isProtected()
-    {
-        if(!isset($_SESSION['adm_logado']))
-            header("location: /login_adm");
-    } 
+      
+        try {
+            if (isset($_GET['id'])) {
+                $model = new ProdutoModel();
+
+                $dados = $model->getById((int) $_GET['id']);
+               
+                self::desc($dados);
+            } 
+        } catch (Exception $e) {
+
+         
+        }
+    }
 }

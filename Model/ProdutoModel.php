@@ -11,7 +11,7 @@ class ProdutoModel extends Model
     public $id, $nome ;
     public $valor,$descricao,$id_hotmart, $imagem;
     
-    public $arr_produtos;
+    public $array_produtos;
 
     public function save()
     {
@@ -57,12 +57,12 @@ class ProdutoModel extends Model
          $this->rows = $dao->select();
     }
 
-    public function getAllRowsId(int $id)
+    public function getAllRowsId()
     {
      
         
           $dao = new ProdutoDAO();
-         $this->arr_produtos = $dao->getAllRowsId($id);
+         $this->rows = $dao->getAllRowsId();
     }
 
     public function getById(int $id)

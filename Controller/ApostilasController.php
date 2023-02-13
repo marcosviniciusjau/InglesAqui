@@ -9,38 +9,32 @@ class ApostilasController extends Controller
     {
         $model = new ApostilasModel();
         $model->getAllRows();
-        parent::render('Apostilas/apostilas',$model);
 
+        parent::render('Apostilas/apostilas',$model);
     }
+
     public static function ver()
-    {
-      
+    {    
         try {
             if (isset($_GET['id'])) {
                 $model = new ProdutoModel();
 
                 $dados = $model->getById((int) $_GET['id']);
-                $model->getAllRowsId((int) $_GET['id']);
-
+              
                 self::desc($dados);
             } 
-        } catch (Exception $e) {
+        } catch (Exception $e) {  
 
-         
         }
     }
-  
-   
+
     public static function desc(ProdutoModel $_model = null)
     {
-        
-   
+    
         $model = ($_model == null) ? new ProdutoModel() : $_model;
+        $model->getAllRowsId();
 
-      
         parent::render('Apostilas/apostilas_desc' ,$model);
-
     }
 
-  
 }

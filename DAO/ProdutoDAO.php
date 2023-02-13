@@ -54,7 +54,7 @@ class ProdutoDAO  extends DAO
 
     public function select()
     {
-        $sql = "SELECT * FROM apostilas ";
+        $sql = "SELECT * FROM apostilas";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
@@ -62,18 +62,15 @@ class ProdutoDAO  extends DAO
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
-    public function getAllRowsId($id)
+    public function getAllRowsId()
     {
-        try {
-            $stmt = $this->conexao->prepare("SELECT * FROM apostilas  where id <> ? and valor > 30");
-            $stmt->bindValue(1, $id);
-            $stmt->execute();
+        $sql = "SELECT * FROM apostilas WHERE valor > 30";
+     
 
-            return $stmt->fetchObject('App\Model\ProdutoModel');
-        } catch (PDOException $e) {
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->execute();
 
-            throw new Exception("Erro ao obter o produto no banco de dados.");
-        }
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
     public function getById($id)

@@ -61,9 +61,19 @@
     color:#ffffff;
     font-family: 'Forum', cursive;
     font-size: large;
-    background-color: #020D2B;
+    background-color: #020D2B;}
+
     
-  }
+    
+    .botao1{
+
+
+    border-radius: 5px;
+    color:#ffffff;
+    font-family: 'Forum', cursive;
+    font-size: large;
+    background-color: #020D2B;
+    }
     </style>
 
   <?php include PATH_VIEW . 'includes/cabecalho.php' ?>
@@ -83,7 +93,7 @@
     <div  id="sobre" >
    
     <h2 id="titulo" class="display-5"> <?= $model->nome ?></h2>
-    
+  
     <p id="valor">R$ <?=number_format($model->valor,2, ',', '.') ?></p>
     
     <p id="titulo">Descrição:</p>
@@ -110,30 +120,36 @@ elements.attach('#payment_button')
   </div>
   <br>
   <br>
+  <hr>
+  <center><h1  id="titulo" class="display-5">Avaliar</h1></center>
   
-  <a href="javascript:void(0)" onclick="Avaliar(1)">
-<img src="/View/Imagens/star0.png" id="s1"></a>
+  <center><a href="javascript:void(0)" onclick="Avaliar(1)">
+<img src="/View/Imagens/star1.png" id="s1"></a>
 
 <a href="javascript:void(0)" onclick="Avaliar(2)">
-<img src="/View/Imagens/star0.png" id="s2"></a>
+<img src="/View/Imagens/star1.png" id="s2"></a>
 
 <a href="javascript:void(0)" onclick="Avaliar(3)">
-<img src="/View/Imagens/star0.png" id="s3"></a>
+<img src="/View/Imagens/star1.png" id="s3"></a>
 
 <a href="javascript:void(0)" onclick="Avaliar(4)">
-<img src="/View/Imagens/star0.png" id="s4"></a>
+<img src="/View/Imagens/star1.png" id="s4"></a>
 
 <a href="javascript:void(0)" onclick="Avaliar(5)">
-<img src="/View/Imagens/star0.png" id="s5"></a>
+<img src="/View/Imagens/star1.png" id="s5"></a>
 
-<p id="rating">0</p>
+<br>
+<br>
+<button class="botao1">Enviar</button></center>
+<br>
+
 <hr>
   <center><h1  id="titulo" class="display-5">Você também pode gostar</h1></center>
   
   <br>
   <div class="container ">
       <div class="row">
-      <?php foreach($model->arr_produtos as $item1): ?>
+      <?php foreach($model->rows as $item1): ?>
         <div class="col">
     
     <div class="thumbnail">  
