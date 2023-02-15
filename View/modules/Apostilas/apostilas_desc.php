@@ -7,16 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:wght@300&display=swap" rel="stylesheet">
-
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="greenlife.css" />
+   
+    <link rel="stylesheet" type="text/css" href="greenlife.css" />
 <link rel="stylesheet" type="text/css" href="produto.css" />
 <script  src="\View\modules\Apostilas\funcoes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <title>Inglês Aqui Livros</title>
     <link rel="icon" href="/View/Imagens/icon.png" type="image/icon type">
- 
+
   </head>
   <body>
   
@@ -80,8 +81,9 @@
   <body>
     <br>
     <br>
-    
+ 
     <input type="hidden" value="<?= $model->id ?>" name="id" />
+   
     <div class="d-md-flex flex-md-equal  ">
   <div id="contato">
     <div  class="my">
@@ -111,6 +113,7 @@
 const elements = checkoutElements.init('overlayCheckout', {
     offer: '<?= $model->id_hotmart ?>'
 })
+
 elements.attach('#payment_button')
 </script>
      </div>
@@ -121,6 +124,7 @@ elements.attach('#payment_button')
   <br>
   <br>
   <hr>
+  
   <center><h1  id="titulo" class="display-5">Avaliar</h1></center>
   
   <center><a href="javascript:void(0)" onclick="Avaliar(1)">
@@ -142,6 +146,7 @@ elements.attach('#payment_button')
 <br>
 <button class="botao1">Enviar</button></center>
 <br>
+<br>
 
 <hr>
   <center><h1  id="titulo" class="display-5">Você também pode gostar</h1></center>
@@ -149,7 +154,12 @@ elements.attach('#payment_button')
   <br>
   <div class="container ">
       <div class="row">
-      <?php foreach($model->rows as $item1): ?>
+     
+      <?php
+     foreach($model->array_produtos as $item1): ?>
+       
+    <input type="hidden" value="<?= $item1->id ?>" name="id" />
+   
         <div class="col">
     
     <div class="thumbnail">  
@@ -164,7 +174,7 @@ elements.attach('#payment_button')
         <p class="card-text" id="texto">  R$ <?=number_format($item1->valor,2, ',', '.') ?></p>
       
         <a href="/apostilas_desc?id=<?= $item1->id ?>"><button class="botao">Ver mais</button></a>
-  
+
        </div>
     </div>
     </center>

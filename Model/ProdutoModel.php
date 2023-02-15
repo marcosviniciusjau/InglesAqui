@@ -62,7 +62,8 @@ class ProdutoModel extends Model
      
         
           $dao = new ProdutoDAO();
-         $this->rows = $dao->getAllRowsId();
+          $model= new ProdutoModel();
+         $this->array_produtos = $dao->getAllRowsId((int) $_GET['id']);
     }
 
     public function getById(int $id)

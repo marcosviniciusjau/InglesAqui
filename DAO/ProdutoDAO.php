@@ -62,13 +62,14 @@ class ProdutoDAO  extends DAO
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
-    public function getAllRowsId()
+    public function getAllRowsId($id)
     {
-        $sql = "SELECT * FROM apostilas WHERE valor > 30";
-     
-
+        $sql = "SELECT * FROM apostilas WHERE id<> ? and valor > 30";
         $stmt = $this->conexao->prepare($sql);
-        $stmt->execute();
+       
+        $stmt->bindValue(1,$id);
+
+       $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }

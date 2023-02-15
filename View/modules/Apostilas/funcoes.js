@@ -102,4 +102,26 @@ function Avaliar(estrela) {
     
     document.getElementById('rating').innerHTML = avaliacao;
     
-   }
+    const myForm= document.getElementById("myForm");
+    myForm.addEventListener('submit', gravar);
+
+    function gravar(e){
+        e.preventDefault();
+        const formData= new FormData(this);
+        const searchParams= new URLSearchParams();
+
+        for(const par of formData){
+            searchParams.append(par[0],par[1]);
+        }
+        fetch('/cadastroavaliacoes',{
+            method:'POST',
+            body:FormData
+        }).then(function(response){
+            document.getElementById('s1').value="";
+            return alert("Dados gravados com sucesso");
+
+        }).catch(function(error){
+            console.log(error);
+        });
+    }
+}

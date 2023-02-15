@@ -32,9 +32,12 @@ class ApostilasController extends Controller
     {
     
         $model = ($_model == null) ? new ProdutoModel() : $_model;
-        $model->getAllRowsId();
+        $model = new EstrelasModel();
+
+        $model->getAllRowsId((int) $_GET['id']);
 
         parent::render('Apostilas/apostilas_desc' ,$model);
+
     }
 
 }
