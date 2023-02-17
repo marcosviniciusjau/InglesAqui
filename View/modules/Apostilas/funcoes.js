@@ -113,7 +113,7 @@ function Avaliar(estrela) {
         for(const par of formData){
             searchParams.append(par[0],par[1]);
         }
-        fetch('/cadastroavaliacoes',{
+        fetch('/cadastroavaliacoes1',{
             method:'POST',
             body:FormData
         }).then(function(response){

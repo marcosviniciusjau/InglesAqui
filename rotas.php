@@ -1,6 +1,6 @@
 <?php
 
-use App\Controller\{HomeController,ApostilasController,ProdutoController};
+use App\Controller\{HomeController,ApostilasController,ProdutoController,Avaliacoes1Controller};
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -38,7 +38,13 @@ switch ($url)
             ProdutoController::delete();
         break;
 
+        case 'cadastroavaliacoes1':
+            Avaliacoes1Controller::save();
+            break;
+
+
         default:
+
         echo "Erro 404";
         break;
 }
