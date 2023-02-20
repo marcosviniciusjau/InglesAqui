@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
  
      <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -117,52 +116,7 @@ elements.attach('#payment_button')
     </div>
     
   </div>
-  <br>
-  <br>
-  <hr>
-  
-  <center><h1  id="titulo" class="display-5">Avaliar</h1>
- <!-- Button trigger modal -->
-<img src= "View\Imagens\star1.png "data-bs-toggle="modal" data-bs-target="#exampleModal">
-<img src= "View\Imagens\star1.png "data-bs-toggle="modal" data-bs-target="#exampleModal">
-<img src= "View\Imagens\star1.png "data-bs-toggle="modal" data-bs-target="#exampleModal">
-<img src= "View\Imagens\star1.png "data-bs-toggle="modal" data-bs-target="#exampleModal">
-<img src= "View\Imagens\star1.png "data-bs-toggle="modal" data-bs-target="#exampleModal">
-</center>
 
-<!-- Modal -->
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Opiniões do Produto</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-    
-      <div class="modal-body">
-      <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4 ms-auto"></div>
-    </div>
-      <img src= "View\Imagens\star1.png "data-bs-toggle="modal" data-bs-target="#exampleModal">
-<img src= "View\Imagens\star1.png "data-bs-toggle="modal" data-bs-target="#exampleModal">
-<img src= "View\Imagens\star1.png "data-bs-toggle="modal" data-bs-target="#exampleModal">
-<img src= "View\Imagens\star1.png "data-bs-toggle="modal" data-bs-target="#exampleModal">
-<img src= "View\Imagens\star1.png "data-bs-toggle="modal" data-bs-target="#exampleModal">
-<br>
-        <form>
-          <div class="col-md-4">
-            <label for="recipient-name" class="col-form-label">Digite seu comentário:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <br>
-          <div class="mb-3">
-          <button class="botao1" type="submit" onclick="gravar()">Enviar</button></center>
-          </div>
-        </form>
-      
       
       </div>
      
