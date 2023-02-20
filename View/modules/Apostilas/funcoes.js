@@ -99,7 +99,6 @@ function Avaliar(estrela) {
     document.getElementById("s5").src = "/View/Imagens/star0.png";
     avaliacao = 1;
    }}
-    
     document.getElementById('rating').innerHTML = avaliacao;
     
     const myForm= document.getElementById("myForm");
