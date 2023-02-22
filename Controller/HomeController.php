@@ -11,11 +11,5 @@ class HomeController extends Controller
     {
         parent::render('Home/home' );
     }
-
-    public static function css()
-    {
-        include PATH_VIEW . 'modules/Home/home.css';
-       
-    }
     
 }
