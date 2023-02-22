@@ -18,44 +18,51 @@
   <br>
   <br>
   <br>
-  <center>
+  <div class="container">
+  <main>
   <form method="post" action="/produto/form/save" enctype="multipart/form-data" class="form-horizontal">
 
       <input type="hidden" value="<?= $model->id ?>" name="id" />
 
       <fieldset>
-        <legend>Cadastro de Produto</legend>
-        <div class="form-group">
-  <label class="col-md-4 control-label" for="nome">Nome:</label>  
-  <div class="col-md-4">
+      <h4 class="mb-3">Cadastrar Novas Apostilas</h4>
+        <div class="row g-3">
+            <div class="col-sm-6">
+  <label class="form-label" for="nome">Nome</label>  
   <input id="nome" name="nome" type="text" value="<?= $model->nome ?>" placeholder="Nome do Produto" class="form-control input-md">
+  </div>
+            </div>
+     <br>
+            <div class="row g-3">
+            <div class="col-sm-6">
+     <label class="col-md-4 control-label" for="Valor">Valor</label>  
+
+  <input id="valor" name="valor" value="<?= $model->valor ?>" placeholder="Valor" class="form-control input-md">
     
   </div>
 </div>
-     
-<div class="form-group">
-     <label class="col-md-4 control-label" for="Valor">Valor:</label>  
-  <div class="col-md-4">
-  <input id="valor" name="valor" value="<?= $model->valor ?>" placeholder="Preço" class="form-control input-md">
-    
-  </div>
-</div>
-<div class="form-group">
-  <label class="col-md-4 control-label" for="descricao">Descricao:</label>  
-  <div class="col-md-4">
+<br>
+<div class="row g-3">
+            <div class="col-sm-6">
+  <label class="col-md-4 control-label" for="descricao">Descrição</label>  
+
   <input id="descricao" name="descricao"   value="<?= $model->descricao ?>" placeholder="Descriçao" class="form-control input-md">
  </div>
 </div>
-<div class="form-group">
-  <label class="col-md-4 control-label" for="id_hotmart">Id Hotmart:</label>  
-  <div class="col-md-4">
+<br>
+
+<div class="row g-3">
+            <div class="col-sm-6">
+  <label class="col-md-4 control-label" for="id_hotmart">Id Hotmart</label>  
+
   <input id="id_hotmart" name="id_hotmart" type="text" value="<?= $model->id_hotmart ?>" placeholder="Id Hotmart" class="form-control input-md">
     
   </div>
 </div>
+<br>
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="arquivo_up">Foto:</label>
+  <label class="col-md-4 control-label" for="arquivo_up">Foto</label>
   <div class="col-md-4">  
     <input id="arquivo_up" name="arquivo_up"  value="<?=  $model->imagem  ?>" class="input-file" type="file" >
   </div>
@@ -63,15 +70,14 @@
        
          <br>
          <br>
-         <div class="form-group">
-  <label class="col-md-4 control-label" for="cosbotao"></label>
-  <div class="col-md-4">
-    <button type="submit" id="submit" name="submit" class="btn btn-primary">Cadastrar</button>
+         <hr class="my-4">
+
+  <button class="w-50 btn btn-primary btn-lg" type="submit">Cadastrar</button>
   </div>
 </div>
           </fieldset>
         </form>
-                        </center>
+                       
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
  
 </body>

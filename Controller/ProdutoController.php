@@ -12,30 +12,23 @@ class ProdutoController extends Controller
 
 
     public static function index()
-    {
-        
-      
-        
+    {    
+        parent::isProtected();
+
         $model = new ProdutoModel();
        
-     
         $model->getAllRows();
         
-        
-      
        parent::render('Produto/ListaProduto', $model);
     }
 
     
     public static function form(ProdutoModel $_model = null)
     {
-        
-
+        parent::isProtected();
 
         $model = ($_model == null) ? new ProdutoModel() : $_model;
 
-      
-      
         include PATH_VIEW . 'modules/Produto/FormProduto.php';
        
     }
@@ -43,7 +36,7 @@ class ProdutoController extends Controller
     public static function save()
     {
      
-        
+        parent::isProtected();
         $model = new ProdutoModel();
 
         $model->id =  $_POST['id'];
@@ -81,7 +74,7 @@ class ProdutoController extends Controller
 
     public static function ver()
     {
-     
+        parent::isProtected();
         try {
             if (isset($_GET['id'])) {
                 $model = new ProdutoModel();
@@ -98,9 +91,10 @@ class ProdutoController extends Controller
         }
     }
 
- 
     public static function delete()
-    {
+    { 
+        parent::isProtected();
+
         $model = new ProdutoModel();
 
         $model->delete((int) $_GET['id']); 

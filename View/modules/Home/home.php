@@ -83,6 +83,8 @@
   <label class="display-5" id="titulo_contato">CONTATOS:</label>
   <p  id="rede_social">@teacherschay</p>
   <p class="lead" >Siga nas redes sociais e vem falar com a gente!</p>
+  <br>
+        <a href="/contato"><button class="botao">Ver mais</button></a>
 
 </div>
 </div>

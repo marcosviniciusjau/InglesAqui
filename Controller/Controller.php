@@ -40,20 +40,9 @@ abstract class Controller
             exit('Arquivo da View não encontrado. Arquivo: ' . $view);
     }
     
-    public static function ver()
+    protected static function isProtected()
     {
-      
-        try {
-            if (isset($_GET['id'])) {
-                $model = new ProdutoModel();
-
-                $dados = $model->getById((int) $_GET['id']);
-               
-                self::desc($dados);
-            } 
-        } catch (Exception $e) {
-
-         
-        }
-    }
+        if(!isset($_SESSION['adm_logado']))
+            header("location: /login_adm");
+    } 
 }

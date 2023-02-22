@@ -8,9 +8,10 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
- 
+    <script  src="\View\modules\Apostilas\funcoes.js"></script>
+    
      <link rel="preconnect" href="https://fonts.googleapis.com">
-    <title>Inglês Aqui Livros</title>
+    <title>Inglês Aqui Apostilas</title>
     <link rel="icon" href="/View/Imagens/icon.png" type="image/icon type">
 
   </head>
@@ -19,7 +20,28 @@
   <style>
      @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
-
+     .avaliacao{
+  display: flex;
+ }
+.star-icon{
+  list-style-type: none;
+  border: 1px solid #fff;
+  cursor: pointer;
+  color: #ffe500;
+  font-size: 20px;/* alterar o tamanho das estrelas */
+}
+.star-icon::before{
+  content: "\2605";
+}
+.star-icon.ativo ~ .star-icon::before{
+  content: "\2606";
+}
+.avaliacao:hover .star-icon::before{
+  content: "\2605";
+}
+.star-icon:hover ~ .star-icon::before{
+  content: "\2606";
+}
      #valor{
       font-family: 'Montserrat', sans-serif;
          font-size:25px; 
@@ -127,10 +149,9 @@ elements.attach('#payment_button')
 <br>
 <br>
 
-</form>
-<br>
-<br>
-
+</div>
+  <br>
+  <br>
 <hr>
   <center><h1  id="titulo" class="display-5">Você também pode gostar</h1></center>
   

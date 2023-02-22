@@ -1,6 +1,7 @@
 <?php
 
-use App\Controller\{HomeController,ApostilasController,ProdutoController,Avaliacoes1Controller};
+use App\Controller\{HomeController,ApostilasController,ProdutoController,ContatoController,
+    AvaliacoesController,LoginADMController,TelaADMController,CadastrosController,ADMController};
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -37,11 +38,53 @@ switch ($url)
         case '/produto/delete':
             ProdutoController::delete();
         break;
+        case '/tela-adm/meus-dados-adm':
+            ADMController::meusDados();
+        break;
 
-        case 'cadastroavaliacoes1':
-            Avaliacoes1Controller::save();
+        
+        case '/tela-adm/meus-dados-adm/salvar':
+            ADMController::meusDadosSalvar();
+        break;
+        
+        case '/tela-adm':
+            TelaADMController::index();
+        break;
+
+        case '/cadastros':
+            CadastrosController::index();
+        break;
+        case '/tela-adm/meus-dados-adm':
+            ADMController::meusDados();
+        break;
+
+        
+        case '/tela-adm/meus-dados-adm/salvar':
+            ADMController::meusDadosSalvar();
+        break;
+        case '/login_adm':
+            LoginADMController::index();
+             break;
+     
+             case '/login_adm/autenticar':
+                 LoginADMController::autenticar();
+             break;
+         
+             case '/logout':
+                 LoginADMController::logout();
+             break;
+     
+             case '/esqueci-a-senha':
+                 LoginADMController::esqueciSenha();
+             break;
+
+        case '/contato':
+            ContatoController::index();
             break;
 
+            case '/avaliacoes/form/save':
+                AvaliacoesController::save();
+            break;
 
         default:
 
