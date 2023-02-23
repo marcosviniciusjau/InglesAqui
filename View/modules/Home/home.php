@@ -23,7 +23,7 @@
 
 <main>
 
-    <img src="/View/Imagens/fundo.png" width="1040" height="500">
+    <img src="/View/Imagens/fundo.png" width="100%" height="50%">
 
   <div class="d-md-flex flex-md-equal  w-100" id="sobre1">
        <img src="View/Imagens/sobre.png"  width="500" height="600">
@@ -67,7 +67,7 @@
        </div>
        
 
-  <div class="d-md-flex flex-md-equal w-100 " >
+  <div class="d-md-flex flex-md-equal  " id="sobre1">
       <img src="View\Imagens/mundo.png"  width="546" height="600">
    
     <div  id="mensagem">
@@ -77,7 +77,7 @@
     </div>
   </div>
 
- <div class="d-md-flex flex-md-equal  ">
+ <div class="d-md-flex flex-md-equal w-100  " id="guias1">
   <div id="contato">
     <div  class="my-5 py-5">
   <label class="display-5" id="titulo_contato">CONTATOS:</label>
