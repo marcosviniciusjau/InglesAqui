@@ -37,10 +37,10 @@
   
   <div class="thumbnail">  
  
-  <div class="card" style="width: 13rem;">
+  <div class="card" style="width: 18rem;">
   
 
-   <img  src="/View/Uploads/<?= $item->imagem ?>" class="card-img-top"  alt="">
+   <img  src="/View/Uploads/<?= $item->imagem ?>" class="card-img-top"   width="100" height="300">
    
       <div class="card-body">
       <h1 class="card-title" id="texto"><?= $item->nome ?></h1>
@@ -74,9 +74,10 @@
 <style type="text/css">
     #texto{  
     font-family: 'Montserrat', sans-serif;
-      font-size: 18px;
+      font-size: 15px;
       color:black;
       font-style: bold;
+      text-align: justify;
      
   }
    #titulo{    

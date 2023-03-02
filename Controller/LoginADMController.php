@@ -40,12 +40,11 @@ class LoginADMController extends Controller
 
             header("Location: /tela-adm");
 
-        } else 
-            header("Location: /login?fail=true");        
+        } else
+         echo"<script language='javascript' type='text/javascript'>
+        alert('Dados Incorretos');window.location.href='/login_adm';</script>"; 
+              
     }
-
-
-      
 
     public static function logout()
     {

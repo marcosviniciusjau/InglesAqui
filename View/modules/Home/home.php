@@ -26,7 +26,7 @@
     <img src="/View/Imagens/fundo.png" width="100%" height="50%">
 
   <div class="d-md-flex flex-md-equal  w-100" id="sobre1">
-       <img src="View/Imagens/sobre.png"  width="500" height="600">
+       <img src="View/Imagens/sobre.png"  width="50%" height="50%">
       
     <div id="sobre">
       <div class="my-5 py-5">
@@ -68,7 +68,7 @@
        
 
   <div class="d-md-flex flex-md-equal  " id="sobre1">
-      <img src="View\Imagens/mundo.png"  width="546" height="600">
+      <img src="View\Imagens/mundo.png" width="50%" height="50%">
    
     <div  id="mensagem">
       <div class="my-4 py-4">
@@ -90,7 +90,7 @@
 </div>
 
     <div  id="contato_img">
-         <img src="View/Imagens/contato.png"  width="500" height="600">
+         <img src="View/Imagens/contato.png"  width="522" height="600">
       </div>
      
     </div>
