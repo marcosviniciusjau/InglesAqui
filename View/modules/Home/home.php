@@ -77,24 +77,17 @@
     </div>
   </div>
 
- <div class="d-md-flex flex-md-equal w-100  " id="guias1">
-  <div id="contato">
-    <div  class="my-5 py-5">
+  <div class="d-md-flex flex-md-equal  " id="contato">
+    <div  class="my-5 py-5" id="contato_img">
   <label class="display-5" id="titulo_contato">CONTATOS:</label>
   <p  id="rede_social">@teacherschay</p>
   <p class="lead" >Siga nas redes sociais e vem falar com a gente!</p>
   <br>
         <a href="/contato"><button class="botao">Ver mais</button></a>
-
+   </div>
+      <img src="View\Imagens/contato.png" width="50%" height="50%">
+   
 </div>
-</div>
-
-    <div  id="contato_img">
-         <img src="View/Imagens/contato.png"  width="522" height="600">
-      </div>
-     
-    </div>
-  </div>
      
 </main>
 
