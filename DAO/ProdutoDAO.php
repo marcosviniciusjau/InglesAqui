@@ -19,7 +19,6 @@ class ProdutoDAO  extends DAO
         $sql = "INSERT INTO apostilas (nome, valor,descricao,id_hotmart, imagem) VALUES (?, ?, ?, ?,?) ";
 
         $stmt = $this->conexao->prepare($sql);
-
         $stmt->bindValue(1, $model->nome);
         $stmt->bindValue(2, $model->valor);
         $stmt->bindValue(3, $model->descricao);
@@ -58,8 +57,7 @@ class ProdutoDAO  extends DAO
         $stmt = $this->conexao->prepare($sql);
        
         $stmt->bindValue(1,$id);
-
-       $stmt->execute();
+        $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
@@ -70,8 +68,8 @@ class ProdutoDAO  extends DAO
             $stmt = $this->conexao->prepare("SELECT * FROM apostilas WHERE id = ?");
             $stmt->bindValue(1, $id);
             $stmt->execute();
-
             return $stmt->fetchObject('App\Model\ProdutoModel');
+            
         } catch (PDOException $e) {
 
             throw new Exception("Erro ao obter o produto no banco de dados.");

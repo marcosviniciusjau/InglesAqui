@@ -1,7 +1,7 @@
 <?php
 
-use App\Controller\{HomeController,ApostilasController,ProdutoController,ContatoController,
-    AvaliacoesController,LoginADMController,TelaADMController,CadastrosController,ADMController};
+use App\Controller\{HomeController,ApostilasController,ProdutoController,
+    ContatoController,LoginADMController,TelaADMController,CadastrosController,ADMController};
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -38,6 +38,7 @@ switch ($url)
         case '/produto/delete':
             ProdutoController::delete();
         break;
+        
         case '/tela-adm/meus-dados-adm':
             ADMController::meusDados();
         break;

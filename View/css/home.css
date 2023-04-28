@@ -5,13 +5,13 @@
 #sobre{
   background-color:#020D2B;
   padding-left: 10%;
-  padding-right: 8%;
-  
+  padding-right: 8%;  
   }
-  #sobre1{
+
+#sobre1{
     background-color:#020D2B;
-    
-    }
+  }
+
 #guias{
   background-color: #5D0101;
   padding-left: 5%;
@@ -30,21 +30,23 @@
     }
    
 .botao:hover {
-  background-color: #01071a;
+  background-color: #008CBA;
   color: white;
     }
    
 .botao{
   padding-top: 15%;
-  transition-duration: 0.4s;
+  padding-bottom:15%;
   padding: 10px 24px;
   border-radius: 20px;
   color:#ffffff;
+  border:none;
+  cursor:pointer;
+  transition: filter 0.2s;
   font-family: 'Forum', cursive;
   font-size: large;
   background-color: #020D2B;
-  
-     }
+  }
    
 .thumbnail { 
   top:-50px; 
@@ -69,26 +71,55 @@
   }
 
 #contato{
-
   background-color: #5D0101;
   display:inline-block;   
   }
-  #contato_img{
+
+#contato_img{
     padding-left: 10%;
     padding-top: 5%;
     padding-right: 5%;
     background-color: #5D0101;   
     }
-  
-  
 
-div h1{
+    @media (max-width:620px){
+      #sobre_img{
+     width: 70%;
+     height: 70%;
+      }
+    }
+
+    @media (max-width:620px){
+     #titulo_mensagem{
+      text-align: justify;
+     }
+      }
+    
+    @media (max-width:620px){
+      #mundo_img{
+     width: 80%;
+     height: 80%;
+      }
+    }
+
+    @media (min-width:620px){
+      #buttao{
+        padding-top: 55%;
+        transition-duration: 0.4s;
+        padding: 20px 48px;
+        padding-top: 10%;
+        border-radius: 20px;
+        color:#ffffff;
+        font-family: 'Forum', cursive;
+         background-color: #020D2B;
+      }
+    }
+ div h1{
   font-family: 'Forum', cursive;
-  
   color:#ffffff;
   }
 
-div h2{
+ div h2{
   padding-top: 5%;
   font-family: 'Aboreto', cursive;
   font-size: 1px;
@@ -97,7 +128,7 @@ div h2{
   letter-spacing: 5px;
    }
 
-div p{  
+ div p{  
   padding-top: 5%;
   font-family: 'Montserrat', sans-serif;
   font-size: 10%;
@@ -133,12 +164,54 @@ div p{
   user-select: none;
 }
 
-@media only screen and(max-width:620px){
+#buttao{
+  padding-top: 5%;
+  transition-duration: 0.4s;
+  padding: 10px 24px;
+  border-radius: 20px;
+  color:#ffffff;
+  font-family: 'Forum', cursive;
+   background-color: #020D2B;
+}
+
+
+@media(max-width:620px){
+  #apostilas{
+    padding-bottom: 15%;
+    padding-left: 5%;
+    display: inline;
+    width:25%;
+    }
+  }
+  .form-v6-content .form-detail .register {
+    background: #020D2B;
+    border-radius: 6px;
+    -o-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    width: 160px;
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
+    -ms-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
+    border: none;
+    margin: 11px 0 50px 0px;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+  }
+@media(max-width:620px){
   #sobre,#sobre1,#guias,#guias1,
   #contato,#contato_img,#mensagem{
-    width:50%;
+    width:100%;
   }
 }
+
+
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;

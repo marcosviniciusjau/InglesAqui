@@ -1,23 +1,21 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-br">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
     <title>Inglês Aqui - Contato</title>
       <link rel="icon" href="View/Imagens/icon.png" type="image/icon type">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
-  <body>
-   
+
   </head>
-  <body>
-    
+  <body>   
   <?php include PATH_VIEW . 'includes/cabecalho.php' ?>
 <br><br><br>
+
     <div class="container col-xxl-8 px-4 py-5">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-        <div class="col-10 col-sm-8 col-lg-6">
+         <div class="col-10 col-sm-8 col-lg-6">
             <div class="thumbnail"><a href="https://www.instagram.com/teacherschay?igsjod=YmMyMTA2M2Y="><img src="View/Imagens/fale/redes1.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"></a></div>
             <br>
             <div class="thumbnail"><img src="View/Imagens/fale/redes2.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"></div>
@@ -26,8 +24,7 @@
             <br>
             <div class="thumbnail"><a href="https://www.facebook.com/schayprado?mibextid=LQQJ4d"><img src="View/Imagens/fale/redes4.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"></a></div>
             <br>
-            <div class="thumbnail"><a href="https://www.youtube.com/@Teacherschay"><img src="View/Imagens/fale/redes5.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"></a></div>
-          
+            <div class="thumbnail"><a href="https://www.youtube.com/@Teacherschay"><img src="View/Imagens/fale/redes5.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"></a></div> 
         </div>
         <div class="col-lg-6">
             <h1 class="display-5 fw-bold lh-1 mb-3"><font style="font-family: Corbel; color: #000528;">Deseja entrar em contato conosco?</font></h1>

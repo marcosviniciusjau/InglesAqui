@@ -8,14 +8,9 @@ class ADMModel extends Model
 {
     public $id, $email_adm, $senha_adm;
 
-
-   
-
- 
     public function save()
     {
         $dao = new ADMDAO(); 
-
 
         if(empty($this->id))
         {
@@ -55,8 +50,6 @@ class ADMModel extends Model
             $this->validaton_erros[] = $e->getMessage();
 
             throw new Exception("Erro na camada DAO.");
-        }   }
-    
-
-
+        }  
+     }
 }
