@@ -34,7 +34,6 @@
         <a href="/apostilas"><button class="botao" >Ver mais</button></a>
       </div>
      </div>
-     
         <span id="livros">
         <a href="/apostilas_desc?id=1"><img id="apostilas" src="View/Imagens/livro1.jpg"  width="80%" height="80%" class="thumbnail" /></a>
         </span>
@@ -44,7 +43,6 @@
         <span id="livros"> 
         <a href="/apostilas_desc?id=3"><img id="apostilas" src="View/Imagens/livro3.jpg"  width="80%" height="80%" class="thumbnail" /></a>
         </span>
-        <br>
     </div>
 
   <div class="d-md-flex flex-md-equal  " id="sobre1">
@@ -56,7 +54,7 @@
     </div>
   </div>
 
-  <div class="d-md-flex flex-md-equal  " id="contato">
+  <div class="d-md-flex flex-md-equal" id="contato">
     <div  class="my-5 py-5" id="contato_img">
       <label class="display-5" id="titulo_contato">CONTATOS:</label>
       <p  id="rede_social">@teacherschay</p>
@@ -65,7 +63,6 @@
         <a href="/contato"><button class="botao">Ver mais</button></a>
    </div>
       <img src="View\Imagens/contato.png" width="50%" height="50%">
-   
   </div>
      
 </main>

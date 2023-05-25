@@ -14,17 +14,13 @@
   
   <?php include PATH_VIEW . 'includes/cabecalho.php' ?>
  
-  <br>
   <h1 class="display-5" id="titulo">── Apostilas ──</h1>
-  
-<br>
 <div class="container ">
     <div class="row">
     <?php foreach($model->rows as $item): ?>
       <div class="col">
   
   <div class="thumbnail">  
- 
   <div class="card" style="width: 12rem;">
    <img  src="/View/Uploads/<?= $item->imagem ?>" class="card"   width="100%" height="100%">
    
@@ -34,15 +30,14 @@
       <a href="/apostilas_desc?id=<?= $item->id ?>"><button class="botao">Ver mais</button></a>
      </div>
   </div>
-  </center>
+
   </div> 
-    <br>
+   
       </div>
       <?php endforeach ?>
       </div>
   </div>
 
-    <br><br><br>
     <?php include PATH_VIEW . 'includes/rodape.php' ?>
 
   </body>

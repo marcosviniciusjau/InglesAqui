@@ -160,10 +160,10 @@
             </div>
         </fieldset>
 
-        <fieldset class="border rounded p-3 mb-3 bg-light">
+        <fieldset class="border rounded p-2 mb-2 bg-light">
             <legend class="form-label col-auto bg-light">Senha Atual: </legend>
 
-            <div class="form-group border border-danger p-3 p-3 mb-5 rounded">
+            <div class="form-group border border-danger p-2 p-2 mb-2 rounded">
                 <input name="senha_atual" class="form-control" type="password" placeholder="Informe sua senha atual para realizar alterações no seu cadastro:" required />
             </div>
         </fieldset>

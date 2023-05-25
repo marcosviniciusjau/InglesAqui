@@ -29,17 +29,7 @@
       </nav>
     </header>
 
-<br>
-<br>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<center><h1><font style="font-family: Corbel">Ver Registros</font></h1></center>
+<h1><font style="font-family: Corbel">Ver Registros</font></h1>
 <br>
 
 <div class="container">
@@ -52,9 +42,6 @@
     </div>
   </div>
 
-  <br>
-
-<center>
   <div class="row">
     <div class="col">
       <a href="/categoria"><img src="/View/Imagens/adm/admp2i3.png" class="img-fluid"></a>
@@ -65,20 +52,10 @@
       
     </div>
 
-    
-
-   
-</center>
-
-<br>
-
-
-
 </div>
 
-<br><br>
 
-<center><a href="tela-adm"><button type="button" class="btn btn-success">Voltar</button></a></center>
+<a href="tela-adm"><button type="button" class="btn btn-success">Voltar</button></a>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
