@@ -11,34 +11,31 @@ class LoginADMDAO extends DAO
        
         parent::__construct();       
     }
-
-    public function setNewPassWordForUserByEmail($email_adm, $novasenha_adm)
+    public function setNewPasswordForUserByEmail($email_adm, $novasenha_adm)
     {
-        $sql = "UPDATE adm SET senha_adm= sha1(?) WHERE email_adm=?";
+        $sql = "UPDATE adm SET senha_adm = :senha_adm WHERE email_adm = :email_adm";
         
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $novasenha_adm);
-        $stmt->bindValue(2, $email);
+        $stmt->bindValue(':senha_adm', password_hash($novasenha_adm, PASSWORD_DEFAULT));
+        $stmt->bindValue(':email_adm', $email_adm);
         $stmt->execute();
     }
     
     public function getByEmailAndSenha($email_adm, $senha_adm)
     {
-        $sql = "SELECT a.id, a.email_adm,a.senha_adm
-
-        FROM adm a WHERE a.email_adm=? AND a.senha_adm = sha1(?) ";
+        $sql = "SELECT id, email_adm, senha_adm
+        FROM adm
+        WHERE email_adm = :email_adm AND senha_adm = :senha_adm";
 
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $email_adm);
-        $stmt->bindValue(2, $senha_adm);
+        $stmt->bindValue(':email_adm', $email_adm);
+        $stmt->bindValue(':senha_adm', $senha_adm);
         $stmt->execute();
 
         $dados_usuario = $stmt->fetchObject();
 
-      
-         return $dados_usuario;
+        return $dados_usuario;
     }
-
 
     
 }

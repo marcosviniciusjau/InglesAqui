@@ -12,13 +12,15 @@ class TelaADMController extends Controller
         parent::render('TelaADM/tela-adm');
 
     }
+  
     public static function logout()
     {
-        
-        
-        unset($_SESSION["adm_logado"]);
-        header("Location:/login_adm");
-        parent::isProtected();
-    
+        if (isset($_SESSION["adm_logado"])) {
+            unset($_SESSION["adm_logado"]);
+        }
+        session_regenerate_id(true); 
+
+        header("Location: /login_adm");
+        exit();
     }
 }
