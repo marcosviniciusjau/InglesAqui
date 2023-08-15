@@ -11,6 +11,7 @@ class LoginADMDAO extends DAO
        
         parent::__construct();       
     }
+    
     public function setNewPasswordForUserByEmail($email_adm, $novasenha_adm)
     {
         $sql = "UPDATE adm SET senha_adm = :senha_adm WHERE email_adm = :email_adm";

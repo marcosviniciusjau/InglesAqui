@@ -7,15 +7,46 @@
     <link rel="icon" href="/View/Imagens/icon.png" type="image/icon type">
     <link rel="stylesheet" href="/View/css/home.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> 
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </head>
   <body>
 <main>
 
     <img src="/View/Imagens/fundo.png" width="100%" height="50%">
+    
+   <div class="assistente">
+  
+   <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+</a>
+</div>
      <div class="d-md-flex flex-md-equal  w-100" class="azul">
        <img src="View/Imagens/sobre.png" class="imgs">
       
       <div id="sobre">
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1> oi</h1>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
        <div class="my-5 py-5">
         <h1 class="display-5">Sobre</h1>
         <h2 class="lead">INGLÊS PARA TODOS!</h2>

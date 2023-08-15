@@ -47,9 +47,9 @@ class ProdutoController extends Controller
    
         try {
          
-            if (!is_dir(UPLOADS))
-                throw new Exception("Diretório não encontrado");
-
+               throw new Exception("Diretório não encontrado");
+       if (!is_dir(UPLOADS))
+      
             if (is_executable($_FILES["arquivo_up"]["tmp_name"]))
                 throw new Exception("Arquivos Executáveis não são permitidos");
 
