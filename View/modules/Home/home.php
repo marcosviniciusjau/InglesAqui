@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
@@ -6,47 +6,62 @@
     <title>Inglês Aqui</title>
     <link rel="icon" href="/View/Imagens/icon.png" type="image/icon type">
     <link rel="stylesheet" href="/View/css/home.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </head>
   <body>
-<main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
+<script>
+  const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+  myInput.focus()
+})
+</script>
     <img src="/View/Imagens/fundo.png" width="100%" height="50%">
     
-   <div class="assistente">
-  
-   <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
-</a>
+  <!-- Button trigger modal -->
+  <div class="assistente">
+  <ion-icon name="chatbubble-ellipses-outline" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"></ion-icon>
 </div>
-     <div class="d-md-flex flex-md-equal  w-100" class="azul">
-       <img src="View/Imagens/sobre.png" class="imgs">
-      
-      <div id="sobre">
-        <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title">Paige Assistente Virtual- Inglês Aqui</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h1> oi</h1>
+      <form>
+          <div class="mb-3">
+          
+          </div>
+          <div class="mb-3">
+        
+       
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <textarea class="form-control" id="message-text" placeholder="Como posso te ajudar hoje?"></textarea>
+        <ion-icon name="send-outline"></ion-icon>
       </div>
+      </div>
+   
     </div>
   </div>
 </div>
+</div>
+<div class="d-md-flex flex-md-equal  w-100" class="azul">
+       <img src="View/Imagens/sobre.png" class="imgs">
+      
+      <div id="sobre">
+        <!-- Button trigger modal -->
+
        <div class="my-5 py-5">
         <h1 class="display-5">Sobre</h1>
         <h2 class="lead">INGLÊS PARA TODOS!</h2>
@@ -100,6 +115,5 @@
      
 </main>
 
-     
-  </body>
+</body>
 </html>
