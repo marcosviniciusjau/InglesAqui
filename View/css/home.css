@@ -11,6 +11,30 @@
   flex-wrap: wrap;
   width: 100%;
 }
+#options{
+  background-color: #5D0101;
+  margin: 5%;
+  margin-bottom: 5%;
+  width: 100%;
+  padding-bottom: 5%;
+}
+
+       select {
+    background-color: #020D2B; /* Cor de fundo padrão */
+  }
+
+  select option:checked {
+    background-color: #020D2B; /* Cor de fundo ao ser selecionado */
+    color: white; /* Cor do texto para visibilidade */
+  }
+       #options option:checked {
+    background-color: #020D2B;
+    color: white; /* Define a cor do texto para melhor contraste */
+  }
+  .selected-option {
+    background-color: #020D2B;
+    color: white; /* Define a cor do texto para garantir visibilidade */
+  }
 .assistente {
   position: fixed;
   top: 50%; /* Você pode ajustar a posição vertical conforme necessário */
@@ -24,21 +48,103 @@
   padding: 10px;
   border-radius: 5px;
 }
+
+.modal-dialog-side.modal-top-left {
+  width: 30%;
+  top: 10rem; /* Ajuste a distância do topo conforme necessário */
+  left: 20rem; /* Ajuste a distância da esquerda conforme necessário */
+  border-radius: 20px;
+ 
+}
 .icon-link {
   text-decoration: none;
  
 
 }
+/* styles.css */
+
+.message-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.message-input-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#message-text {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  resize: vertical;
+  border-right: 1px solid #ccc;
+}
+
+ion-icon {
+  font-size: 24px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+#message-text-enter{
+ animation: added 2s;
+ border-radius: 10px;
+ text-decoration: none;
+ font-family: 'Montserrat', sans-serif;
+ margin: 5%;
+ background-color: transparent;
+}
 .modal-title{
-  font-size: 1.42rem;
-  font-weight: 300;
-  line-height: 1.3;
-font-family: 'Forum', cursive;
-color:#ffffff;
+  font-size: 18px;
+  background-color: #5D0101;
 }
-.bi {
-  /* Estilos do ícone */
+.modal-header{
+  background-color: #5D0101;
 }
+.message-container {
+  position: relative;
+  overflow: hidden;
+  height: 100px;
+  
+}
+.form-control {
+  width: 150px;
+  height: 50px;
+  padding: 10px;
+  resize: none;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s;
+}
+
+.v-enter-active,
+.v-leave-active {
+    padding: 10px;
+    border-radius: 5px;
+    transition: transform 0.5s, opacity 0.5s;
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.v-leave-active {
+  animation: added 1s reverse;
+}
+
+@keyframes added {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .my-5 {
   margin-top: 2rem;
   margin-bottom: 2rem;
