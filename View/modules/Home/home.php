@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/View/css/home.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </head>
   <body>
@@ -29,82 +30,85 @@ myModal.addEventListener('shown.bs.modal', () => {
   <ion-icon name="chatbubble-ellipses-outline" id="assistente" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"></ion-icon>
 </div>
 <!-- Modal -->
+
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-side modal-top-left">
-  <div class="modal-dialog">
+<!-- Scrollable modal -->
+<div class="modal-dialog modal-dialog-scrollable">
+  <div id="tabela">
     <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title">Paige Assistente Virtual- Inglês Aqui</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-     
-    <div class="message-container">
-      <label id="message-text-enter">Oi. Meu nome é Paige sou a assistente virtual do Inglês Aqui. Como posso te ajudar?
-      <select id="options" name="options" size="3" onChange="changeColor()">
-    <option value="volvo">Dificuldade Acesso</option>
-    <option value="saab">Reemboolso</option>
-    <option value="fiat">Alterar os dados</option>
-    <option value="audi">Dúvidas sobre o produto</option>
-  </select></label>
-    </div>
-    <div id="comment-list"></div>
-    <form method="post" action="/">
-    <div class="message-input-container">
-      <textarea id="message-text" class="form-control" name="userInput" placeholder="Como posso te ajudar hoje?"></textarea>
-      <button type="submit" name="submit">
-        <ion-icon name="send-outline"></ion-icon>
-      </button>
-      
-    </div>
-    
-  </form>
-
- 
-
-<script>
-
-  const form = document.querySelector('form');
-  const userInput = document.getElementById('message-text');
-  const commentList = document.getElementById('comment-list');
-
-  form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Evita o comportamento padrão do formulário
-
-    const userText = userInput.value;
-
-    // Crie um parágrafo para cada comentário
-    const comments = userText.split('\n'); // Separe os comentários por quebras de linha
-    for (const comment of comments) {
-      const p = document.createElement('p');
-      p.textContent = comment;
-      commentList.appendChild(p);
-    }
-
-    // Limpe o textarea
-    userInput.value = '';
-  });
-  function changeColor() {
-      const selectElement = document.getElementById('options');
-      const selectedOption = selectElement.options[selectElement.selectedIndex];
-
-      // Remove a classe de estilo de todas as opções
-      for (const option of selectElement.options) {
-        option.classList.remove('selected-option');
-      }
-
-      if (selectedOption) {
-        selectedOption.classList.add('selected-option');
-      }
-    }
-</script>
-    </div>
+        <div class="modal-header">
+          
+        <img src="/View/Imagens/icon.png" id="img-assist-header">
+  <h1 class="modal-title">Paige Assistente Virtual - Inglês Aqui</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+       
+        <div class="card mb-3">
+        <div id="message-text-enter">
+      <img src="/View/Imagens/icon.png" id="img-assist">
   
-  </div>
+    <div class="col-md-8">
+    <div class="options-container">
+                 
+              <label>Oi. Meu nome é Paige sou a assistente virtual do Inglês Aqui. Como posso te ajudar?
+            <hr>
+                <button id="options">Dificuldades Acesso</button>
+                <br>
+                <button id="options">Reembolso</button>
+                <br>
+                <button id="options">Alterar os dados</button>
+                <br>
+                <button id="options">Dúvidas sobre o produto</button>
+                <br>
+                <button id="options">Outra coisa</button>
+                <hr>
+              </div>
+            </label>
+      </div>
     </div>
   </div>
-</div>
-</div>
+  
+
+          <div id="comment-list"></div>
+          <form method="post" action="/">
+      <div class="message-input-container">
+        <textarea id="message-text" class="form-control" name="userInput" placeholder="Digite sua pergunta" required></textarea>
+        <button type="submit" name="submit">
+          <ion-icon name="send-outline"></ion-icon>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    
+    const form = document.querySelector('form');
+    const userInput = document.getElementById('message-text');
+    const commentList = document.getElementById('comment-list');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Evita o comportamento padrão do formulário
+
+      const userText = userInput.value;
+
+      // Crie um parágrafo para cada comentário
+      const comments = userText.split('\n'); // Separe os comentários por quebras de linha
+      for (const comment of comments) {
+        const p = document.createElement('p');
+        p.textContent = comment;
+        commentList.appendChild(p);
+      }
+
+      // Limpe o textarea
+      userInput.value = '';
+    });
+
+  </script>
+
+        </div>
+      </div>
+    </div>
+  </div>
 <div class="d-md-flex flex-md-equal  w-100" class="azul">
        <img src="View/Imagens/sobre.png" class="imgs">
       

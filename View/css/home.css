@@ -6,35 +6,33 @@
   margin:0;
   padding:0;
 }
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
+.modal-dialog {
+  width: 200px; /* Define a largura do modal */
+  height: 200px; /* Define a altura do modal */
+  max-width: none; /* Remove a largura máxima do modal para que ele possa ser menor que a tela */
+  margin: 0; /* Remove margens para evitar espaços em branco ao redor do modal */
+}
+#tabela{
+  width: 400px;
+  border: 4px solid #5D0101;
 }
 #options{
-  background-color: #5D0101;
-  margin: 5%;
-  margin-bottom: 5%;
   width: 100%;
-  padding-bottom: 5%;
+  background-color: #5D0101;
+  color: white;
+  border: none;
+  border-radius: 0.3rem;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+#options:hover{
+  background-color: #020D2B;
 }
 
-       select {
-    background-color: #020D2B; /* Cor de fundo padrão */
-  }
-
-  select option:checked {
-    background-color: #020D2B; /* Cor de fundo ao ser selecionado */
-    color: white; /* Cor do texto para visibilidade */
-  }
-       #options option:checked {
-    background-color: #020D2B;
-    color: white; /* Define a cor do texto para melhor contraste */
-  }
-  .selected-option {
-    background-color: #020D2B;
-    color: white; /* Define a cor do texto para garantir visibilidade */
-  }
 .assistente {
   position: fixed;
   top: 50%; /* Você pode ajustar a posição vertical conforme necessário */
@@ -47,14 +45,16 @@
   transform: translateY(-50%); /* Para centralizar verticalmente */
   padding: 10px;
   border-radius: 5px;
+  
 }
-
-.modal-dialog-side.modal-top-left {
-  width: 30%;
-  top: 10rem; /* Ajuste a distância do topo conforme necessário */
-  left: 20rem; /* Ajuste a distância da esquerda conforme necessário */
-  border-radius: 20px;
- 
+ .options-container,.modal-content,.modal-fade,.modal-body{
+  
+  max-height: 80vh;
+  overflow-y: auto;
+ }
+.options-container{
+  margin-top: 5%;
+  margin-left: 5%;
 }
 .icon-link {
   text-decoration: none;
@@ -77,7 +77,16 @@
   padding: 5px;
 }
 
+#img-assist-header{
+  margin-left:2%;
+  margin-right: 2%;
+}
+#img-assist{
+  margin-left:5%;
+  margin-top: 5%;
+}
 #message-text {
+  
   flex: 1;
   padding: 10px;
   border: none;
@@ -90,8 +99,13 @@ ion-icon {
   margin-left: 10px;
   cursor: pointer;
 }
-
+#comment-list{
+  animation: added 2s;
+}
 #message-text-enter{
+  
+  display: flex;
+  align-items: start;
  animation: added 2s;
  border-radius: 10px;
  text-decoration: none;
