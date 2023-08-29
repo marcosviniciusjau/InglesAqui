@@ -16,7 +16,7 @@
   width: 400px;
   border: 4px solid #5D0101;
 }
-#options{
+.selected-option{
   width: 100%;
   background-color: #5D0101;
   color: white;
@@ -29,7 +29,20 @@
   cursor: pointer;
   transition: background-color 0.3s;
 }
-#options:hover{
+.options{
+  width: 100%;
+  background-color: #5D0101;
+  color: white;
+  border: none;
+  border-radius: 0.3rem;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.options:hover{
   background-color: #020D2B;
 }
 
@@ -85,24 +98,47 @@
   margin-left:5%;
   margin-top: 5%;
 }
+#hour{
+  display: flex;
+  margin-left: 75%;
+  font-size: medium;
+}
 #message-text {
-  
-  flex: 1;
+  font-family: 'Montserrat', sans-serif;
   padding: 10px;
   border: none;
   resize: vertical;
   border-right: 1px solid #ccc;
 }
 
-ion-icon {
-  font-size: 24px;
-  margin-left: 10px;
-  cursor: pointer;
+.custom-icon {
+  font-size: 20px;
+  color: blue;
 }
+
 #comment-list{
+
+  display: inline-block;
+
+  margin-left:5%;
+  margin-top: 5%;
   animation: added 2s;
+  border-radius: 10px;
+ text-decoration: none;
+ font-family: 'Montserrat', sans-serif;
 }
-#message-text-enter{
+.answers{
+
+  display: inline-block;
+  background-color: #020D2B;
+  margin-left:5%;
+  margin-top: 5%;
+  animation: added 2s;
+  border-radius: 10px;
+ text-decoration: none;
+ font-family: 'Montserrat', sans-serif;
+}
+#message-text-enter,#answer-description{
   
   display: flex;
   align-items: start;
@@ -179,7 +215,10 @@ ion-icon {
    width:50%;
    height:50%;
 }
-
+#time{
+  margin-left: 60%;
+  font-size: large;
+}
 #guias{
   background-color: #5D0101;
   padding: 5% 5% 5% 5%
@@ -302,7 +341,7 @@ ion-icon {
   font-size: 1.25rem;
     font-weight: 300;
   font-family: 'Montserrat', sans-serif;
-
+  font-size: medium;
   color:white;
   }
 

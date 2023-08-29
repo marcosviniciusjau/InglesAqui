@@ -3,19 +3,19 @@
 namespace App\Controller;
 use App\DAO\LoginADMDAO;
 use Exception;
+
 class LoginADMController extends Controller
 {
     public static function index()
     {
         parent::render('LoginADM/login_adm');
-
     }
-    
+
     public static function esqueciSenha() 
     {
-
         parent::render('LoginADM/esqueci-senha');
     }
+
     public static function autenticar()
     {
         $email_adm = filter_input(INPUT_POST, 'email_adm', FILTER_VALIDATE_EMAIL);
@@ -57,16 +57,14 @@ class LoginADMController extends Controller
     {
         return htmlspecialchars($_SESSION['adm_logado']['email_adm']);
     }
+
     public static function updateNameOfCurrentUser($email_adm)
     {
         $_SESSION['adm_logado']['email_adm'] = $email_adm;
     }
 
-    
     public static function getIdOfCurrentUser()
     {
         return $_SESSION['adm_logado']['id'];
     }
-    
-
 }

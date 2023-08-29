@@ -12,10 +12,7 @@ class ADMDAO extends DAO
         parent::__construct();
     }
 
-    /**
-     * Retorna um registro específico da tabela Grupo de Usuário
-     */
-     
+  
     public function getById($id)
     {
         try 
@@ -53,35 +50,7 @@ class ADMDAO extends DAO
         return $stmt->fetchAll(\PDO::FETCH_CLASS);
     }
 
-    /**
-     * Método que insere uma categoria na tabela Categoria.
-     */
-    public function insert(ADMModel $model)
-   
-    {
-        $sql = "INSERT INTO adm ( email_adm, senha_adm) VALUES (?, sha1(?))";
-
-
-        // com o MySQL, via operador seta "->". Isso significa que o prepare "está dentro"
-        // da propriedade $conexao e recebe nossa string sql com os devidor marcadores.
-
-  $stmt = $this->conexao->prepare($sql);
-
-
-
-    
-        $stmt->bindValue(1, $model->email_adm);
-        $stmt->bindValue(2, $model->senha_adm);
-       
-      
-        $stmt->execute();
-   
-    }
-
-
-    /**
-     * Remove um registro da tabela Categoria.
-     */
+ 
     public function delete($id) 
     {
         $sql = "DELETE FROM adm WHERE id = ? ";
@@ -92,9 +61,6 @@ class ADMDAO extends DAO
     }
 
 
-    /**
-     * Retorna um usuário específico
-     */
     public function getMyUserById($id) 
     {
         $stmt = $this->conexao->prepare("SELECT id, email_adm, senha_adm FROM adm WHERE id = ?");

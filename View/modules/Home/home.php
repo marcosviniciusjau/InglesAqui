@@ -9,20 +9,15 @@
     <link rel="stylesheet" href="/View/css/home.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="/View/js/home.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
-<script>
-  const myModal = document.getElementById('myModal')
-const myInput = document.getElementById('myInput')
 
-myModal.addEventListener('shown.bs.modal', () => {
-  myInput.focus()
-})
-</script>
     <img src="/View/Imagens/fundo.png" width="100%" height="50%">
     
   <!-- Button trigger modal -->
@@ -48,20 +43,28 @@ myModal.addEventListener('shown.bs.modal', () => {
       <img src="/View/Imagens/icon.png" id="img-assist">
   
     <div class="col-md-8">
-    <div class="options-container">
+    <div class="options-container" ng-app="myApp" ng-controller="myCtrl">
                  
-              <label>Oi. Meu nome é Paige sou a assistente virtual do Inglês Aqui. Como posso te ajudar?
+    <p class="welcome-text">Olá! Sou a Paige, sua assistente virtual no mundo do Inglês Aqui. Estou aqui para tornar sua jornada de aprendizado incrível. Como posso contribuir hoje?</p>
+    
             <hr>
-                <button id="options">Dificuldades Acesso</button>
-                <br>
-                <button id="options">Reembolso</button>
-                <br>
-                <button id="options">Alterar os dados</button>
-                <br>
-                <button id="options">Dúvidas sobre o produto</button>
-                <br>
-                <button id="options">Outra coisa</button>
-                <hr>
+            <script>
+              
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+  $scope.theTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+ 
+  });
+
+</script>
+<div id="app">
+    <div>
+      <button class="options" data-option="Como solicitar um reembolso?">Como solicitar um reembolso?</button>
+      <button class="options" data-option="Me fale sobre a política de devolução.">Me fale sobre a política de devolução.</button>
+      <button class="options" data-option="Posso cancelar meu pedido?">Posso cancelar meu pedido?</button>
+      <p id="time">{{theTime}}</p>
+    </div>
+
               </div>
             </label>
       </div>
@@ -70,40 +73,23 @@ myModal.addEventListener('shown.bs.modal', () => {
   
 
           <div id="comment-list"></div>
-          <form method="post" action="/">
+      
+      
+      <p></p>
+    </div>
+          <form id="comment-form">
       <div class="message-input-container">
         <textarea id="message-text" class="form-control" name="userInput" placeholder="Digite sua pergunta" required></textarea>
-        <button type="submit" name="submit">
-          <ion-icon name="send-outline"></ion-icon>
-        </button>
+        
+      
+          
+        <button type="submit">
+        <ion-icon name="send-outline" class="custom-icon"></ion-icon>
+      </button>
       </div>
     </form>
   </div>
 
-  <script>
-    
-    const form = document.querySelector('form');
-    const userInput = document.getElementById('message-text');
-    const commentList = document.getElementById('comment-list');
-
-    form.addEventListener('submit', function(event) {
-      event.preventDefault(); // Evita o comportamento padrão do formulário
-
-      const userText = userInput.value;
-
-      // Crie um parágrafo para cada comentário
-      const comments = userText.split('\n'); // Separe os comentários por quebras de linha
-      for (const comment of comments) {
-        const p = document.createElement('p');
-        p.textContent = comment;
-        commentList.appendChild(p);
-      }
-
-      // Limpe o textarea
-      userInput.value = '';
-    });
-
-  </script>
 
         </div>
       </div>
@@ -167,6 +153,9 @@ myModal.addEventListener('shown.bs.modal', () => {
   </div>
      
 </main>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="/View/js/home.js"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
