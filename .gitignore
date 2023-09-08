@@ -5,3 +5,4 @@ node_modules
 bot.py
 bot1.py
 mydata.jsonl
+.gitignore
