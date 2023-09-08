@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node ././bot.js"
+    "dev": "node ./page.tsx"
   },
   "type": "module",
   "repository": {
@@ -19,9 +19,11 @@
   },
   "homepage": "https://github.com/marcosviniciusjau/InglesAqui#readme",
   "dependencies": {
+    "ai": "^2.2.11",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "langchain": "^0.0.129",
-    "openai": "^4.0.1"
+    "openai": "^4.3.1",
+    "react": "^18.2.0"
   }
 }

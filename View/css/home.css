@@ -103,7 +103,7 @@
   margin-left: 75%;
   font-size: medium;
 }
-#message-text {
+#message-input {
   font-family: 'Montserrat', sans-serif;
   padding: 10px;
   border: none;
@@ -115,11 +115,21 @@
   font-size: 20px;
   color: blue;
 }
-
-#comment-list{
-
+.box-my-message{
+  background-color: #020D2B;
   display: inline-block;
-
+  width: 50%;
+  margin-left:50%;
+  margin-top: 5%;
+  animation: added 2s;
+  border-radius: 10px;
+ text-decoration: none;
+ font-family: 'Montserrat', sans-serif;
+}
+.box-response-message{
+  background-color: #5D0101;
+  display: inline-block;
+  width: 50%;
   margin-left:5%;
   margin-top: 5%;
   animation: added 2s;
