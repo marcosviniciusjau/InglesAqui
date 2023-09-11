@@ -16,7 +16,7 @@
   font-family: 'Forum', cursive;
   font-size: large;
   background-color: #020D2B;
-     }
+}
    
 .thumbnail { 
   top:-50px; 
@@ -27,17 +27,17 @@
   transition-property: all; 
   transition-duration: 0.3s; 
   transition-timing-function: ease; 
-    } 
+} 
 
 .thumbnail:hover { 
   transform: scale(1.1);
-   }
+}
 
 
 div h1{
   font-family: 'Forum', cursive;
   color:#ffffff;
-  }
+}
 
 div h2{
   padding-top: 5%;
@@ -46,14 +46,14 @@ div h2{
   color:white;
   word-spacing: 5px;
   letter-spacing: 5px;
-   }
+}
 
 div p{  
   padding-top: 5%;
   font-family: 'Montserrat', sans-serif;
   font-size: 10%;
   color:white;
-  }
+}
 
 .bd-placeholder-img {
   font-size: 1.125rem;
@@ -111,31 +111,31 @@ div p{
   font-size:25px; 
   color:black;
   font-weight: 700;
-    }
+}
  
- #texto{  
+#texto{  
    font-family: 'Montserrat', sans-serif;
    font-size: 20px;
    color:black;
    font-weight: 350;
- }
+}
 
-   #titulo{    
+#titulo{    
     font-family: 'Forum', cursive;
     color:black;
     text-align: center;
     padding-bottom: 5%;
     padding-top: 2%;
-    }
+}
 
-    #produto{    
+#produto{    
     font-family: 'Forum', cursive;
     color:black;
     text-align: center;
     font-size:25px;
-    }
+}
 
-   .botao{
+.botao{
     padding-top: 15%;
     transition-duration: 0.4s;
     padding: 10px 24px;
@@ -144,16 +144,16 @@ div p{
     font-family: 'Forum', cursive;
     font-size: large;
     background-color: #020D2B;
-  }
+}
 
-    body {
+body {
     margin: 0;
     padding: 0;
     height: 100vh;
     widows: 100vw;
-  }
+}
 
-  .content {
+.content {
     height: 520px;
     width: 1100px;
     overflow: hidden;
@@ -161,9 +161,9 @@ div p{
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
+}
 
-  #card {
+#card {
     width: 50%;
     border: 4px solid #198754;
     border-radius: 50%;
@@ -171,12 +171,12 @@ div p{
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
   }
 
-  #card2 {
+#card2 {
     padding: 1.5em .5em .5em;
     text-align: justify;
   }
 
-  .navigation {
+.navigation {
     position: absolute;
     bottom: 20px;
     left: 50%;
@@ -184,7 +184,7 @@ div p{
     display: flex;
   }
 
-  .thumbnail { 
+.thumbnail { 
     top:-50px; 
     left:-35px; 
     display:block; 

@@ -12,22 +12,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="/View/js/home.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
-
     <img src="/View/Imagens/fundo.png" width="100%" height="50%">
-    
-  <!-- Button trigger modal -->
+  <!-- Button trigger modal 
   <div class="assistente">
   <ion-icon name="chatbubble-ellipses-outline" id="assistente" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"></ion-icon>
 </div>
-<!-- Modal -->
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<!-- Scrollable modal -->
+ Scrollable modal 
 <div class="modal-dialog modal-dialog-scrollable">
   <div id="tabela">
     <div class="modal-content">
@@ -95,28 +92,26 @@ app.controller('myCtrl', function($scope) {
       </div>
     </div>
   </div>
+  -->
 <div class="d-md-flex flex-md-equal  w-100" class="azul">
-       <img src="View/Imagens/sobre.png" class="imgs">
-      
+  <img src="View/Imagens/sobre.png" class="imgs">
       <div id="sobre">
-        <!-- Button trigger modal -->
-
-       <div class="my-5 py-5">
-        <h1 class="display-5">Sobre</h1>
-        <h2 class="lead">INGLÊS PARA TODOS!</h2>
-        <p class="lead">Ferramentas para facilitar a vida dos professores, alunos, autodidatas e muito mais</p>
-    </div>
+        <div class="my-5 py-5">
+         <h1 class="display-5">Sobre</h1>
+         <h2 class="lead">INGLÊS PARA TODOS!</h2>
+         <p class="lead">Ferramentas para facilitar a vida dos professores, alunos, autodidatas e muito mais</p>
+</div>
      </div>
-      </div>
+       </div>
   
     <div class="d-md-flex flex-md-equal" id="guias1">
      <div id="guias">
-      <div class="my-5 py-5">
+       <div class="my-5 py-5">
         <h1 class="display-5">Os guias</h1>
         <h2 class="lead" >PARA TODOS</h2>
         <p class="lead">Apostilas com diversos temas e com diferentes intuitos na aprendizado da língua inglesa</p>      
         <a href="/apostilas"><button class="botao" >Ver mais</button></a>
-      </div>
+   </div>
      </div>
         <span class="livros">
         <a href="/apostilas_desc?id=1"><img class="apostilas" src="View/Imagens/livro1.png"  class="thumbnail" /></a>
@@ -129,25 +124,24 @@ app.controller('myCtrl', function($scope) {
         <br> <br>
         <br> <br>
         </span>
-       
     </div>
 
   <div class="d-md-flex flex-md-equal" class="azul">
       <img src="View\Imagens/mundo.png" id="mundo_img" class="imgs"/>
-    <div  id="mensagem">
-      <div class="my-4 py-4">
-        <h2 class="display-4" id="titulo_mensagem">Aprender inglês pode te levar para onde você  quiser!</h2>     
-      </div>
-    </div>
+        <div  id="mensagem">
+          <div class="my-4 py-4">
+           <h2 class="display-4" id="titulo_mensagem">Aprender inglês pode te levar para onde você  quiser!</h2>     
+        </div>
+  </div>
   </div>
 
   <div class="d-md-flex flex-md-equal  w-100" id="contato">
     <div  class="my-4 py-4" id="contato_img">
       <label class="display-4" id="titulo_contato">CONTATOS:</label>
-      <p  id="rede_social">@teacherschay</p>
+      <p id="rede_social">@teacherschay</p>
       <p class="lead" >Siga nas redes sociais e vem falar com a gente!</p>
       <br>
-        <a href="/contato"><button class="botao">Ver mais</button></a>
+      <a href="/contato"><button class="botao">Ver mais</button></a>
    </div>
       <img src="View/Imagens/contato.png" id="contato_imagem" class="imgs">
   </div>

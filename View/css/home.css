@@ -6,16 +6,19 @@
   margin:0;
   padding:0;
 }
+
 .modal-dialog {
   width: 200px; /* Define a largura do modal */
   height: 200px; /* Define a altura do modal */
   max-width: none; /* Remove a largura máxima do modal para que ele possa ser menor que a tela */
   margin: 0; /* Remove margens para evitar espaços em branco ao redor do modal */
 }
+
 #tabela{
   width: 400px;
   border: 4px solid #5D0101;
 }
+
 .selected-option{
   width: 100%;
   background-color: #5D0101;
@@ -29,6 +32,7 @@
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
 .options{
   width: 100%;
   background-color: #5D0101;
@@ -42,6 +46,7 @@
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
 .options:hover{
   background-color: #020D2B;
 }
@@ -58,23 +63,21 @@
   transform: translateY(-50%); /* Para centralizar verticalmente */
   padding: 10px;
   border-radius: 5px;
-  
-}
+ }
+
  .options-container,.modal-content,.modal-fade,.modal-body{
-  
   max-height: 80vh;
   overflow-y: auto;
  }
+
 .options-container{
   margin-top: 5%;
   margin-left: 5%;
 }
+
 .icon-link {
   text-decoration: none;
- 
-
 }
-/* styles.css */
 
 .message-container {
   width: 100%;
@@ -94,15 +97,18 @@
   margin-left:2%;
   margin-right: 2%;
 }
+
 #img-assist{
   margin-left:5%;
   margin-top: 5%;
 }
+
 #hour{
   display: flex;
   margin-left: 75%;
   font-size: medium;
 }
+
 #message-input {
   font-family: 'Montserrat', sans-serif;
   padding: 10px;
@@ -126,6 +132,7 @@
  text-decoration: none;
  font-family: 'Montserrat', sans-serif;
 }
+
 .box-response-message{
   background-color: #5D0101;
   display: inline-block;
@@ -137,6 +144,7 @@
  text-decoration: none;
  font-family: 'Montserrat', sans-serif;
 }
+
 .answers{
 
   display: inline-block;
@@ -145,13 +153,13 @@
   margin-top: 5%;
   animation: added 2s;
   border-radius: 10px;
- text-decoration: none;
- font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
 }
+
 #message-text-enter,#answer-description{
-  
-  display: flex;
-  align-items: start;
+ display: flex;
+ align-items: start;
  animation: added 2s;
  border-radius: 10px;
  text-decoration: none;
@@ -159,19 +167,22 @@
  margin: 5%;
  background-color: transparent;
 }
+
 .modal-title{
   font-size: 18px;
   background-color: #5D0101;
 }
+
 .modal-header{
   background-color: #5D0101;
 }
+
 .message-container {
   position: relative;
   overflow: hidden;
   height: 100px;
-  
 }
+
 .form-control {
   width: 150px;
   height: 50px;
@@ -183,11 +194,11 @@
 
 .v-enter-active,
 .v-leave-active {
-    padding: 10px;
-    border-radius: 5px;
-    transition: transform 0.5s, opacity 0.5s;
-    transform: translateY(100%);
-    opacity: 0;
+  padding: 10px;
+  border-radius: 5px;
+  transition: transform 0.5s, opacity 0.5s;
+  transform: translateY(100%);
+  opacity: 0;
 }
 
 .v-leave-active {
@@ -214,39 +225,44 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+
 .azul {
   background-color:#020D2B;
 }
+
 #sobre{
   background-color:#020D2B;
   padding: 0 10% 0 8%;
   }
+
 .imgs{
    width:50%;
    height:50%;
 }
+
 #time{
   margin-left: 60%;
   font-size: large;
 }
+
 #guias{
   background-color: #5D0101;
   padding: 5% 5% 5% 5%
-  }
+}
   
 #guias1{
   background-color:#5D0101;
-  }
+}
 
 .livros{
   margin-right: 3%;
   padding:10% 0% 10% 0%;
-    }
+}
    
 .botao:hover {
   background-color: #008CBA;
   color: white;
-    }
+}
    
 .botao{
   padding-top: 15%;
@@ -260,7 +276,7 @@
   font-family: 'Forum', cursive;
   font-size: large;
   background-color: #020D2B;
-  }
+}
    
 .thumbnail { 
   top:-50px; 
@@ -271,72 +287,73 @@
   transition-property: all; 
   transition-duration: 0.3s; 
   transition-timing-function: ease; 
-    } 
+ } 
 
 .thumbnail:hover { 
   transform: scale(1.1);
-   }
+}
 
 #mensagem{
   background-color:#020D2B;
   padding-left: 10%;
   padding-top: 5%;
   padding-right: 5%;
-  }
+}
 
 #contato{
   background-color: #5D0101;
   display:inline-block;   
-  }
+}
 
 #contato_img{
     padding-left: 10%;
     padding-top: 5%;
     padding-right: 5%;
     background-color: #5D0101;   
-    }
+}
 
-    @media (max-width:620px){
-      #sobre_img{
-     width: 70%;
-     height: 70%;
-      }
-    }
+@media (max-width:620px){
+ #sobre_img{
+  width: 70%;
+  height: 70%;
+  }
+}
 
-    @media (max-width:620px){
-     #titulo_mensagem{
-      text-align: justify;
-     }
-      }
+@media (max-width:620px){
+#titulo_mensagem{
+  text-align: justify;
+  }
+}
     
-    @media (max-width:620px){
-      #mundo_img{
-     width: 80%;
-     height: 80%;
-      }
-    }
+@media (max-width:620px){
+#mundo_img{
+  width: 80%;
+  height: 80%;
+  }
+}
 
-    @media (min-width:620px){
-      #buttao{
-        padding-top: 55%;
-        transition-duration: 0.4s;
-        padding: 20px 48px;
-        padding-top: 10%;
-        border-radius: 20px;
-        color:#ffffff;
-        font-family: 'Forum', cursive;
-         background-color: #020D2B;
-      }
-    }
- div h1{
+@media (min-width:620px){
+  #buttao{
+  padding-top: 55%;
+  transition-duration: 0.4s;
+  padding: 20px 48px;
+  padding-top: 10%;
+  border-radius: 20px;
+  color:#ffffff;
+  font-family: 'Forum', cursive;
+  background-color: #020D2B;
+  }
+}
+
+div h1{
   font-size: calc(1.425rem + 2.1vw);
-    font-weight: 300;
-    line-height: 1.2;
+  font-weight: 300;
+  line-height: 1.2;
   font-family: 'Forum', cursive;
   color:#ffffff;
-  }
+}
 
- div h2{
+div h2{
   padding-top: 5%;
   font-family: 'Aboreto', cursive;
   font-size: 1.25rem;
@@ -344,31 +361,33 @@
   color:white;
   word-spacing: 5px;
   letter-spacing: 5px;
-   }
+}
 
- div p{  
+div p{  
   padding-top: 5%;
   font-size: 1.25rem;
-    font-weight: 300;
+  font-weight: 300;
   font-family: 'Montserrat', sans-serif;
   font-size: medium;
   color:white;
-  }
+}
 
 #titulo_mensagem{    
   font-family: 'Forum', cursive;
   color:#ffffff;
-      font-size: calc(1.475rem + 2.7vw);
-    font-weight: 300;
-    line-height: 1.2;
+  font-size: calc(1.475rem + 2.7vw);
+  font-weight: 300;
+  line-height: 1.2;
   text-align: center;
 }
+
 @media only screen and(min-width:800px) {
   #contato_imagem{
     background-size: cover;
     padding-left: 5%;
+ }
 }
-}
+
 #titulo_contato{     
   font-family: 'Aboreto', cursive;
   font-size: 14px;
@@ -408,7 +427,7 @@
 }
 .apostilas:hover { 
   transform: scale(1.1);
-   }
+}
 
 #buttao{
   padding-top: 5%;
@@ -417,47 +436,43 @@
   border-radius: 20px;
   color:#ffffff;
   font-family: 'Forum', cursive;
-   background-color: #020D2B;
+  background-color: #020D2B;
 }
 
-
 @media only screen and (min-device-width: 800px){
-  #apostilas{
-    padding-bottom: 15%;
-    padding-left: 5%;
-    display: inline;
-    width:25%;
-    height:25%;
-    }
+#apostilas{
+  padding-bottom: 15%;
+  padding-left: 5%;
+  display: inline;
+  width:25%;
+  height:25%;
   }
+}
 
-
-  .form-v6-content .form-detail .register {
-    background: #020D2B;
-    border-radius: 6px;
-    -o-border-radius: 6px;
-    -ms-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
-    width: 160px;
-    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
-    -o-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
-    -ms-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
-    border: none;
-    margin: 11px 0 50px 0px;
-    cursor: pointer;
-    font-family: 'Nunito', sans-serif;
-    color: #fff;
-    font-weight: 700;
-    font-size: 18px;
+.form-v6-content .form-detail .register {
+  background: #020D2B;
+  border-radius: 6px;
+  -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  width: 160px;
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
+  -o-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
+  -ms-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
+  border: none;
+  margin: 11px 0 50px 0px;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
   }
-
-
 
 @media (min-width: 768px) {
-  .bd-placeholder-img-lg {
+.bd-placeholder-img-lg {
     font-size: 3.5rem;
   }
 }
