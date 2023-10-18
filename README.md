@@ -29,6 +29,7 @@ Guias de Estudo: Nossos guias de estudo estão acessíveis a partir da página i
 Mundo Inglês: Aqui, incentivamos os usuários a explorar como o aprendizado de inglês pode abrir portas para oportunidades em todo o mundo.
 
 Contatos: Informamos aos usuários como podem entrar em contato conosco e seguir-nos nas redes sociais.
-# Vídeo demonstrativo:
-https://github.com/marcosviniciusjau/InglesAqui/assets/82465988/15c06d56-1f61-4fa5-a8f5-17ba22b3ae4b
 
+# Vídeo demonstrativo:
+
+https://github.com/marcosviniciusjau/InglesAqui/assets/82465988/15c06d56-1f61-4fa5-a8f5-17ba22b3ae4b
