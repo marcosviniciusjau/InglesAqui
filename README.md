@@ -1,10 +1,10 @@
 # InglesAqui
 Bem-vindo ao Inglês Aqui, onde a aprendizagem de inglês ganha vida! Este é o repositório que alimenta nossa plataforma incrível para aprender inglês. Mas antes de explorarmos o código, deixe-me levá-lo a uma rápida visita técnica através do nosso código HTML.
 
-#Descrição
+# Descrição
 O Inglês Aqui é uma plataforma educacional projetada para ajudar professores, alunos e autodidatas a dominar o inglês. Este Readme irá ajudá-lo a entender como o nosso site é construído, as tecnologias que utilizamos e o que torna a experiência de aprendizagem de inglês tão envolvente.
 
-#Visão Geral Técnica
+# Visão Geral Técnica
 Nossa plataforma utiliza HTML, CSS e JavaScript para criar uma experiência de usuário envolvente. Aqui estão alguns dos aspectos técnicos do nosso site:
 
 HTML5: Usamos HTML5 para estruturar a página, proporcionando uma base sólida para o conteúdo.
@@ -19,7 +19,7 @@ Vue.js: O Vue.js é utilizado para tornar certos componentes da página mais din
 
 AngularJS: Usamos o AngularJS para adicionar funcionalidades específicas ao site, como a exibição de mensagens em tempo real.
 
-#Estrutura do Site
+# Estrutura do Site
 Página Inicial: A página inicial contém informações sobre a nossa plataforma e apresenta um assistente virtual chamado Paige.
 
 Assistente Virtual: Paige é um chatbot que ajuda os usuários com perguntas e consultas. Ela é alimentada por tecnologias como AngularJS e JavaScript para proporcionar uma experiência interativa.
