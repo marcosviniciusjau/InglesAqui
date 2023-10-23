@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('comment-form');
   const userInput = document.getElementById('message-text');
@@ -93,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
     img.setAttribute('src', '/View/Imagens/icon.png');
     img.style.width = '20px';
     img.style.height = '20px';
-     const questionP = document.createElement('p');
+    const questionP = document.createElement('p');
   questionP.textContent = selectedOption;
   
     const answerP = document.createElement('p');

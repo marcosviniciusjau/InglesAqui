@@ -39,4 +39,30 @@ class ApostilasController extends Controller
 
     }
 
+    public static function categoryTrip()
+    {
+        $model =  new ProdutoModel();
+       
+        $model->getByCategoryTrip((int) $_GET['id']);
+
+        parent::render('Apostilas/apostilas',$model);
+    }
+
+    public static function categoryBusiness()
+    {
+        $model =  new ProdutoModel();
+        $model->getByCategoryBusiness((int) $_GET['id']);
+
+        parent::render('Apostilas/apostilas',$model);
+    }
+
+    public static function categoryLearn()
+    {
+        $model =  new ProdutoModel();
+        $model->getByCategoryLearn((int) $_GET['id']);
+
+        parent::render('Apostilas/apostilas',$model);
+    }
+    
+
 }

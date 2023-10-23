@@ -58,7 +58,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  width: 5%; /* Defina a largura da div conforme necessário */
+  width: 15%; /* Defina a largura da div conforme necessário */
   height: 5%;
   transform: translateY(-50%); /* Para centralizar verticalmente */
   padding: 10px;

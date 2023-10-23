@@ -6,14 +6,17 @@
     <title>Inglês Aqui - Contato</title>
       <link rel="icon" href="View/Imagens/icon.png" type="image/icon type">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="./View/css/contato.css"/>
   </head>
 
   </head>
   <body>   
-  <?php include PATH_VIEW . 'includes/cabecalho.php' ?>
+  <?php include PATH_VIEW . 'includes/cabecalho_home.php' ?>
 <br><br><br>
 
-    <div class="container col-xxl-8 px-4 py-5">
+    <div class="container col-xxl-8 px-4 py-5" id="contato">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
          <div class="col-10 col-sm-8 col-lg-6">
             <div class="thumbnail"><a href="https://www.instagram.com/teacherschay?igsjod=YmMyMTA2M2Y="><img src="View/Imagens/fale/redes1.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"></a></div>
@@ -34,10 +37,12 @@
         </div>
         </div>
     </div>
+    
 <br><br>
-<?php include PATH_VIEW . 'includes/rodape.php' ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-  </body>
+  
+      <?php include PATH_VIEW . 'includes/rodape.php' ?>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
 </html>
 <style type="text/css">
   .thumbnail { 

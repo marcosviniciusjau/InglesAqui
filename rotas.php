@@ -14,6 +14,16 @@ switch ($url)
         case '/apostilas':
             ApostilasController::index();
         break;
+        
+        case '/apostilas_category/trip':
+            ApostilasController::categoryTrip();
+        break;
+        case '/apostilas_category/business':
+            ApostilasController::categoryBusiness();
+        break;
+        case '/apostilas_category/learn':
+            ApostilasController::categoryLearn();
+        break;
 
         case '/apostilas_desc':
             ApostilasController::ver();

@@ -51,17 +51,34 @@ class ProdutoModel extends Model
     }
     public function getAllRows()
     {
-     
-        
-          $dao = new ProdutoDAO();
+         $dao = new ProdutoDAO();
          $this->rows = $dao->select();
     }
 
+   public function getByCategoryTrip(int $id)
+    { 
+          $dao = new ProdutoDAO();
+         $this->rows = $dao->getByCategoryTrip($id);
+   
+    
+    }
+
+     public function getByCategoryBusiness(int $id)
+    {
+         $dao = new ProdutoDAO();
+         $this->rows = $dao->getByCategoryBusiness($id);
+    }
+
+      public function getByCategoryLearn(int $id)
+    {
+         $dao = new ProdutoDAO();
+         $this->rows = $dao->getByCategoryLearn($id);
+    }
+
+
     public function getAllRowsId()
     {
-     
-        
-          $dao = new ProdutoDAO();
+         $dao = new ProdutoDAO();
           $model= new ProdutoModel();
          $this->array_produtos = $dao->getAllRowsId((int) $_GET['id']);
     }

@@ -17,43 +17,41 @@
   <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
+      <?php include PATH_VIEW . 'includes/cabecalho_home.php' ?>
     <img src="/View/Imagens/fundo.png" width="100%" height="50%">
-  <!-- Button trigger modal 
+  
   <div class="assistente">
   <ion-icon name="chatbubble-ellipses-outline" id="assistente" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"></ion-icon>
-</div>
+  </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
- Scrollable modal 
-<div class="modal-dialog modal-dialog-scrollable">
-  <div id="tabela">
-    <div class="modal-content">
-        <div class="modal-header">
-          
-        <img src="/View/Imagens/icon.png" id="img-assist-header">
-  <h1 class="modal-title">Paige Assistente Virtual - Inglês Aqui</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div id="tabela">
+          <div class="modal-content">
+            <div class="modal-header"> 
+            <img src="/View/Imagens/icon.png" id="img-assist-header">
+              <h1 class="modal-title">Paige Assistente Virtual - Inglês Aqui</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
        
-        <div class="card mb-3">
+      <div class="card mb-3">
         <div id="message-text-enter">
-      <img src="/View/Imagens/icon.png" id="img-assist">
-  
+        <img src="/View/Imagens/icon.png" id="img-assist">
+
     <div class="col-md-8">
     <div class="options-container" ng-app="myApp" ng-controller="myCtrl">
                  
     <p class="welcome-text">Olá! Sou a Paige, sua assistente virtual no mundo do Inglês Aqui. Estou aqui para tornar sua jornada de aprendizado incrível. Como posso contribuir hoje?</p>
     
-            <hr>
-            <script>
-              
-var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope) {
-  $scope.theTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
- 
-  });
-
+    <hr>
+    <script>         
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+      $scope.theTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    
+      });
 </script>
+
 <div id="app">
     <div>
       <button class="options" data-option="Como solicitar um reembolso?">Como solicitar um reembolso?</button>
@@ -61,38 +59,29 @@ app.controller('myCtrl', function($scope) {
       <button class="options" data-option="Posso cancelar meu pedido?">Posso cancelar meu pedido?</button>
       <p id="time">{{theTime}}</p>
     </div>
-
-              </div>
-            </label>
       </div>
-    </div>
-  </div>
-  
-
-          <div id="comment-list"></div>
-      
-      
+        </label>
+          </div>
+            </div>
+              </div>
+      <div id="comment-list"></div>
       <p></p>
     </div>
-          <form id="comment-form">
-      <div class="message-input-container">
+      <form id="comment-form">
+       <div class="message-input-container">
         <textarea id="message-text" class="form-control" name="userInput" placeholder="Digite sua pergunta" required></textarea>
-        
-      
-          
+     
         <button type="submit">
         <ion-icon name="send-outline" class="custom-icon"></ion-icon>
       </button>
       </div>
     </form>
   </div>
-
-
         </div>
       </div>
     </div>
   </div>
-  -->
+
 <div class="d-md-flex flex-md-equal  w-100" class="azul">
   <img src="View/Imagens/sobre.png" class="imgs">
       <div id="sobre">

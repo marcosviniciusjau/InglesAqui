@@ -75,6 +75,41 @@ class ProdutoDAO  extends DAO
             throw new Exception("Erro ao obter o produto no banco de dados.");
         }
     }
+    public function getByCategoryTrip($id)
+    {
+        try {
+            $stmt = $this->conexao->prepare("SELECT * FROM apostilas WHERE id in (1,3,5,6)");
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_CLASS,'App\Model\ProdutoModel');
+            
+        } catch (PDOException $e) {
+         throw new Exception("Erro ao obter o produto no banco de dados.");
+        }
+    }
+
+      public function getByCategoryBusiness($id)
+    {
+        try {
+            $stmt = $this->conexao->prepare("SELECT * FROM apostilas WHERE id = 7");
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_CLASS,'App\Model\ProdutoModel');
+            
+        } catch (PDOException $e) {
+         throw new Exception("Erro ao obter o produto no banco de dados.");
+        }
+    }
+
+  public function getByCategoryLearn($id)
+    {
+        try {
+            $stmt = $this->conexao->prepare("SELECT * FROM apostilas WHERE id in (2,4)");
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_CLASS,'App\Model\ProdutoModel');
+            
+        } catch (PDOException $e) {
+         throw new Exception("Erro ao obter o produto no banco de dados.");
+        }
+    }
 
     public function delete(int $id)
     {
@@ -84,4 +119,6 @@ class ProdutoDAO  extends DAO
         $stmt->bindValue(1, $id);
         $stmt->execute();
     }
+
+
 }
