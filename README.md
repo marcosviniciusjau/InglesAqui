@@ -36,7 +36,7 @@ English World: Here, we encourage users to explore how learning English can open
 
 Contacts: We inform users how they can contact us and follow us on social media.
 
-# Demonstration video:
+# Demonstrative video:
 
 https://github.com/marcosviniciusjau/InglesAqui/assets/82465988/0e17fcb7-232f-455d-9aac-6b1737ec1e69
 
