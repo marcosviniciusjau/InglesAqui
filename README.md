@@ -1,38 +1,42 @@
-# InglesAqui
-Bem-vindo ao Inglês Aqui, onde a aprendizagem de inglês ganha vida! Este é o repositório que alimenta nossa plataforma incrível para aprender inglês. Mas antes de explorarmos o código, deixe-me levá-lo a uma rápida visita técnica através do nosso código HTML.
+# Inglês Aqui
+Welcome to Inglês Aqui, where learning English comes to life!  This is the repository that powers our incredible platform for learning English.  But before we explore the code, let me take you on a quick technical tour through our HTML code.
 
-# Descrição
-O Inglês Aqui é uma plataforma educacional projetada para ajudar professores, alunos e autodidatas a dominar o inglês. Este Readme irá ajudá-lo a entender como o nosso site é construído, as tecnologias que utilizamos e o que torna a experiência de aprendizagem de inglês tão envolvente.
+# Description
+Inglês Aqui is an educational platform designed to help teachers, students and self-learners master English.  This Readme will help you understand how our site is built, the technologies we use and what makes the English learning experience so engaging.
 
-# Visão Geral Técnica
-Nossa plataforma utiliza HTML, CSS e JavaScript para criar uma experiência de usuário envolvente. Aqui estão alguns dos aspectos técnicos do nosso site:
+# Technical Overview
+ Our platform uses HTML, CSS and JavaScript to create an engaging user experience.  Here are some of the technical aspects of our website:
 
-HTML5: Usamos HTML5 para estruturar a página, proporcionando uma base sólida para o conteúdo.
+# HTML5: 
+We use HTML5 to structure the page, providing a solid foundation for the content.
 
-CSS: Utilizamos folhas de estilo CSS para estilizar a página, garantindo que tudo seja apresentado de maneira atraente.
+# CSS: 
+We use CSS stylesheets to style the page, ensuring everything is presented in an attractive way.
 
-JavaScript: O JavaScript é a espinha dorsal da nossa plataforma. Ele fornece a interatividade necessária para aprimorar a experiência do usuário.
+# JavaScript:
+JavaScript is the backbone of our platform.  It provides the necessary interactivity to enhance the user experience.
 
-Bootstrap: Incorporamos o framework Bootstrap para tornar o site responsivo e estilizado de forma elegante.
+# Bootstrap: 
+We have incorporated the Bootstrap framework to make the website responsive and elegantly styled.
 
-Vue.js: O Vue.js é utilizado para tornar certos componentes da página mais dinâmicos e responsivos.
+# Vue.js:
+Vue.js is used to make certain page components more dynamic and responsive.
 
-AngularJS: Usamos o AngularJS para adicionar funcionalidades específicas ao site, como a exibição de mensagens em tempo real.
+# AngularJS: 
+We use AngularJS to add specific functionality to the website, such as displaying messages in real time.
 
-# Estrutura do Site
-Página Inicial: A página inicial contém informações sobre a nossa plataforma e apresenta um assistente virtual chamado Paige.
+# Site Structure
+Home Page: The home page contains information about our platform and features a virtual assistant named Paige.
 
-Assistente Virtual: Paige é um chatbot que ajuda os usuários com perguntas e consultas. Ela é alimentada por tecnologias como AngularJS e JavaScript para proporcionar uma experiência interativa.
+Virtual Assistant: Paige is a chatbot that helps users with questions and queries.  It is powered by technologies like AngularJS and JavaScript to provide an interactive experience.
 
-Guias de Estudo: Nossos guias de estudo estão acessíveis a partir da página inicial e fornecem material valioso para aprender inglês.
+Study Guides: Our study guides are accessible from the home page and provide valuable material for learning English.
 
-Mundo Inglês: Aqui, incentivamos os usuários a explorar como o aprendizado de inglês pode abrir portas para oportunidades em todo o mundo.
+English World: Here, we encourage users to explore how learning English can open doors to opportunities around the world.
 
-Contatos: Informamos aos usuários como podem entrar em contato conosco e seguir-nos nas redes sociais.
+Contacts: We inform users how they can contact us and follow us on social media.
 
-# Vídeo demonstrativo:
-
-
+# Demonstration video:
 
 https://github.com/marcosviniciusjau/InglesAqui/assets/82465988/0e17fcb7-232f-455d-9aac-6b1737ec1e69
 
