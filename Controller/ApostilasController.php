@@ -39,6 +39,18 @@ class ApostilasController extends Controller
 
     }
 
+    public static function pagamento()
+    {
+
+                 parent::render('Apostilas/pagamento');
+       
+    }
+
+    public static function enviarPagamentoSucesso(){
+      parent::render('Apostilas/sucesso');
+    }
+  
+    
     public static function categoryTrip()
     {
         $model =  new ProdutoModel();

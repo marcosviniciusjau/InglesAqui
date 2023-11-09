@@ -58,9 +58,7 @@ class ProdutoModel extends Model
    public function getByCategoryTrip(int $id)
     { 
           $dao = new ProdutoDAO();
-         $this->rows = $dao->getByCategoryTrip($id);
-   
-    
+         $this->rows = $dao->getByCategoryTrip($id);  
     }
 
      public function getByCategoryBusiness(int $id)

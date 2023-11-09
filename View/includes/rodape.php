@@ -12,8 +12,8 @@
     }
 #texto1{
   font-family: 'Montserrat', sans-serif;
-      font-size: 20px;
-      color:white;
+  font-size: 20px;
+  color:white;
 }
   </style>
    

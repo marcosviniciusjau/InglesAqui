@@ -3,9 +3,9 @@
 use App\Controller\{HomeController,ApostilasController,ProdutoController,
     ContatoController,LoginADMController,TelaADMController,CadastrosController,ADMController};
 
-$url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-switch ($url) 
+      switch ($url) 
 {
         case '/':
             HomeController::index();
@@ -18,9 +18,11 @@ switch ($url)
         case '/apostilas_category/trip':
             ApostilasController::categoryTrip();
         break;
+
         case '/apostilas_category/business':
             ApostilasController::categoryBusiness();
         break;
+
         case '/apostilas_category/learn':
             ApostilasController::categoryLearn();
         break;
@@ -28,6 +30,18 @@ switch ($url)
         case '/apostilas_desc':
             ApostilasController::ver();
         break;
+
+         case '/pagamento':
+            ApostilasController::pagamento();
+        break;
+         case '/pagamento/sucesso':
+            ApostilasController::enviarPagamentoSucesso();
+        break;
+
+
+        case '/pagamento/enviar':
+            ApostilasController::enviarPagamento();
+            break;
 
         case '/produto':
             ProdutoController::index();
@@ -53,7 +67,6 @@ switch ($url)
             ADMController::meusDados();
         break;
 
-        
         case '/tela-adm/meus-dados-adm/salvar':
             ADMController::meusDadosSalvar();
         break;
@@ -69,36 +82,35 @@ switch ($url)
             ADMController::meusDados();
         break;
 
-        
         case '/tela-adm/meus-dados-adm/salvar':
             ADMController::meusDadosSalvar();
         break;
+
         case '/login_adm':
             LoginADMController::index();
              break;
      
-             case '/login_adm/autenticar':
-                 LoginADMController::autenticar();
-             break;
+        case '/login_adm/autenticar':
+            LoginADMController::autenticar();
+        break;
          
-             case '/logout':
-                 LoginADMController::logout();
-             break;
+        case '/logout':
+            LoginADMController::logout();
+        break;
      
-             case '/esqueci-a-senha':
-                 LoginADMController::esqueciSenha();
-             break;
+        case '/esqueci-a-senha':
+            LoginADMController::esqueciSenha();
+        break;
 
         case '/contato':
             ContatoController::index();
-            break;
+        break;
 
-            case '/avaliacoes/form/save':
-                AvaliacoesController::save();
-            break;
+        case '/avaliacoes/form/save':
+            AvaliacoesController::save();
+        break;
 
         default:
-
-        echo "Erro 404";
+            echo "Erro 404";
         break;
 }

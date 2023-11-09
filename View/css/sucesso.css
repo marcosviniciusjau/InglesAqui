@@ -1,0 +1,27 @@
+body{
+  width:100%;
+  background-image:url("/View/Imagens/fundo_sucesso.png")
+}
+.container{
+  width:100%;
+  margin-top:10%;
+   font-family: 'Montserrat', sans-serif;
+ font-size:25px; 
+ color:black;
+ font-weight: 700;
+}
+.title{
+      font-family: 'Forum', cursive;
+    color:black;
+    text-align: center;
+    padding-bottom: 5%;
+    padding-top: 2%;
+}
+.valor{
+   font-family: 'Montserrat', sans-serif;
+ font-size:25px; 
+ color:black;
+ 
+    text-align: center;
+ font-weight: 700;
+}

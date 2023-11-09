@@ -1,8 +1,11 @@
 config.php
-node_modules
 .env
 .env.example
 bot.py
 bot1.py
 mydata.jsonl
 .gitignore
+composer.json
+composer.lock
+vendor
+View/js/pagamento.js
