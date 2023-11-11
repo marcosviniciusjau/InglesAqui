@@ -6,9 +6,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="\View\css\pagamento.css">
-    <script src="https://sdk.mercadopago.com/js/v2"></script>
     <script type="text/javascript" src="\View\js\pagamento.js" defer></script>
 
      <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,73 +33,74 @@
       
 </div>
 <div class="container__form">
-  <form id="form-checkout">
-   
-          <div class="row g-3">
-            <div class="col-md-5">
-              <label  class="form-label">CPF</label>
-           <select id="form-checkout__identificationType" class="form-select" ></select>
-            </div>
-
-            <div class="col-md-5" id="cpf">
-              <label for="lastName" class="form-label">Número do CPF/CNPJ</label>
-              <input id="form-checkout__identificationNumber"  class="form-control"  type="text" required/>    
-            </div>
+  <form action="pagamento.js" method="POST" data-pagarmecheckout-form>
 
           <div class="row g-3">
             <div class="col-md-5">
               <label  class="form-label">Nome do Titular</label>
-              <input id="form-checkout__cardholderName" class="form-control" type="text"  required/>
+              <input class="form-control" type="text" data-pagarmecheckout-element="holder_name" required  id="cardholderName" placeholder="Seu nome brilhando no cartão."/>
           </div>
 
           <div class="col-md-5" id="col">
-            <label for="lastName" class="form-label">Número do Cartão</label>
-             <div id="form-checkout__cardNumber"  class="form-control" type="text">
+            <label  class="form-label">Número do Cartão</label>
+             <input id="cardNumber" class="form-control" type="text" data-pagarmecheckout-element="number" required
+             placeholder="Número do jeito que está no cartão">
              </div>
             </div>
 
-          <div class="row g-3" id="date">
+           <div class="row g-3">
             <div class="col-md-5">
-              <label  class="form-label">Data de Expiração</label>
-              <div id="form-checkout__expirationDate" class="form-control" type="text">
-</div>
-          </div>
+                <label  class="form-label">Data de Expiração</label>
+              <div id="date">
+                 <input type="text" class="form-control" name="card-exp-month" data-pagarmecheckout-element="exp_month" id="expirationMonth" placeholder="MM">
 
-          <div class="col-sm-6" id="col">
-            <label for="lastName" class="form-label">CVV</label>
-             <div id="form-checkout__securityCode"  class="form-control">
-</div>
-            </div>          
+                 <input type="text" class="form-control" name="card-exp-year" data-pagarmecheckout-element="exp_year" id="expirationYear" placeholder="AA">
+                 </div>    
+              </div>
+
+          <div class="col-md-5" id="col">
+            <label  class="form-label">CVV</label>
+             <input  class="form-control" id="securityCode" data-pagarmecheckout-element="cvv" required id="securityCode" placeholder="O código secreto atrás do cartão 🤐">
+             </div>
+            </div>
+
+          <div class="row g-3" id="parcelas">
+            <div class="col-md-5">
+            <label class="form-label">Escolha o número de parcelas:</label>
+              <select id="installments" class="form-select">
+                <option value="1">À vista- R$ <?=number_format($model->valor,2, ',', '.') ?> </option>
+              </select>
+              </div>
+        <div class="col-md-5" id="col">
+            <label  class="form-label">Email</label>
+              <input class="form-control" id="email" data-pagarmecheckout-element="email" required placeholder=" Seu e-mail para ficarmos amigos.">
            
-          <select id="form-checkout__issuer" class="form-select" name="issuer" ></select>
+             </div>
+            </div>
 
-        <div class="row g-3">
-          <div class="col-md-5">
-            <label  class="form-label">Parcelas</label>
-            <select id="form-checkout__installments" class="form-select" name="installments"></select>
-        </div>
 
-        <div class="col-sm-6" id="col">
-            <label for="lastName" class="form-label">Email</label>
-             <input id="form-checkout__cardholderEmail" class="form-control"  type="email"  required/> 
-        </div> 
-
-      <br>
       </form>
-   <button class="botao" id="form-checkout__submit">Pagar</button>
+   <button class="botao" type="submit">Pagar</button>
   
-<progress value="0" class="progress-bar">Carregando...</progress>
-  
-  </div>
 
-<div class="container container__resultado">
-  <div id="falha">
-    <p>Alguma coisa deu errado!</p>
-    <p id="compra-erro"></p>
-</div>
+  </div>
+<script>
+        function success(data) {
+            return true;
+        };
+    
+        function fail(error) {
+            console.error(error);
+        };
+    
+        PagarmeCheckout.init(success,fail)
+    </script>
 
 </div>
 </div>
 </main>
 </body>
+<script src="https://checkout.pagar.me/v1/tokenizecard.js"
+        data-pagarmecheckout-app-id="">
+    </script>
 </html>

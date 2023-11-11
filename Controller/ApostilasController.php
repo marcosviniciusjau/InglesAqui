@@ -1,8 +1,8 @@
 <?php
-
 namespace App\Controller;
 use App\Model\ApostilasModel;
 use App\Model\ProdutoModel;
+
 class ApostilasController extends Controller
 {
     public static function index()
@@ -41,9 +41,17 @@ class ApostilasController extends Controller
 
     public static function pagamento()
     {
+        try {
+            if (isset($_GET['id'])) {
+                $model = new ProdutoModel();
 
-                 parent::render('Apostilas/pagamento');
-       
+                $dados = $model->getById((int) $_GET['id']);
+              
+                 parent::render('Apostilas/pagamento' ,$dados);
+            } 
+        } catch (Exception $e) {  
+
+        }
     }
 
     public static function enviarPagamentoSucesso(){
