@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap');
+body{
+  margin-left:5px;
+  background-image: url("../../View/Imagens/fundo_sucesso.png")
+}
+h1{
+  
+  color:#020D2B;
+  padding:50px;
+  font-family: 'Roboto', sans-serif;
+}
+h2{
+  padding:25px;
+}
+h3{
+  
+  padding:50px;
+  font-family: 'Lato', sans-serif;
+}
+h4{
+  
+  padding:50px;
+  font-family: 'Open Sans', sans-serif;
+}

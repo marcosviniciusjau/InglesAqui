@@ -7,12 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="\View\css\apostilas_desc.css">
-    <script src="https://sdk.mercadopago.com/js/v2"></script>
-    
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="text/javascript" src="\View\js\apostilas_desc.js"></script>
      <link rel="preconnect" href="https://fonts.googleapis.com">
-    <title>Inglês Aqui Apostilas</title>
+    <title><?= $model->nome ?></title>
     <link rel="icon" href="/View/Imagens/icon.png" type="image/icon type">
   </head>
   <body>

@@ -82,8 +82,8 @@
     </div>
   </div>
 
-<div class="d-md-flex flex-md-equal  w-100" class="azul">
-  <img src="View/Imagens/sobre.png" class="imgs">
+<div class="d-md-flex flex-md-equal  w-100">
+  <img src="View/Imagens/sobre.png" class="imgs" id="azul">
       <div id="sobre">
         <div class="my-5 py-5">
          <h1 class="display-5">Sobre</h1>

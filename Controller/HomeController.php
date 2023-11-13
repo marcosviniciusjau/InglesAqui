@@ -9,5 +9,10 @@ class HomeController extends Controller
     {
         parent::render('Home/home' );
     }
+
+    public static function error()
+    {
+        parent::render('Home/erro' );
+    }
     
 }

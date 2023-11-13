@@ -34,10 +34,10 @@ use App\Controller\{HomeController,ApostilasController,ProdutoController,
          case '/pagamento':
             ApostilasController::pagamento();
         break;
+        
          case '/pagamento/sucesso':
             ApostilasController::enviarPagamentoSucesso();
         break;
-
 
         case '/pagamento/enviar':
             ApostilasController::enviarPagamento();
@@ -111,6 +111,6 @@ use App\Controller\{HomeController,ApostilasController,ProdutoController,
         break;
 
         default:
-            echo "Erro 404";
+        HomeController::error();
         break;
 }

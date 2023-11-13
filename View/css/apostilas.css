@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
-
+body{
+  background-image: url("../../View/Imagens/fundo_sucesso.png")
+}
 .botao:hover {
   background-color:#5D0100;
   color: white;
@@ -18,7 +20,8 @@
   background-color: #020D2B;
 }
    
-.thumbnail { 
+.thumbnail {
+   
   top:-50px; 
   left:-35px; 
   display:block; 

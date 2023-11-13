@@ -4,39 +4,33 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use GuzzleHttp\Client;
 
-$client = new \GuzzleHttp\Client();
+$client = new Client();
 
 try {
-    $contents = json_decode(file_get_contents('php://input'), true);
-    $parsed_request = $request->withParsedBody($contents);
-    $parsed_body = $parsed_request->getParsedBody();
+ 
+    $response = $client->request('POST', 'https://api.pagar.me/core/v5/tokens?appId=', [
 
-    $request = [
-        'installments' => $parsed_body['installments'],
-        'items' => [
-            [
-                'amount' => '',
-                'description' => '',
+        'body' => json_encode([
+            'type' => 'card',
+            'card' => [
+                'number' => $_POST['cardNumber'],
+                'holder_name' => $_POST['cardHolderName'] ?? '',
+                'exp_month' => $_POST['expMonth'] ?? '',
+                'exp_year' => $_POST['expYear'] ?? '',
+                'cvv' => $_POST['cvv'] ?? '',
             ],
-        ],
-        'payments' => [
-            [
-                'payment_method_id' => $parsed_body['paymentMethodId'],
-                'credit_card' => [
-                    'installments' => 1,
-                    'card_token' => $parsed_body['paymentMethodId'],
-                ],
-            ],
-        ],
+        ]),
         'headers' => [
             'accept' => 'application/json',
             'content-type' => 'application/json',
         ],
-    ];
+    ]);
 
-    $response = $client->request('POST', 'https://api.pagar.me/core/v5/orders', $request);
 
-    return $response->getBody()->getContents();
+    echo $response->getBody();
+
+    
+
 } catch (\Exception $exception) {
-    return json_encode(['error' => $exception->getMessage()]);
+    echo json_encode(['error' => $exception->getMessage()]);
 }

@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
-
+body{
+   margin: 0;
+    padding: 0;
+    height: 100vh;
+    widows: 100vw;
+  background-image: url("../../View/Imagens/fundo_sucesso.png")
+}
 #valor{
  font-family: 'Montserrat', sans-serif;
  font-size:25px; 
@@ -72,12 +78,6 @@
     background-color: #020D2B;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    widows: 100vw;
-}
 
 .content {
     height: 520px;
