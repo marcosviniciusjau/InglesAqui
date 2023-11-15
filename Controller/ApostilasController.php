@@ -51,7 +51,7 @@ class ApostilasController extends Controller
                 $dados = $model->getById((int) $_GET['id']);
               
                  parent::render('Apostilas/pagamento' ,$dados);
-            } 
+        } 
         } catch (Exception $e) {  
          parent::render('Home/erro');
         }
