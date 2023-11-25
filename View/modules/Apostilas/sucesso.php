@@ -23,7 +23,7 @@
   <div class="container">
   <ion-icon name="book-outline"></ion-icon>
   <h1 class="title"> <p>Obrigado por adquirir nossas apostilas em inglês!</p></h1>
-  <h2 class="valor">O numero do seu pedido é:</h2>
+  <h2 class="valor">O numero do seu pedido é:<?php echo $orders ?></h2>
   <h3>Digite esse codigo para acompanhar seu pedido nos correios</h3>
 
 </div>

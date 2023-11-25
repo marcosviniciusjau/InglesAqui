@@ -11,21 +11,10 @@
 namespace App\Controller;
 
 use App\Model\ProdutoModel;
-
-/**
- * Classe abstrata Controller para armazenar métodos comuns às classes Controller.
- * Manual do PHP => https://www.php.net/manual/pt_BR/language.oop5.abstract.php
- * Leia mais sobre abstração: https://www.devmedia.com.br/trabalhando-com-abstracao-em-php/28351
- */
 abstract class Controller 
 {
-    protected $id_categoria; // Adicionei a propriedade $id_categoria para a classe.
-
-    protected $validation_errors = array(); // Corrigi o nome da propriedade para $validation_errors.
-
-    /**
-     * Setter para definir a categoria.
-     */
+    protected $id_categoria; 
+    protected $validation_errors = array();
     public function setCategoria(int $_id_categoria)
     {
         if (!empty($_id_categoria)) {
@@ -35,12 +24,8 @@ abstract class Controller
         }
     }
 
-    /**
-     * Método privado para inclusão do arquivo de view.
-     */
-    protected static function render($view, $model = null)
+    protected static function render($view, $model = null, $orders= null)
     {
-        //$arquivo_view = "View/modules/$view.php";
         $arquivo_view = VIEWS . $view . ".html";
         $arquivo_view_php = VIEWS . $view . ".php";
     
@@ -53,14 +38,11 @@ abstract class Controller
         }
     }
 
-    /**
-     * Verifica se o usuário está protegido/logado.
-     */
     protected static function isProtected()
     {
         if (!isset($_SESSION['adm_logado'])) {
             header("location: /login_adm");
-            exit(); // Adicionei um exit() para interromper a execução após redirecionar.
+            exit(); 
         }
     }
 }

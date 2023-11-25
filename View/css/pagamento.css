@@ -14,71 +14,101 @@ body {
   background-image: url("/View/Imagens/fundo_sucesso.png");
 }
 
-#pagamentos{
-  display:flex;
-  gap:280px;
-}
+
 #icones{
   width:50px;
   height:50px;
 }
-.cartao{
+.cartao_icon{
   display:flex;
   gap:8px;
   border:1px solid #FFFFFF;
   border-radius: 20px;
 }
-.boleto{
+.boleto_icon{
   display:flex;
   gap:8px;
   border:1px solid #FFFFFF;
   border-radius: 20px;
 }
-.pix{
+.pix_icon{
   display:flex;
   gap:8px;
   border:1px solid #FFFFFF;
   border-radius: 20px;
 }
-#boleto{
-  padding-top:15px;
+.flex-display{
   display:flex;
-  gap:158px;
-}
-#pix{
- padding-top:15px;
-  display:flex;
-  gap:158px;
+  gap:168px;
 }
 #boleto-card{
-  
   display:flex;
   width:20%;
   border:1px solid #FFFFFF;
   border-radius: 20px;
 }
+
 #installments {
-display:flex;
-align-items:center;
-align-content:center;
+  display:flex;
+  align-items:center;
+  align-content:center;
 }
 #date {
   display: flex;
+  gap:15px;
 }
-#expirationMonth,
-#expirationYear {
-  width: 15%;
-}
-  #EmailDiv {
-    margin-top: 1%;
-    padding-left: 5%;
-  }
 
+#expMonth,
+#expYear,#cvv,#estado{
+  width: 20%;
+}
+
+#phone{
+  width:50%;
+}
+
+#phone_div{
+  display:flex;
+}
+.hidden{
+  display:none;
+}
+#EmailDiv {
+  margin-top: 1%;
+  padding-left: 5%;
+}
+
+#date-cvv {
+  margin-left: 15%;
+}
+
+#pagamentos{
+  display:flex;
+}
+
+#checkbox{
+  width:25px;
+  display:block;
+}
+#city{
+  margin-left:50px;
+}
+#labels{
+  display:block;
+}
 @media (min-width: 769px) {
-
-  #col {
+#col {
     margin-left: 5%;
   }
+#pagamentos{
+  display:flex;
+  gap:250px;
+}
+input,
+option,
+select{
+  width:50%;
+}
 }
 
 input,

@@ -3,6 +3,8 @@
 namespace App\Controller;
 use App\Model\ApostilasModel;
 use App\Model\ProdutoModel;
+
+use App\server;
 error_reporting(0);
 ini_set('display_errors', 0);
 
@@ -58,7 +60,10 @@ class ApostilasController extends Controller
     }
 
     public static function enviarPagamentoSucesso(){
-      parent::render('Apostilas/sucesso');
+
+        $orders= 'oi';
+
+        parent::render('Apostilas/sucesso', $orders);
     }
   
     
