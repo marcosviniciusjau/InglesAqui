@@ -40,4 +40,9 @@ Contacts: We inform users how they can contact us and follow us on social media.
 
 https://github.com/marcosviniciusjau/InglesAqui/assets/82465988/0e17fcb7-232f-455d-9aac-6b1737ec1e69
 
+# Updates with new payment methods and shipments
+
+https://github.com/marcosviniciusjau/InglesAqui/assets/82465988/33059b5b-d58d-40e2-8d30-e9fc3eef6b98
+
+
 
