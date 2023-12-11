@@ -7,14 +7,14 @@ body{
     widows: 100vw;
   background-image: url("../../View/Imagens/fundo_sucesso.png")
 }
-#valor{
+#valor,#valor_1{
  font-family: 'Montserrat', sans-serif;
  font-size:25px; 
  color:black;
  font-weight: 700;
    }
 
-#texto{  
+#descricao,#nome_1{  
  font-family: 'Montserrat', sans-serif;
  font-size: 20px;
  color:black;
@@ -22,11 +22,12 @@ body{
  
 }
 
-#titulo{    
+#nome{    
  font-family: 'Forum', cursive;
  color:black;
  font-size:25px;
 }
+
 #recomend{    
   font-family: 'Forum', cursive;
   color:black;

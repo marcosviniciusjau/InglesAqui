@@ -1,42 +1,55 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
+ <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    
-    <script type="text/javascript" src="\View\js\pagamento.js" defer></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="\View\css\sucesso.css">
+      <script type="text/javascript" src="\View\js\carrinho.js" defer></script>
     <link rel="stylesheet" href="\View\css\pagamento.css">
-
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
      <link rel="preconnect" href="https://fonts.googleapis.com">
-    <title><?= $model->nome ?></title>
+    <title>Inglês Aqui Carrinho</title>
     <link rel="icon" href="/View/Imagens/icon.png" type="image/icon type">
   </head>
-  <body>
-    
-<main>
-  <?php include PATH_VIEW . 'includes/cabecalho_home.php' ?>
-  <div class="container">
-    <div class="d-md-flex flex-md-equal" id="division">
-     <div id="contato">
-        <div class="my">
-          <img src="/View/Uploads/<?= $model->imagem ?>" width="150" height="200"/>
-         </div>
-      </div>
-      <div id="sobre">
-        <h2 id="titulo" class="display-5"> <?= $model->nome ?></h2>
-        <p id="valor" data-valor="<?= $model->valor ?>">R$ <?=number_format($model->valor,2, ',', '.') ?></p>
-       </div>
-      
-</div>
+  
+<body>
+
+<h1>Carrinho de Compras</h1>
+
+<?php
+if (isset($_SESSION['carrinho']) && !empty($_SESSION['carrinho'])) {
+    $somaTotal = 0;
+
+    foreach ($_SESSION['carrinho'] as $index => $item) {
+        echo '<div>';
+        echo '<h3>Apostila ' . ($index + 1) . ':</h3>';
+        
+        echo '<p>Dados: ' . implode(', ', $item['dados']) . '</p>';
+        
+        $dados=$item['dados'];
+        
+        $somaTotal += $item['soma'];
+        
+        echo '</div>';
+    }
+
+    echo '<h2>Soma Total: ' . $somaTotal . '</h2>';
+    } else {
+    echo '<p>O carrinho está vazio.</p>';
+}
+
+?>
 <div class="container__form">
+  
+  <input type="hidden" data-soma="<?= $somaTotal ?>" name="somaTotal" value="<?= $somaTotal ?>" id="soma">
+  <input type="hidden" data-soma="<?= $dados ?>" name="somaTotal" value="<?= $dados ?>" id="soma">
   <form method="POST" data-pagarmecheckout-form enctype="multipart/form-data" id="form_pagamento">
 
  <div class="row g-3">
@@ -149,7 +162,7 @@
            value="BR"
            type="hidden">
           <input class="form-control" id="zip_code" type="text" name="zip_code" data-pagarmecheckout-element="zip_code"  placeholder="Seu CEP"  oninput="validateNumericInput('zip_code', 'zipCodeError')"  required> 
-     <span id="zipCodeError"/>
+     <span id="zipCodeError">
       </div>
 
        <div class="col-md-5" id="col">
@@ -196,24 +209,24 @@
               <div class="cartao_icon">
                 <input type="radio" id="checkbox" name="visibility" onclick="toggleVisibility('credit_card')" value="credit_card"> 
                 <img src="View/Imagens/credit_card.svg" id="icones">
-                <h1 class="form-label" id="cartoes">Cartão de Crédito</h1>
+                <h1 class="form-label">Cartão de Crédito</h1>
             </div>
      <div class="cartao_icon">
                 <input type="radio" id="checkbox" name="visibility" onclick="toggleVisibility('debit_card')" value="debit_card"> 
                <img src="View/Imagens/credit_card.svg" id="icones">
-                <h1 class="form-label" id="cartoes">Cartão de Débito</h1>
+                <h1 class="form-label">Cartão de Débito</h1>
             </div>
 
             <div class="boleto_icon">
               <input type="radio" id="checkbox"  name="visibility" onclick="toggleVisibility('boleto')" value="boleto">    
                <img src="View/Imagens/boleto.png" id="icones" alt="iconGoodWare">
-              <h1 class="form-label" id="outros_pag">Boleto</h1>
+              <h1 class="form-label">Boleto</h1>
             </div>
   
             <div class="pix_icon">  
               <input type="radio" id="checkbox" name="visibility" onclick="toggleVisibility('pix')" value="pix">  
               <img src="View/Imagens/pix.svg" id="icones">
-              <h1 class="form-label" id="outros_pag">Pix</h1>
+              <h1 class="form-label">Pix</h1>
             </div>
           </div>
 
@@ -321,18 +334,18 @@
     
         </div>
  
-    <div id="boleto" class="hidden row g-3">
-    <h1 id="boleto-card" class="form-label">🌍 Descomplicado: Simplificamos o processo. Basta imprimir e pagar, sem senhas complicadas.</h1>
-    <h2 id="boleto-card" class="form-label">
-        💸 Sem Surpresas: O boleto é como um mapa do tesouro transparente, mostrando exatamente seus investimentos sem taxas escondidas.
-    </h2>    
-    <h3 id="boleto-card" class="form-label">🤑 Boleto = Ticket Espacial: Pagar com boleto reserva seu lugar na viagem do conhecimento. Assim que confirmado, sua apostila é enviada diretamente para sua nave (ou e-mail).</h3>
-    <br>
-    <h4>Valor Total da Compra: <span id="totalCompraBoleto"></span></h4>
-    
-    <button class="botao" type="submit" onClick="pagarBoleto()">Gerar Boleto</button>
-</div>
-
+    <div id="boleto" class="hidden row g-3">  
+       <h1 id="boleto-card" class="form-label">🌍 Descomplicado: Simplificamos o processo. Basta imprimir e pagar, sem senhas complicadas.</h1>
+      <h2 id="boleto-card" class="form-label">
+       💸 Sem Surpresas: O boleto é como um mapa do tesouro transparente, mostrando exatamente seus investimentos sem taxas escondidas.
+      </h2>    
+      <h3 id="boleto-card" class="form-label">🤑 Boleto = Ticket Espacial: Pagar com boleto reserva seu lugar na viagem do conhecimento. Assim que confirmado, sua apostila é enviada diretamente para sua nave (ou e-mail).</h3>
+      
+          <br>
+        <h4>Valor Total da Compra: <span id="totalCompraBoleto"></span></h4>
+        
+        <button class="botao" type="submit" onClick="pagarBoleto()">Gerar Boleto</button>
+    </div>
 
     <div id="pix" class="hidden row g-3">
         <h1 id="boleto-card" class="form-label">⚡️ Instantâneo: PIX é como um relâmpago! Transações acontecem instantaneamente, sem demoras no caminho para a aprendizagem.</h1>
@@ -345,15 +358,8 @@
         <button class="botao" type="submit" onClick="pagarPix()">Gerar Pix</button>
     </div>
   </div>
-      <input type="hidden" name="id" value="<?= $model->id ?>">
-      <input type="hidden" id="nome" name="nome" value="<?= $model->nome ?>">
-      <input type="hidden" id="valor" name="valor" value="<?= $model->valor ?>">
-   
-      <input type="hidden" name="descricao" value="<?= $model->descricao ?>">
-      <input type="hidden" id="id">
       </form>
 </div>
-</div>
-</main>
+
 </body>
 </html>

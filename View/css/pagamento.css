@@ -5,6 +5,47 @@
   body {
     background-image: url("/View/Imagens/fundo_celular.png");
   }
+#boleto-card {
+  display: flex;
+  border: 1px solid #ffffff;
+  border-radius: 20px;
+  gap:50px;
+}
+
+ #pagamentos {
+    display: flex;
+    gap: 1px;
+  }
+  .cartao_icon {
+    width:25%;
+  display: flex;
+  border: 1px solid #ffffff;
+  border-radius: 20px;
+}
+
+#cartoes{
+ margin-top:30px;
+ margin-left:-50px
+}
+
+#outros_pag{
+ margin-top:40px;
+ margin-left:-45px
+}
+.boleto_icon {
+  display: flex;
+  
+    width:25%;
+  border: 1px solid #ffffff;
+  border-radius: 20px;
+}
+.pix_icon {
+  display: flex;
+  
+    width:25%;
+  border: 1px solid #ffffff;
+  border-radius: 20px;
+}
 }
 body {
   margin: 0;
@@ -13,65 +54,95 @@ body {
   widows: 100vw;
   background-image: url("/View/Imagens/fundo_sucesso.png");
 }
+.card {
+  background: transparent;
+}
 
+#card-body {
+  max-width: 500px;
+  position: relative;
+  display: flex;
+  margin-left: 25%;
+  margin-bottom: 5%;
+  flex-direction: row;
+  min-width: 0;
+  gap: 30px;
+  word-wrap: break-word;
+  background: transparent;
+  background-clip: border-box;
+  border-radius: 0.25rem;
+}
+.assistente {
+  position: fixed;
+  top: 50%; /* Você pode ajustar a posição vertical conforme necessário */
+  right: 20px; /* Ajuste conforme necessário */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 15%; /* Defina a largura da div conforme necessário */
+  height: 5%;
+  transform: translateY(-50%); /* Para centralizar verticalmente */
+  padding: 10px;
+  border-radius: 5px;
+}
 
-#icones{
-  width:50px;
-  height:50px;
+#pagar_me {
+  width: 148px;
+  height: 40px;
+  margin-left: 1%;
+  margin-bottom: 1%;
 }
-.cartao_icon{
-  display:flex;
-  gap:8px;
-  border:1px solid #FFFFFF;
+#icones {
+  width: 50px;
+  height: 50px;
+}
+.cartao_icon {
+  display: flex;
+  gap: 8px;
+  border: 1px solid #ffffff;
   border-radius: 20px;
 }
-.boleto_icon{
-  display:flex;
-  gap:8px;
-  border:1px solid #FFFFFF;
-  border-radius: 20px;
+
+.flex-display {
+  display: flex;
+  gap: 168px;
 }
-.pix_icon{
-  display:flex;
-  gap:8px;
-  border:1px solid #FFFFFF;
-  border-radius: 20px;
-}
-.flex-display{
-  display:flex;
-  gap:168px;
-}
-#boleto-card{
-  display:flex;
-  width:20%;
-  border:1px solid #FFFFFF;
-  border-radius: 20px;
-}
+
 
 #installments {
-  display:flex;
-  align-items:center;
-  align-content:center;
+  display: flex;
+  align-items: center;
+  align-content: center;
 }
+
 #date {
   display: flex;
-  gap:15px;
+  gap: 15px;
+}
+#enderecos {
+  margin-bottom: 5%;
 }
 
 #expMonth,
-#expYear,#cvv,#estado{
+#expYear,
+#cvv,
+#cvvDebit ,
+#estado,
+#numero_casa,
+#area_code,
+#country_code {
   width: 20%;
 }
 
-#phone{
-  width:50%;
+#phone {
+  width: 50%;
 }
 
-#phone_div{
-  display:flex;
+#phone_div {
+  display: flex;
 }
-.hidden{
-  display:none;
+.hidden {
+  display: none;
 }
 #EmailDiv {
   margin-top: 1%;
@@ -82,38 +153,75 @@ body {
   margin-left: 15%;
 }
 
-#pagamentos{
-  display:flex;
+#pagamentos {
+  display: flex;
 }
 
-#checkbox{
-  width:25px;
-  display:block;
+#checkbox {
+  width: 25px;
+  display: block;
 }
-#city{
-  margin-left:50px;
+#radio {
+  gap: 8px;
+  border: 1px solid #ffffff;
+  border-radius: 20px;
+  width: 50px;
+  display: block;
 }
-#labels{
-  display:block;
+#city {
+  margin-left: 50px;
+}
+#labels {
+  display: block;
+}
+.row{
+  padding-top:20px;
+  column-gap:100px;
 }
 @media (min-width: 769px) {
-#col {
+  #col {
     margin-left: 5%;
   }
-#pagamentos{
-  display:flex;
-  gap:250px;
+  #pagamentos {
+    display: flex;
+    gap: 100px;
+  }
+  input,
+  option,
+  select {
+    width: 50%;
+  }
+  
+#boleto-card {
+  display: flex;
+  width: 20%;
+  border: 1px solid #ffffff;
+  border-radius: 20px;
 }
-input,
-option,
-select{
-  width:50%;
+.cartao_icon {
+  display: flex;
+  gap: 8px;
+  border: 1px solid #ffffff;
+  border-radius: 20px;
+}
+.boleto_icon {
+  display: flex;
+  gap: 8px;
+  border: 1px solid #ffffff;
+  border-radius: 20px;
+}
+.pix_icon {
+  display: flex;
+  gap: 8px;
+  border: 1px solid #ffffff;
+  border-radius: 20px;
 }
 }
 
 input,
 option,
-select,#boleto-card {
+select,
+#boleto-card {
   font-family: "Montserrat", sans-serif;
 }
 
@@ -161,7 +269,9 @@ select,#boleto-card {
   font-weight: 700;
   padding-bottom: 5%;
 }
-
+#valorTotalCartao {
+  display: none;
+}
 #sobre {
   padding-top: 15px;
   padding-left: 8%;
@@ -184,7 +294,6 @@ select,#boleto-card {
   padding-left: 24px;
 }
 
-
 .container {
   border: 1px solid rgb(118, 118, 118);
   border-radius: 2px;
@@ -192,7 +301,7 @@ select,#boleto-card {
 }
 
 .botao {
-  display:flex;
+  display: flex;
   margin: 0 auto;
   margin-top: 5%;
   transition-duration: 0.4s;
@@ -204,10 +313,21 @@ select,#boleto-card {
   background-color: #020d2b;
 }
 
-#cvvError,#cardNumberError{
+#cvvError,
+#cvvErrorDebit
+#cardNumberError,
+#cardNumberDebitError,
+#dateError,
+#dateErrorDebit,
+#documentNumberError,
+#zipCodeError,
+#phoneNumberErrors,
+#numeroCasaError,
+#enderecoError,
+#errorBoleto {
   font-size: medium;
   font-family: "Forum", cursive;
-  color:#FFD700;
+  color: #ffd700;
 }
 
 .content {
@@ -277,8 +397,6 @@ input {
   position: absolute;
   top: 470px;
 }
-
-/*change the number below to scale to the appropriate size*/
 .thumbnail:hover {
   transform: scale(1.1);
 }

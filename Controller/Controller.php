@@ -1,13 +1,5 @@
 <?php
 
-/**
- * Definição do namespace da controller. Veja que temos o namespace chamado "App"
- * e dentro do namespace App temos o subnamespace "Controller". Também é importante
- * observar que eles são o mesmo caminho de diretórios e usamos barra invertida
- * para definir os namespaces.
- * Leia mais sobre namespaces => http://www.diogomatheus.com.br/blog/php/entendendo-namespaces-no-php/
- * Namespaces no manual => https://www.php.net/manual/pt_BR/language.namespaces.rationale.php
- */
 namespace App\Controller;
 
 use App\Model\ProdutoModel;
@@ -24,7 +16,7 @@ abstract class Controller
         }
     }
 
-    protected static function render($view, $model = null, $orders= null)
+    protected static function render($view, $model = null, $id= null)
     {
         $arquivo_view = VIEWS . $view . ".html";
         $arquivo_view_php = VIEWS . $view . ".php";

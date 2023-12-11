@@ -14,6 +14,10 @@ use App\Controller\{HomeController,ApostilasController,ProdutoController,
         case '/apostilas':
             ApostilasController::index();
         break;
+         case '/apostilas/carrinho':
+            ApostilasController::carrinho();
+        break;
+       
         
         case '/apostilas_category/trip':
             ApostilasController::categoryTrip();
@@ -34,7 +38,23 @@ use App\Controller\{HomeController,ApostilasController,ProdutoController,
          case '/pagamento':
             ApostilasController::pagamento();
         break;
-        
+
+        case '/pagamento/credit_card':
+            ApostilasController::pagamentoCreditCard();
+        break;
+         case '/pagamento/debit_card':
+            ApostilasController::pagamentoDebitCard();
+        break;
+
+          case '/pagamento/boleto':
+            ApostilasController::pagamentoBoleto();
+        break;
+
+         case '/pagamento/pix':
+            ApostilasController::pagamentoPix();
+        break;
+
+
          case '/pagamento/sucesso':
             ApostilasController::enviarPagamentoSucesso();
         break;
@@ -113,4 +133,7 @@ use App\Controller\{HomeController,ApostilasController,ProdutoController,
         default:
         HomeController::error();
         break;
+        case '/422':
+            HomeController::error();
+            break;
 }

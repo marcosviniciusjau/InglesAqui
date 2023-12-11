@@ -9,68 +9,46 @@
     <title>Inglês Aqui - Cadastrar Apostilas</title>
     <link rel="icon" href="/View/Imagens/icon.png" type="image/icon type">
  
-   
 </head>
 <body>
-   
-
 <?php include PATH_VIEW . 'includes/cabecalho.php' ?>
-
   <div class="container">
   <main>
   <form method="post" action="/produto/form/save" enctype="multipart/form-data" class="form-horizontal">
 
       <input type="hidden" value="<?= $model->id ?>" name="id" />
-
       <fieldset>
       <h4 class="mb-3">Cadastrar Novas Apostilas</h4>
         <div class="row g-3">
             <div class="col-sm-6">
-  <label class="form-label" for="nome">Nome</label>  
-  <input id="nome" name="nome" type="text" value="<?= $model->nome ?>" placeholder="Nome do Produto" class="form-control input-md">
-  </div>
+              <label class="form-label" for="nome">Nome</label>  
+              <input id="nome" name="nome" type="text" value="<?= $model->nome ?>" placeholder="Nome do Produto" class="form-control input-md">
+        </div>
             </div>
 
-            <div class="row g-3">
-            <div class="col-sm-6">
-     <label class="col-md-4 control-label" for="Valor">Valor</label>  
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <label class="col-md-4 control-label" for="Valor">Valor</label>  
+          <input id="valor" name="valor" value="<?= $model->valor ?>" placeholder="Valor" class="form-control input-md">  
+    </div>
+        </div>
 
-  <input id="valor" name="valor" value="<?= $model->valor ?>" placeholder="Valor" class="form-control input-md">
-    
-  </div>
-</div>
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <label class="col-md-4 control-label" for="descricao">Descrição</label>  
+          <input id="descricao" name="descricao"   value="<?= $model->descricao ?>" placeholder="Descriçao" class="form-control input-md">
+      </div>
+      </div>
 
-<div class="row g-3">
-            <div class="col-sm-6">
-  <label class="col-md-4 control-label" for="descricao">Descrição</label>  
-
-  <input id="descricao" name="descricao"   value="<?= $model->descricao ?>" placeholder="Descriçao" class="form-control input-md">
- </div>
-</div>
-
-
-<div class="row g-3">
-            <div class="col-sm-6">
-  <label class="col-md-4 control-label" for="id_hotmart">Id Hotmart</label>  
-
-  <input id="id_hotmart" name="id_hotmart" type="text" value="<?= $model->id_hotmart ?>" placeholder="Id Hotmart" class="form-control input-md">
-    
-  </div>
-</div>
-
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="arquivo_up">Foto</label>
-  <div class="col-md-4">  
-    <input id="arquivo_up" name="arquivo_up"  value="<?=  $model->imagem  ?>" class="input-file" type="file" >
-  </div>
-</div>
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="arquivo_up">Foto</label>
+        <div class="col-md-4">  
+          <input id="arquivo_up" name="arquivo_up"  value="<?=  $model->imagem  ?>" class="input-file" type="file" >
+        </div>
+      </div>
        
          <hr class="my-4">
-
-
          <button class="botao" type="submit">Cadastrar</button>
-  
   </div>
 </div>
           </fieldset>
@@ -81,7 +59,6 @@
 </body>
 
 </html>
-
 
 <style type="text/css">
   @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');

@@ -14,16 +14,20 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </head>
+  
   <body>
   <?php include PATH_VIEW . 'includes/cabecalho_home.php' ?>
 <h1>Ops! Parece que você se perdeu por aqui. Mas não precisa ficar bravo(a), afinal, até as melhores apostilas têm seus momentos de sumiço. 😅</h1>
 
 <h2> 
 O que pode ter acontecido:</h2>
-<h3> Probleminhas técnicos: Pode ter sido um probleminha técnico. Estamos trabalhando duro para resolver isso e trazer as páginas de volta ao lar!
+<h3> Erro de rotas: Verifique certinho as rotas para colocar seu foguete(ou o que você estava procurando) no lugar certo!
 Como prosseguir:
 </h3>
-<h4> 🏡 Volte para a página inicial e comece sua jornada de aprendizado novamente.
-📡 Entre em contato conosco e informe sobre esta aventura interplanetária. Estamos aqui para ajudar!</h4>
+<h4> Probleminhas técnicos: Pode ter sido um probleminha técnico. Estamos trabalhando duro para resolver isso e trazer as páginas de volta ao lar!
+Como prosseguir:
+</h4>
+<h5> 🏡 Volte para a página inicial e comece sua jornada de aprendizado novamente.
+📡 Entre em contato conosco e informe sobre esta aventura interplanetária. Estamos aqui para ajudar!</h5>
 </body>
 </html>
