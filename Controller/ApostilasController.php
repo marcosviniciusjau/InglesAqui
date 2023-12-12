@@ -94,7 +94,7 @@ class ApostilasController extends Controller
         $zip_code= $_POST['zip_code'];
         $line_1= $_POST['line_1'];
 
-        $responseToken = $client->request('POST', 'https://api.pagar.me/core/v5/tokens?appId=pk_zXBNn2rwTot8ndDZ', [
+        $responseToken = $client->request('POST', 'https://api.pagar.me/core/v5/tokens?appId=', [
             'body' => json_encode([
                 'type' => 'card',
                 'customer' => [
@@ -277,7 +277,7 @@ class ApostilasController extends Controller
         $zip_code= $_POST['zip_code'];
         $line_1= $_POST['line_1'];
 
-        $responseTokenDebit = $client->request('POST', 'https://api.pagar.me/core/v5/tokens?appId=pk_zXBNn2rwTot8ndDZ', [
+        $responseTokenDebit = $client->request('POST', 'https://api.pagar.me/core/v5/tokens?appId=', [
             'body' => json_encode([
                 'type' => 'card',
                 'customer' => [
