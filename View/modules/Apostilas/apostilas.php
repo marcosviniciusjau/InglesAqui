@@ -17,11 +17,62 @@
   
   <?php include PATH_VIEW . 'includes/cabecalho.php' ?>
  
+    <div class="content">
+    <div class="slides">
+      <input type="radio" name="radio" id="slide1" checked>
+      <input type="radio" name="radio" id="slide2">
+      <input type="radio" name="radio" id="slide3">
+      <input type="radio" name="radio" id="slide4">
+      <input type="radio" name="radio" id="slide5">
+
+
+      <div class="slide s1">
+        <a href ="consulta"><img src="View/Imagens/banner_ingles_aqui.png"></a>
+      </div>
+      <div class="slide">
+        <img src="View/Imagens/aupairbanner.png">
+      </div>
+  
+    </div>
+
+      <div class="navigation">
+         <label class="bar" for="slide1"></label>
+         <label class="bar" for="slide2"></label>
+      </div>
+       </div>
+</div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br>
+<br><br>
+  <div class="container text-center">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+
+              <div class="col">
+                <a href="alimentacao"><img class="categorias" src="View/Imagens/viagem.png"></a>
+                <br>
+                <font size="5" style="font-family: Corbel">VIAGEM</font>
+              </div>
+
+              <div class="col">
+                <a href="vestuario"><img class="categorias" src="View/Imagens/negocios.jpg"></a>
+                <br>
+                <font size="5" style="font-family: Corbel">NEGÓCIOS</font>
+              </div>
+
+              <div class="col">
+                <a href="higiene"><img class="categorias" src="View/Imagens/estudos.jpg"></a>
+                <br>
+                <font size="5" style="font-family: Corbel">ESTUDOS</font>
+              </div>
+
+
+            </div>
+        </div>
+
   <h1 class="display-5" id="titulo">── Apostilas ──</h1>
 <div class="container ">
     <div class="row">
     <?php foreach($model->rows as $item): ?>
-      <input type="hidden" id="model" value="oi" data-model="oi"/>
       <div class="col">
   <div class="thumbnail">  
   <div class="card" style="width: 12rem;">

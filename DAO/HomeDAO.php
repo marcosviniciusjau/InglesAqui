@@ -14,10 +14,9 @@ class HomeDAO extends DAO
      
      public function getAllRows() {
         
-        $stmt = $this->conexao->prepare("SELECT * FROM apostilas ");
+        $stmt = $this->conexao->prepare("SELECT * FROM apostila");
         $stmt->execute();
 
-       
         return $stmt->fetchAll(\PDO::FETCH_CLASS);
     }
 }

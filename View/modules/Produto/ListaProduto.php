@@ -35,7 +35,6 @@
       
           <th scope="col">Valor</th>
           <th scope="col">Descrição</th>
-          <th scope="col">Id Hotmart</th>
    
           <th scope="col">Imagem</th>
         </tr>
@@ -54,7 +53,6 @@
        
           <td><?=number_format($item->valor,2, ',', '.') ?></td>
           <td><?= $item->descricao ?></td>
-          <td><?= $item->id_hotmart ?></td>
 
         <td> <img src="/View/Uploads/<?= $item->imagem ?>" width="200" height="300" /> </td>
           <td><a class='btn btn-sm btn-primary' href="/produto/ver?id=<?= $item->id ?>">

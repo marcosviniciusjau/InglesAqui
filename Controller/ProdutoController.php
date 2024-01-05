@@ -33,44 +33,50 @@ class ProdutoController extends Controller
        
     }
    
-    public static function save()
-    {
-     
-        parent::isProtected();
+public static function save()
+{
+    try {
         $model = new ProdutoModel();
 
-        $model->id =  $_POST['id'];
+        $model->id = $_POST['id'];
         $model->nome = $_POST['nome'];
         $model->valor = $_POST['valor'];
         $model->descricao = $_POST['descricao'];
-        $model->id_hotmart = $_POST['id_hotmart'];
-   
-        try {
-         
-               throw new Exception("Diretório não encontrado");
-       if (!is_dir(UPLOADS))
-      
-            if (is_executable($_FILES["arquivo_up"]["tmp_name"]))
-                throw new Exception("Arquivos Executáveis não são permitidos");
 
-            $ext_arquivo = pathinfo($_FILES["arquivo_up"]["name"], PATHINFO_EXTENSION);
+        $arquivo = $_FILES['arquivo_up'];
 
-            $nome_unico = uniqid("enviado_") . "." . $ext_arquivo;
-
-            $nome_arquivo_servidor = UPLOADS . $nome_unico;
-
-            if (move_uploaded_file($_FILES["arquivo_up"]["tmp_name"], $nome_arquivo_servidor)) {
-                $model->imagem = $nome_unico;
-        
-            } else throw new Exception("Erro ao enviar. Erro:" . $_FILES["arquivo_up"]["error"]);
-        } catch (Exception $e) {
-            echo $e->getMessage();
+        // Valida o arquivo
+        if ($arquivo['size'] > 1000000) {
+            throw new Exception("O arquivo é muito grande. O tamanho máximo permitido é 10MB.");
         }
 
-        $model->save(); 
+        if (!in_array($arquivo['type'], ['image/jpeg', 'image/png'])) {
+            throw new Exception("O arquivo deve ser uma imagem.");
+        }
 
-        header("Location: /produto");
+        if (is_executable($arquivo['tmp_name'])) {
+            throw new Exception("Arquivos executáveis não são permitidos.");
+        }
+
+        // Gera um nome único para o arquivo
+        $nome_unico = uniqid() . '.' . pathinfo($arquivo['name'], PATHINFO_EXTENSION);
+
+        // Carrega o arquivo
+        $imagem = imagecreatefrompng($arquivo['tmp_name']);
+
+        // Salva a imagem redimensionada
+        imagepng($imagem, UPLOADS . $nome_unico);
+
+        $model->imagem = $nome_unico;
+
+        $model->save();
+    } catch (Exception $e) {
+        echo $e->getMessage();
     }
+
+    header('Location: /produto');
+}
+
 
     public static function ver()
     {

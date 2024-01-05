@@ -18,7 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
       <?php include PATH_VIEW . 'includes/cabecalho_home.php' ?>
-    <img src="/View/Imagens/fundo.png" width="100%" height="50%">
+    <img src="/View/Imagens/fundo1.png" id="fundo_img">
   
   <div class="assistente">
   <ion-icon name="chatbubble-ellipses-outline" id="assistente" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"></ion-icon>
@@ -81,19 +81,7 @@
       </div>
     </div>
   </div>
-
-<div class="d-md-flex flex-md-equal  w-100">
-  <img src="View/Imagens/sobre.png" class="imgs" id="azul">
-      <div id="sobre">
-        <div class="my-5 py-5">
-         <h1 class="display-5">Sobre</h1>
-         <h2 class="lead">INGLÊS PARA TODOS!</h2>
-         <p class="lead">Ferramentas para facilitar a vida dos professores, alunos, autodidatas e muito mais</p>
-</div>
-     </div>
-       </div>
-  
-    <div class="d-md-flex flex-md-equal" id="guias1">
+ <div class="d-md-flex flex-md-equal" id="guias1">
      <div id="guias">
        <div class="my-5 py-5">
         <h1 class="display-5">Os guias</h1>
@@ -114,13 +102,25 @@
         <br> <br>
         </span>
     </div>
+<div class="d-md-flex flex-md-equal  w-100">
+  <img src="View/Imagens/sobre.png" class="imgs" id="azul">
+      <div id="sobre">
+        <div class="my-5 py-5">
+         <h1 class="display-5">Sobre</h1>
+         <h2 class="lead">INGLÊS PARA TODOS!</h2>
+         <p class="lead">Ferramentas para facilitar a vida dos professores, alunos, autodidatas e muito mais</p>
+</div>
+     </div>
+       </div>
+  
+   
 
   <div class="d-md-flex flex-md-equal" class="azul">
-      <img src="View\Imagens/mundo.png" id="mundo_img" class="imgs"/>
-        <div  id="mensagem">
-          <div class="my-4 py-4">
-           <h2 class="display-4" id="titulo_mensagem">Aprender inglês pode te levar para onde você  quiser!</h2>     
-        </div>
+    <div id="mensagem">
+    <h2 class="display-4" id="titulo_mensagem">Aprender inglês pode te levar para onde você  quiser!</h2> 
+    </div> 
+    <img src="View\Imagens/mundo.png" id="mundo_img" class="mundo_img"/>
+  </div>
   </div>
   </div>
 
@@ -132,7 +132,7 @@
       <br>
       <a href="/contato"><button class="botao">Ver mais</button></a>
    </div>
-      <img src="View/Imagens/contato.png" id="contato_imagem" class="imgs">
+      <img src="View/Imagens/contato.png" id="contato_imagem" class="img">
   </div>
      
 </main>

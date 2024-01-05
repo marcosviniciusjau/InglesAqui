@@ -16,34 +16,32 @@ class ProdutoDAO  extends DAO
 
     public function insert(ProdutoModel $model)
     {
-        $sql = "INSERT INTO apostilas (nome, valor,descricao,id_hotmart, imagem) VALUES (?, ?, ?, ?,?) ";
+        $sql = "INSERT INTO apostila (nome, valor,descricao, imagem) VALUES (?, ?, ?, ?) ";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $model->nome);
         $stmt->bindValue(2, $model->valor);
         $stmt->bindValue(3, $model->descricao);
-        $stmt->bindValue(4, $model->id_hotmart);
-        $stmt->bindValue(5, $model->imagem);
+        $stmt->bindValue(4, $model->imagem);
         $stmt->execute();
     }
 
     public function update(ProdutoModel $model)
     {
-        $sql = "UPDATE apostilas SET nome=?,valor=?,descricao=?,id_hotmart=?, imagem=? WHERE id=? ";
+        $sql = "UPDATE apostila SET nome=?,valor=?,descricao=?, imagem=? WHERE id=? ";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $model->nome);
         $stmt->bindValue(2, $model->valor);
         $stmt->bindValue(3, $model->descricao);
-        $stmt->bindValue(4, $model->id_hotmart);
-        $stmt->bindValue(5, $model->imagem);
-        $stmt->bindValue(6, $model->id);
+        $stmt->bindValue(4, $model->imagem);
+        $stmt->bindValue(5, $model->id);
         $stmt->execute();
     }
 
     public function select()
     {
-        $sql = "SELECT * FROM apostilas";
+        $sql = "SELECT * FROM apostila";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
@@ -53,7 +51,7 @@ class ProdutoDAO  extends DAO
 
     public function getAllRowsId($id)
     {
-        $sql = "SELECT * FROM apostilas WHERE id<> ? and valor > 30";
+        $sql = "SELECT * FROM apostila WHERE id<> ? and valor > 30";
         $stmt = $this->conexao->prepare($sql);
        
         $stmt->bindValue(1,$id);
@@ -65,7 +63,7 @@ class ProdutoDAO  extends DAO
     public function getById($id)
     {
         try {
-            $stmt = $this->conexao->prepare("SELECT * FROM apostilas WHERE id = ?");
+            $stmt = $this->conexao->prepare("SELECT * FROM apostila WHERE id = ?");
             $stmt->bindValue(1, $id);
             $stmt->execute();
             return $stmt->fetchObject('App\Model\ProdutoModel');
@@ -78,7 +76,7 @@ class ProdutoDAO  extends DAO
     public function getByCategoryTrip($id)
     {
         try {
-            $stmt = $this->conexao->prepare("SELECT * FROM apostilas WHERE id in (1,3,5,6)");
+            $stmt = $this->conexao->prepare("SELECT * FROM apostila WHERE id in (1,3,5,6)");
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_CLASS,'App\Model\ProdutoModel');
             
@@ -90,7 +88,7 @@ class ProdutoDAO  extends DAO
       public function getByCategoryBusiness($id)
     {
         try {
-            $stmt = $this->conexao->prepare("SELECT * FROM apostilas WHERE id = 7");
+            $stmt = $this->conexao->prepare("SELECT * FROM apostila WHERE id = 7");
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_CLASS,'App\Model\ProdutoModel');
             
@@ -102,7 +100,7 @@ class ProdutoDAO  extends DAO
   public function getByCategoryLearn($id)
     {
         try {
-            $stmt = $this->conexao->prepare("SELECT * FROM apostilas WHERE id in (2,4)");
+            $stmt = $this->conexao->prepare("SELECT * FROM apostila WHERE id in (2,4)");
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_CLASS,'App\Model\ProdutoModel');
             
@@ -113,7 +111,7 @@ class ProdutoDAO  extends DAO
 
     public function delete(int $id)
     {
-        $sql = "DELETE FROM apostilas WHERE id = ? ";
+        $sql = "DELETE FROM apostila WHERE id = ? ";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $id);
