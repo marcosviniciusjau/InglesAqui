@@ -27,13 +27,15 @@
     <div class="d-md-flex flex-md-equal" id="division">
      <div id="contato">
         <div class="my">
-          <img src="/View/Uploads/<?= $model->imagem ?>" width="150" height="200"/>
+          <img src="/View/Uploads/<?= $model->image ?>" width="150" height="200"/>
          </div>
       </div>
       <div id="sobre">
-        <h2 id="titulo" class="display-5"> <?= $model->nome ?></h2>
-        <p id="valor" data-valor="<?= $model->valor ?>">R$ <?=number_format($model->valor,2, ',', '.') ?></p>
-       </div>
+        <h2 id="titulo" class="display-5"> <?= $model->name ?></h2>
+        <p id="valor" data-price="<?= $model->price ?>">R$ <?=number_format($model->price,2, ',', '.') ?></p>
+        <p id="descricao" data-description="<?= $model->description ?>"><?= $model->description ?></p>
+
+        </div>
       
 </div>
 <div class="container__form">

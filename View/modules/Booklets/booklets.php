@@ -76,11 +76,11 @@
       <div class="col">
   <div class="thumbnail">  
   <div class="card" style="width: 12rem;">
-   <img  src="/View/Uploads/<?= $item->imagem ?>" class="card"   width="100%" height="100%">
+   <img  src="/View/Uploads/<?= $item->image ?>" class="card"   width="100%" height="100%">
    
       <div class="card-body">
-      <h1 class="card-title" id="texto" data-nome="<?= $item->nome ?>" value="<?= $item->nome ?>"><?= $item->nome ?></h1>
-      <p class="card-text" id="valor" data-valor="<?= $item->valor ?>">  R$ <?=number_format($item->valor,2, ',', '.') ?></p>
+      <h1 class="card-title" id="texto" data-name="<?= $item->name ?>" value="<?= $item->name ?>"><?= $item->name ?></h1>
+      <p class="card-text" id="valor" data-price="<?= $item->price ?>">  R$ <?=number_format($item->price,2, ',', '.') ?></p>
       <a href="/apostilas_desc?id=<?= $item->id ?>"><button class="botao">Ver mais</button></a></button>
      
      </div>

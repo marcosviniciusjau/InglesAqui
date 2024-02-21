@@ -28,28 +28,28 @@
         <div class="row g-3">
             <div class="col-sm-6">
               <label class="form-label" for="nome">Nome</label>  
-              <input id="nome" name="nome" type="text" value="<?= $model->nome ?>" placeholder="Nome do Produto" class="form-control input-md">
+              <input id="name" name="name" type="text" value="<?= $model->name ?>" placeholder="Nome do Produto" class="form-control input-md">
         </div>
             </div>
 
       <div class="row g-3">
         <div class="col-sm-6">
           <label class="col-md-4 control-label" for="Valor">Valor</label>  
-          <input id="valor" name="valor" value="<?= $model->valor ?>" placeholder="Valor" class="form-control input-md">  
+          <input id="price" name="price" value="<?= $model->price ?>" placeholder="Valor" class="form-control input-md">  
     </div>
         </div>
 
       <div class="row g-3">
         <div class="col-sm-6">
-          <label class="col-md-4 control-label" for="descricao">Descrição</label>  
-          <input id="descricao" name="descricao"   value="<?= $model->descricao ?>" placeholder="Descriçao" class="form-control input-md">
+          <label class="col-md-4 control-label" for="description">Descrição</label>  
+          <input id="description" name="description"   value="<?= $model->description ?>" placeholder="Descriçao" class="form-control input-md">
       </div>
       </div>
 
       <div class="form-group">
         <label class="col-md-4 control-label" for="arquivo_up">Foto</label>
         <div class="col-md-4">  
-          <input id="arquivo_up" name="arquivo_up"  value="<?=  $model->imagem  ?>" class="input-file" type="file" >
+          <input id="arquivo_up" name="arquivo_up"  value="<?=  $model->image  ?>" class="input-file" type="file" >
         </div>
       </div>
        

@@ -1,51 +1,64 @@
 @import url("https://fonts.googleapis.com/css2?family=Forum&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+#descricao {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  color: black;
+  font-weight: 350;
+}
+
 @media (max-width: 510px) {
   body {
     background-image: url("/View/Imagens/fundo_celular.png");
   }
-#boleto-card {
-  display: flex;
-  border: 1px solid #ffffff;
-  border-radius: 20px;
-  gap:50px;
-}
+  #boleto-card {
+    display: flex;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+    gap: 50px;
+  }
+  #descricao {
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    color: black;
+    font-weight: 350;
+  }
 
- #pagamentos {
+  #pagamentos {
     display: flex;
     gap: 1px;
   }
   .cartao_icon {
-    width:25%;
-  display: flex;
-  border: 1px solid #ffffff;
-  border-radius: 20px;
-}
+    width: 25%;
+    display: flex;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+  }
 
-#cartoes{
- margin-top:30px;
- margin-left:-50px
-}
+  #cartoes {
+    margin-top: 30px;
+    margin-left: -50px;
+  }
 
-#outros_pag{
- margin-top:40px;
- margin-left:-45px
-}
-.boleto_icon {
-  display: flex;
-  
-    width:25%;
-  border: 1px solid #ffffff;
-  border-radius: 20px;
-}
-.pix_icon {
-  display: flex;
-  
-    width:25%;
-  border: 1px solid #ffffff;
-  border-radius: 20px;
-}
+  #outros_pag {
+    margin-top: 40px;
+    margin-left: -45px;
+  }
+  .boleto_icon {
+    display: flex;
+
+    width: 25%;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+  }
+  .pix_icon {
+    display: flex;
+
+    width: 25%;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+  }
 }
 body {
   margin: 0;
@@ -108,7 +121,6 @@ body {
   gap: 168px;
 }
 
-
 #installments {
   display: flex;
   align-items: center;
@@ -126,7 +138,7 @@ body {
 #expMonth,
 #expYear,
 #cvv,
-#cvvDebit ,
+#cvvDebit,
 #estado,
 #numero_casa,
 #area_code,
@@ -174,9 +186,9 @@ body {
 #labels {
   display: block;
 }
-.row{
-  padding-top:20px;
-  column-gap:100px;
+.row {
+  padding-top: 20px;
+  column-gap: 100px;
 }
 @media (min-width: 769px) {
   #col {
@@ -191,31 +203,31 @@ body {
   select {
     width: 50%;
   }
-  
-#boleto-card {
-  display: flex;
-  width: 20%;
-  border: 1px solid #ffffff;
-  border-radius: 20px;
-}
-.cartao_icon {
-  display: flex;
-  gap: 8px;
-  border: 1px solid #ffffff;
-  border-radius: 20px;
-}
-.boleto_icon {
-  display: flex;
-  gap: 8px;
-  border: 1px solid #ffffff;
-  border-radius: 20px;
-}
-.pix_icon {
-  display: flex;
-  gap: 8px;
-  border: 1px solid #ffffff;
-  border-radius: 20px;
-}
+
+  #boleto-card {
+    display: flex;
+    width: 20%;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+  }
+  .cartao_icon {
+    display: flex;
+    gap: 8px;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+  }
+  .boleto_icon {
+    display: flex;
+    gap: 8px;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+  }
+  .pix_icon {
+    display: flex;
+    gap: 8px;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+  }
 }
 
 input,
@@ -314,8 +326,7 @@ select,
 }
 
 #cvvError,
-#cvvErrorDebit
-#cardNumberError,
+#cvvErrorDebit #cardNumberError,
 #cardNumberDebitError,
 #dateError,
 #dateErrorDebit,

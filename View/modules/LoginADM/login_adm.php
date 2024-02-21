@@ -21,12 +21,12 @@
 				<div class="error" id="email-invalid-error">Dados Inválidos</div>
 				<br><br>
 				<div class="form-row">
-					<input type="email" name="email_adm" id="email_adm" class="input-text" placeholder="Email" onchange="onChangeEmail() required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" required>
+					<input type="email" name="email" id="email" class="input-text" placeholder="Email" onchange="onChangeEmail() required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" required>
 				</div>
 				<br>
 
 				<div class="form-row">
-					<input type="password" name="senha_adm" id="senha_adm" class="input-text" placeholder="Senha" required>
+					<input type="password" name="password" id="password" class="input-text" placeholder="Senha" required>
 				</div>	
 				<br>
 				<div class="form-row-last">

@@ -9,17 +9,9 @@
     <title>Meus Dados</title>
     <link rel="icon" href="/View/Imagens/icon.png" type="image/icon type">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    
-    
-
-    
-
-<link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-
-
+    <link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
 <style type="text/css">
- 
   
     body {
     margin: 0;
@@ -96,20 +88,12 @@
 
   </style>
 
-
-
-
-
 <?php include PATH_VIEW . 'includes/cabecalho.php' ?>
   <br><br><br>
 <body>
 <body>
 <div id="global">
-
-   
-
 <main class="container mt-3">
-
     <h4>
         Meus Dados
     </h4>
@@ -132,17 +116,13 @@
         </div>
     <?php endif ?>
 
-
-
     <form method="post" action="/adm/meus-dados-adm/salvar" enctype="multipart/form-data">
     
- 
         <div class="form-row">
-            <div class="form-group col-md-6">
-             
+            <div class="form-group col-md-6">    
             <div class="form-group col-md-6">
                 <label for="email">E-mail: </label>
-                <input name="email" class="form-control" value="<?= $meus_dados->email_adm ?>" type="email" required />
+                <input name="email" class="form-control" value="<?= $meus_dados->email ?>" type="email" required />
             </div>
         </div>
 <br>
@@ -151,11 +131,11 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="nova_senha">Nova Senha: </label>
-                    <input name="nova_senha" class="form-control" type="password" placeholder="Alteração de senha é opcional" />
+                    <input name="password" class="form-control" type="password" placeholder="Alteração de senha é opcional" />
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="confirmacao_nova_senha">Confirme a Nova Senha: </label>
-                    <input name="confirmacao_nova_senha" class="form-control" type="password" />
+                    <label for="confirm_password">Confirme a Nova Senha: </label>
+                    <input name="confirm_password" class="form-control" type="password" />
                 </div>
             </div>
         </fieldset>

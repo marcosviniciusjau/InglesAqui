@@ -4,15 +4,12 @@ namespace App\DAO;
 use App\Model\ADMModel;
 class ADMDAO extends DAO
 {
-    /**
-     * Cria uma novo objeto para fazer o CRUD dos Usuário
-     */
+
     public function __construct()
     {
         parent::__construct();
     }
 
-  
     public function getById($id)
     {
         try 
@@ -31,18 +28,18 @@ class ADMDAO extends DAO
 
     public function update(ADMModel $model)
     {
-        $sql = "UPDATE adm SET  email_adm=?,senha_adm=sha1(?) where id=?";
+        $sql = "UPDATE adm SET  email=?,password=sha2(?) where id=?";
         $stmt = $this->conexao->prepare($sql);
     
-        $stmt->bindValue(1, $model->email_adm);
-        $stmt->bindValue(2, $model->senha_adm);
+        $stmt->bindValue(1, $model->email);
+        $stmt->bindValue(2, $model->password);
         $stmt->bindValue(3, $model->id);
         $stmt->execute();
     }
 
     public function getAllRows() 
     {
-        $sql = "SELECT id, email_adm , senha_adm FROM adm";
+        $sql = "SELECT id, email , password FROM adm";
         
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
@@ -63,18 +60,18 @@ class ADMDAO extends DAO
 
     public function getMyUserById($id) 
     {
-        $stmt = $this->conexao->prepare("SELECT id, email_adm, senha_adm FROM adm WHERE id = ?");
+        $stmt = $this->conexao->prepare("SELECT id, email, password FROM adm WHERE id = ?");
         $stmt->bindValue(1, $id);
         $stmt->execute();
 
         return $stmt->fetchObject();            
     }
 
-    public function checkUserByIdAndPassword($id, $senha)
+    public function checkUserByIdAndPassword($id, $password)
     {
-        $stmt = $this->conexao->prepare("SELECT id FROM adm WHERE id = ? AND senha = sha1(?)");
+        $stmt = $this->conexao->prepare("SELECT id FROM adm WHERE id = ? AND password = sha2(?)");
         $stmt->bindValue(1, $id);
-        $stmt->bindValue(2, $senha);
+        $stmt->bindValue(2, $password);
         $stmt->execute();
 
         return $stmt->fetchObject();
@@ -89,9 +86,6 @@ class ADMDAO extends DAO
 
         $dados = $stmt->fetchObject();
 
-        // Caso retorne um id, verificar se o id pertence ao proprio usuário que
-        // está sendo editado. Se pertencer a outro usuário, acusará email já
-        // vinculado a outro usuário.
         if(is_object($dados))
         {
             if($id_usuario == $dados->id)

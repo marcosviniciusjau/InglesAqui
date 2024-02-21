@@ -6,7 +6,7 @@ use App\DAO\ADMDAO;
 
 class ADMModel extends Model
 {
-    public $id, $email_adm, $senha_adm;
+    public $id, $email, $password;
 
     public function save()
     {
@@ -43,7 +43,7 @@ class ADMModel extends Model
             if(is_object($dados_adm))
                 return $dados_adm;
             else 
-                throw new Exception("Produto não encontrado.");
+                throw new Exception("User not fouhd.");
 
         } catch (Exception $e) {
 

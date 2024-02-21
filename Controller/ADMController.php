@@ -12,6 +12,7 @@ use Exception;
 
 class ADMController extends Controller
 {
+    
 public static function meusDados()
     {
         $model = new ADMModel();

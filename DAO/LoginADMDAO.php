@@ -10,29 +10,33 @@ class LoginADMDAO extends DAO
         parent::__construct();       
     }
 
-    public function setNewPasswordForUserByEmail($email_adm, $novasenha_adm)
+    public function setNewPasswordForUserByEmail($email, $newpassword)
     {
-        $sql = "UPDATE adm SET senha_adm = :senha_adm WHERE email_adm = :email_adm";
+        $sql = "UPDATE adm SET password = :password WHERE email = :email";
         
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(':senha_adm', password_hash($novasenha_adm, PASSWORD_DEFAULT));
-        $stmt->bindValue(':email_adm', $email_adm);
+        $stmt->bindValue(':password', password_hash($newpassword, PASSWORD_DEFAULT));
+        $stmt->bindValue(':email', $email);
         $stmt->execute();
     }
     
-    public function getByEmailAndSenha($email_adm, $senha_adm)
-    {
-        $sql = "SELECT id, email_adm, senha_adm
-        FROM adm
-        WHERE email_adm = :email_adm AND senha_adm = :senha_adm";
+    public function getByEmailAndPassword($email, $password)
+{
+    $sql = "SELECT id, email, password
+            FROM adm
+            WHERE email = :email";
 
-        $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(':email_adm', $email_adm);
-        $stmt->bindValue(':senha_adm', $senha_adm);
-        $stmt->execute();
+    $stmt = $this->conexao->prepare($sql);
+    $stmt->bindValue(':email', $email);
+    $stmt->execute();
 
-        $dados_usuario = $stmt->fetchObject();
+    $user_data = $stmt->fetchObject();
 
-        return $dados_usuario;
+    if ($user_data && password_verify($password, $user_data->password)) {
+        return $user_data;
+    } else {
+        return null; 
     }
+}
+
 }

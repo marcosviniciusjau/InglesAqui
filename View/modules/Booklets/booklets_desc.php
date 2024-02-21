@@ -23,15 +23,15 @@
     <div class="d-md-flex flex-md-equal">
       <div id="contato">
         <div class="my">
-          <img src="/View/Uploads/<?= $model->imagem ?>" width="250" height="450"/>
+          <img src="/View/Uploads/<?= $model->image ?>" width="250" height="450"/>
          </div>
       </div>
 
       <div id="sobre">
-        <h2 id="nome" class="display-5" data-nome="<?= $model->nome ?>"> <?= $model->nome ?></h2>
-        <p id="valor" data-valor="<?= $model->valor ?>">R$ <?=number_format($model->valor,2, ',', '.') ?></p>
+        <h2 id="nome" class="display-5" data-nome="<?= $model->name ?>"> <?= $model->name ?></h2>
+        <p id="valor" data-valor="<?= $model->price ?>">R$ <?=number_format($model->price,2, ',', '.') ?></p>
         <p id="titulo">Descrição:</p>
-        <p id="descricao" data-descricao="<?= $model->descricao ?>"><?= $model->descricao ?></p>
+        <p id="descricao" data-descricao="<?= $model->description ?>"><?= $model->description ?></p>
    <br>
 
 
@@ -45,17 +45,17 @@
  
   <div class="container ">
     <div class="row">
-     <?php foreach($model->array_produtos as $item1): ?>
+     <?php foreach($model->array_products as $item1): ?>
 
       <input type="hidden" id="id" value="<?= $item1->id ?>" name="id" data-id="<?= $item1->id ?>"/>
         <div class="col">
           <div class="thumbnail">  
            <div class="card" style="width: 13rem;">
-            <img  src="/View/Uploads/<?= $item1->imagem ?>" class="card-img-top"  alt="...">
+            <img  src="/View/Uploads/<?= $item1->image ?>" class="card-img-top"  alt="...">
      
          <div class="card-body">
-           <h1 class="card-title" id="nome_1"  data-nome_1="<?= $model->nome_1 ?>"><?= $item1->nome ?></h1>
-             <p class="card-text" id="valor_1"  data-valor_1="<?= $model->valor_1 ?>">  R$ <?=number_format($item1->valor,2, ',', '.') ?></p>
+           <h1 class="card-title" id="nome_1"  data-nome_1="<?= $model->nome_1 ?>"><?= $item1->name ?></h1>
+             <p class="card-text" id="valor_1"  data-valor_1="<?= $model->valor_1 ?>">  R$ <?=number_format($item1->price,2, ',', '.') ?></p>
       
              <a href="/apostilas_desc?id=<?= $item1->id ?>"><button class="botao" onClick="adicionarArray()">Ver mais</button></a>
        </div>

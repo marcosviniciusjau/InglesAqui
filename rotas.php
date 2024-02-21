@@ -1,6 +1,6 @@
 <?php
 
-use App\Controller\{HomeController,ApostilasController,ProdutoController,
+use App\Controller\{HomeController,BookletsController,ProductController,
     ContatoController,LoginADMController,TelaADMController,CadastrosController,ADMController};
 
     $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -12,75 +12,76 @@ use App\Controller\{HomeController,ApostilasController,ProdutoController,
         break;
             
         case '/apostilas':
-            ApostilasController::index();
+            BookletsController::index();
         break;
+
          case '/apostilas/carrinho':
-            ApostilasController::carrinho();
+            BookletsController::cart();
         break;
        
         
         case '/apostilas_category/trip':
-            ApostilasController::categoryTrip();
+            BookletsController::categoryTrip();
         break;
 
         case '/apostilas_category/business':
-            ApostilasController::categoryBusiness();
+            BookletsController::categoryBusiness();
         break;
 
         case '/apostilas_category/learn':
-            ApostilasController::categoryLearn();
+            BookletsController::categoryLearn();
         break;
 
         case '/apostilas_desc':
-            ApostilasController::ver();
+            BookletsController::see();
         break;
 
          case '/pagamento':
-            ApostilasController::pagamento();
+            BookletsController::payment();
         break;
 
         case '/pagamento/credit_card':
-            ApostilasController::pagamentoCreditCard();
+            BookletsController::pagamentoCreditCard();
         break;
          case '/pagamento/debit_card':
-            ApostilasController::pagamentoDebitCard();
+            BookletsController::pagamentoDebitCard();
         break;
 
           case '/pagamento/boleto':
-            ApostilasController::pagamentoBoleto();
+            BookletsController::pagamentoBoleto();
         break;
 
          case '/pagamento/pix':
-            ApostilasController::pagamentoPix();
+            BookletsController::pagamentoPix();
         break;
 
 
          case '/pagamento/sucesso':
-            ApostilasController::enviarPagamentoSucesso();
+            BookletsController::enviarPagamentoSucesso();
         break;
 
         case '/pagamento/enviar':
-            ApostilasController::enviarPagamento();
+            BookletsController::enviarPagamento();
             break;
 
         case '/produto':
-            ProdutoController::index();
+            ProductController::index();
         break;
     
         case '/produto/form':
-            ProdutoController::form();
+            ProductController::form();
         break;
     
         case '/produto/form/save':
-            ProdutoController::save();
+            ProductController::save();
         break;
 
         case '/produto/ver':
-            ProdutoController::ver();                       
+            ProductController::ver();                       
         break;
 
         case '/produto/delete':
-            ProdutoController::delete();
+            ProductController::delete();
         break;
         
         case '/tela-adm/meus-dados-adm':

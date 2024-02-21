@@ -18,12 +18,12 @@ class LoginADMController extends Controller
 
     public static function autenticar()
     {
-        $email_adm = filter_input(INPUT_POST, 'email_adm', FILTER_VALIDATE_EMAIL);
-        $senha_adm = filter_input(INPUT_POST, 'senha_adm');
+        $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+        $password = filter_input(INPUT_POST, 'password');
 
-        if ($email_adm && $senha_adm) {
+        if ($email && $password) {
             $login_dao = new LoginADMDAO();
-            $resultado = $login_dao->getByEmailAndSenha($email_adm, $senha_adm);
+            $resultado = $login_dao->getByEmailAndPassword($email, $password);
 
             if ($resultado !== false) {
                 $_SESSION["adm_logado"] = (array) $resultado;
@@ -55,12 +55,12 @@ class LoginADMController extends Controller
 
     public static function getEmalOfCurrentUser()
     {
-        return htmlspecialchars($_SESSION['adm_logado']['email_adm']);
+        return htmlspecialchars($_SESSION['adm_logado']['email']);
     }
 
-    public static function updateNameOfCurrentUser($email_adm)
+    public static function updateNameOfCurrentUser($email)
     {
-        $_SESSION['adm_logado']['email_adm'] = $email_adm;
+        $_SESSION['adm_logado']['email'] = $email;
     }
 
     public static function getIdOfCurrentUser()

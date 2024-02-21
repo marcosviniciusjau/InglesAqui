@@ -2,29 +2,29 @@
 
 namespace App\Controller;
 
-use App\Model\ApostilasModel;
-use App\Model\ProdutoModel;
+use App\Model\BookletsModel;
 
 use GuzzleHttp\Client;
 use React\EventLoop\Factory;
+
 error_reporting(0);
 ini_set('display_errors', 0);
 
-class ApostilasController extends Controller
+class BookletsController extends Controller
 {
     public static function index()
     {
-        $model = new ApostilasModel();
+        $model = new BookletsModel();
         $model->getAllRows();
 
-        parent::render('Apostilas/apostilas',$model);
+        parent::render('Booklets/booklets',$model);
     }
 
-    public static function ver()
+    public static function see()
     {    
         try {
             if (isset($_GET['id'])) {
-                $model = new ProdutoModel();
+                $model = new BookletsModel();
 
                 $dados = $model->getById((int) $_GET['id']);
               
@@ -35,29 +35,56 @@ class ApostilasController extends Controller
         }
     }
 
-    public static function desc(ProdutoModel $_model = null)
+    public static function desc(BookletsModel $_model = null)
     {
-        $model = ($_model == null) ? new ProdutoModel() : $_model;
+        $model = ($_model == null) ? new BookletsModel() : $_model;
        
         $model->getAllRowsId((int) $_GET['id']);
 
-        parent::render('Apostilas/apostilas_desc' ,$model);
-
+        parent::render('Booklets/booklets_desc' ,$model);
     }
- public static function carrinho()
+
+    
+    public static function categoryTrip()
     {
-        parent::render('Apostilas/carrinho' );
+        $model =  new BookletsModel();
+       
+        $model->getByCategoryTrip((int) $_GET['id']);
+
+        parent::render('Booklets/booklets',$model);
+    }
+
+    public static function categoryBusiness()
+    {
+        $model =  new BookletsModel();
+        $model->getByCategoryBusiness((int) $_GET['id']);
+
+        parent::render('Booklets/booklets',$model);
+    }
+
+    public static function categoryLearn()
+    {
+        $model =  new BookletsModel();
+        $model->getByCategoryLearn((int) $_GET['id']);
+
+        parent::render('Booklets/booklets',$model);
     }
     
-    public static function pagamento()
+
+    public static function cart()
+    {
+        parent::render('Booklets/cart' );
+    }
+    
+    public static function payment()
     {
         try {
             if (isset($_GET['id'])) {
-                $model = new ProdutoModel();
+                $model = new BookletsModel();
 
                 $dados = $model->getById((int) $_GET['id']);
               
-                parent::render('Apostilas/pagamento' ,$dados);
+                parent::render('Booklets/payment' ,$dados);
         } 
         } catch (Exception $e) {  
          parent::render('Home/erro');
@@ -236,7 +263,8 @@ class ApostilasController extends Controller
 
         require_once  './email.php';
        
-        parent::render('Apostilas/sucesso', $id,$model,$max);
+        parent::render('Booklets/success
+        ', $id,$model,$max);
     
      
        
@@ -419,7 +447,8 @@ class ApostilasController extends Controller
     
         $max = renderDeliveryMax($responseDataMelhorEnvio);
         require_once  './email.php';
-        parent::render('Apostilas/sucesso', $id,$model,$max);
+        parent::render('Booklets/success
+        ', $id,$model,$max);
   
     }
      catch (\Exception $exception) {
@@ -461,20 +490,21 @@ class ApostilasController extends Controller
         $dataFormatada = $dataFutura->format('Y-m-d\TH:i:s\Z');
 
         function adicionarDiasUteis($dataInicial, $diasUteis) {
-    $dataAtual = new \DateTime($dataInicial);
+        $dataAtual = new \DateTime($dataInicial);
 
-    for ($i = 0; $i < $diasUteis; $i++) {
-        $dataAtual->add(new \DateInterval('P1D'));
-
-        // Verificar se o dia adicionado é um fim de semana (sábado ou domingo)
-        while ($dataAtual->format('N') >= 6) {
+        for ($i = 0; $i < $diasUteis; $i++) {
             $dataAtual->add(new \DateInterval('P1D'));
-        }
-    }
 
-    return $dataAtual->format('Y-m-d');
-}
-$diasUteis = adicionarDiasUteis($dataAtual->format('Y-m-d'), 3);
+            // Verificar se o dia adicionado é um fim de semana (sábado ou domingo)
+            while ($dataAtual->format('N') >= 6) {
+                $dataAtual->add(new \DateInterval('P1D'));
+            }
+        }
+
+        return $dataAtual->format('Y-m-d');
+    }
+    
+    $diasUteis = adicionarDiasUteis($dataAtual->format('Y-m-d'), 3);
 
      $responseBoleto = $client->request('POST', 'https://api.pagar.me/core/v5/orders', [
         'body' => json_encode([
@@ -585,7 +615,7 @@ $diasUteis = adicionarDiasUteis($dataAtual->format('Y-m-d'), 3);
         $max = renderDeliveryMax($responseDataMelhorEnvio);
 /** */
         require_once  './email_boleto.php';
-        parent::render('Apostilas/boleto', $model, $id);
+        parent::render('Booklets/boleto', $model, $id);
      
        
     }
@@ -687,7 +717,7 @@ $diasUteis = adicionarDiasUteis($dataAtual->format('Y-m-d'), 3);
         $model = $responseDataPix['charges'][0]['last_transaction']['qr_code_url'];
         $id= $responseDataPix['charges'][0]['last_transaction']['qr_code'];
         require_once  './email_pix.php';
-        parent::render("Apostilas/codigo_pix", $model,$id);
+        parent::render("Booklets/codigo_pix", $model,$id);
 
         $responseMelhorEnvio = $client->request('POST', 'https://sandbox.melhorenvio.com.br/api/v2/me/cart', [
             'body' => json_encode(["service"=> 1,
@@ -722,36 +752,13 @@ $diasUteis = adicionarDiasUteis($dataAtual->format('Y-m-d'), 3);
     parent::render("Home/erro");
     }
     }
-    public static function enviarPagamentoSucesso(){
+    public static function sendPaymentSuccess()
+    {
     
-       parent::render('Apostilas/sucesso', $orderId);
+       parent::render('Booklets/success
+       ', $orderId);
     }
   
-    
-    public static function categoryTrip()
-    {
-        $model =  new ProdutoModel();
-       
-        $model->getByCategoryTrip((int) $_GET['id']);
-
-        parent::render('Apostilas/apostilas',$model);
-    }
-
-    public static function categoryBusiness()
-    {
-        $model =  new ProdutoModel();
-        $model->getByCategoryBusiness((int) $_GET['id']);
-
-        parent::render('Apostilas/apostilas',$model);
-    }
-
-    public static function categoryLearn()
-    {
-        $model =  new ProdutoModel();
-        $model->getByCategoryLearn((int) $_GET['id']);
-
-        parent::render('Apostilas/apostilas',$model);
-    }
     
 
 }
