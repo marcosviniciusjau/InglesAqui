@@ -18,7 +18,7 @@ class ProductController extends Controller
        
         $model->getAllRows();
         
-       parent::render('Produto/ListaProduto', $model);
+       parent::render('Product/ListaProduct', $model);
     }
 
     
@@ -26,8 +26,7 @@ class ProductController extends Controller
     {
         parent::isprotected();
         $model = ($_model == null) ? new BookletsModel() : $_model;
-
-        include PATH_VIEW . 'modules/Produto/FormProduto.php';
+        include PATH_VIEW . 'modules/Product/FormProduct.php';
     }
    
     public static function save()
@@ -43,7 +42,6 @@ class ProductController extends Controller
     
             $arquivo = $_FILES['arquivo_up'];
     
-            // Valida o arquivo
             if ($arquivo['size'] > 1000000) {
                 throw new Exception("O arquivo é muito grande. O tamanho máximo permitido é 10MB.");
             }
@@ -64,7 +62,6 @@ class ProductController extends Controller
                 throw new Exception("Falha ao carregar a imagem.");
             }
 
-            // Salva a imagem redimensionada
             if (imagepng($image, UPLOADS . $nome_unico) === false) {
                 throw new Exception("Falha ao salvar a imagem.");
             }
@@ -78,10 +75,8 @@ class ProductController extends Controller
         } catch (Exception $e) {
             echo $e->getMessage();
         }
-    
         header('Location: /produto');
     }
-
 
     public static function ver()
     { 

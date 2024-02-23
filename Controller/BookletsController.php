@@ -91,7 +91,7 @@ class BookletsController extends Controller
         }
     }
 
-    public static function pagamentoCreditCard(){
+    public static function paymentCreditCard(){
 
     require_once  './vendor/autoload.php';
     $tokenPagarMe= getenv("TOKEN_PAGAR_ME");
@@ -108,13 +108,13 @@ class BookletsController extends Controller
         $number= $_POST['number'] ?? '';
         $document= $_POST['document'] ?? '';
         $service= $_POST['transportadoras'];
-        $valor= $_POST['valor'] ?? '';
-        $totalCompra= $service + $valor;
+        $amount= $_POST['amount'] ?? '';
+        $totalPurchase= $service + $valor;
         $description = $_POST['nome'] ?? '';
         $installments= $_POST['installments'] ?? '';
         $code = $_POST['id'] ?? '';
         $payment_method= $_POST['visibility'];
-        $descricao= $_POST['descricao'];
+        $description= $_POST['description'];
         $country= $_POST['country'];
         $state= $_POST['state'];
         $city= $_POST['city'];
@@ -129,7 +129,7 @@ class BookletsController extends Controller
                     'email' => $email,
                 ],
                 "items" => [
-                    'amount' => (float)$totalCompra,
+                    'amount' => (float)$totalPurchase,
                     'description' => $description,
                     'code' => $code,
                 ],
@@ -147,9 +147,9 @@ class BookletsController extends Controller
             ],
         ]);
         
-        $responseBodyToken = $responseToken->getBody()->getContents();
-        $responseDataToken = json_decode($responseBodyToken, true);
-        $tokenId = $responseDataToken['id'];
+      $responseBodyToken = $responseToken->getBody()->getContents();
+      $responseDataToken = json_decode($responseBodyToken, true);
+      $tokenId = $responseDataToken['id'];
         
     $responseOrder = $client->request('POST', 'https://api.pagar.me/core/v5/orders', [
         'body' => json_encode([
@@ -170,7 +170,7 @@ class BookletsController extends Controller
                 
             'items' => [
                 [
-                    'amount' => (float)$totalCompra * 100,
+                    'amount' => (float)$totalPurchase * 100,
                     'description'=> $description,
                     'quantity' => 1,
                     'code' => $code,
@@ -196,8 +196,7 @@ class BookletsController extends Controller
                 ],
                 'payment_method' => 'credit_card',
             ],
-            ],
-            
+            ],    
         ]),
             'headers' => [
                 'accept' => 'application/json',
@@ -207,10 +206,10 @@ class BookletsController extends Controller
         ]);
 
         $responseOrder->getBody();
-       $responseBodyOrder = $responseOrder->getBody()->getContents();
-       $responseDataOrder = json_decode($responseBodyOrder, true);
+        $responseBodyOrder = $responseOrder->getBody()->getContents();
+        $responseDataOrder = json_decode($responseBodyOrder, true);
        
-    $produtos = [
+    $products = [
                 "products" => [
                     [
                         "name" => $name,
@@ -220,37 +219,35 @@ class BookletsController extends Controller
                 ],
         ];
         
-        $responseMelhorEnvio = $client->request('POST', 'https://sandbox.melhorenvio.com.br/api/v2/me/cart', [
+    $responseMelhorEnvio = $client->request('POST', 'https://sandbox.melhorenvio.com.br/api/v2/me/cart', [
             'body' => json_encode(["service"=> 1,
             "from"=>
             ["name"=>"Marcos Vinicius","phone"=>"",
                 "email"=>"","document"=>"","address"=>"","city"=>"Jaú",
                 "country_id"=>"BR","postal_code"=>"","state_abbr"=>"SP"],
-                "to"=>["name"=>$name,"phone"=>$number,"email"=>$email,"document"=>$document, "address"=>$line_1,"number"=>$numero_casa,"city"=>$city,"country_id"=>$country,"postal_code"=>$zip_code,"state_abbr"=>$state],
-                $produtos,
+                "to"=>["name"=>$name,"phone"=>$number,"email"=>$email,"document"=>$document, "address"=>$line_1,"number"=>$house_number,"city"=>$city,"country_id"=>$country,"postal_code"=>$zip_code,"state_abbr"=>$state],
+                $products,
                 "volumes"=>(["height"=>23,"width"=>26,"length"=>5,"weight"=>0.3]),
 
             ]),
 
-  'headers' => [
-    'Accept' => 'application/json',
-    'Authorization' => 'Bearer ',
-    'Content-Type' => 'application/json',
-    'User-Agent' => 'Aplicação (email para contato técnico)',
-    ],
-]);  
+            'headers' => [
+                'Accept' => 'application/json',
+                'Authorization' => 'Bearer ',
+                'Content-Type' => 'application/json',
+                'User-Agent' => 'Aplicação (email para contato técnico)',
+                ],
+            ]);  
 
     function renderDeliveryMin($responseDataMelhorEnvio)
     {
         $delivery_min = $responseDataMelhorEnvio['delivery_min'];
-
         return $delivery_min . ' dias';
     }
 
     function renderDeliveryMax($responseDataMelhorEnvio)
     {
         $delivery_max = $responseDataMelhorEnvio['delivery_max'];
-
         return $delivery_max . ' dias';
     }
 
@@ -258,23 +255,17 @@ class BookletsController extends Controller
        $responseDataMelhorEnvio = json_decode($responseBodyMelhorEnvio, true);
        $id= array_shift($responseDataMelhorEnvio);
        $model = renderDeliveryMin($responseDataMelhorEnvio);
-    
-        $max = renderDeliveryMax($responseDataMelhorEnvio);
-
-        require_once  './email.php';
+       $max = renderDeliveryMax($responseDataMelhorEnvio);
+       require_once  './email.php';
        
-        parent::render('Booklets/success
-        ', $id,$model,$max);
-    
-     
-       
+       parent::render('Booklets/success', $id,$model,$max);  
     }
      catch (\Exception $exception) {
      echo json_encode(['error' => $exception->getMessage()]);
     }   
 }
 
- public static function pagamentoDebitCard(){
+ public static function paymentDebitCard(){
 
     require_once  './vendor/autoload.php';
     $tokenPagarMe= getenv("TOKEN_PAGAR_ME");
@@ -293,12 +284,12 @@ class BookletsController extends Controller
         $firstSixDigits = substr($cardNumber, 0, 6);
         $lastFourDigits = substr($cardNumber, -4);
         $document= $_POST['document'] ?? '';
-        $valor = $_POST['totalCompraDebit'] ?? '';
+        $valor = $_POST['totalPurchaseDebit'] ?? '';
         $description = $_POST['nome'] ?? '';
         $installments= $_POST['installments'] ?? '';
         $code = $_POST['id'] ?? '';
         $payment_method= $_POST['visibility'];
-        $descricao= $_POST['descricao'];
+        $description= $_POST['description'];
         $country= $_POST['country'];
         $state= $_POST['state'];
         $city= $_POST['city'];
@@ -330,6 +321,7 @@ class BookletsController extends Controller
                 'content-type' => 'application/json',
             ],
         ]);
+
         $responseBodyTokenDebit = $responseTokenDebit->getBody()->getContents();
         $responseDataTokenDebit = json_decode($responseBodyTokenDebit, true);
         $tokenIdDebit = $responseDataTokenDebit['id'];
@@ -394,7 +386,7 @@ class BookletsController extends Controller
             ],
         ]);
   
-        $produtos = [
+        $products = [
                 "products" => [
                     [
                         "name" => $name,
@@ -410,19 +402,18 @@ class BookletsController extends Controller
             ["name"=>"Marcos Vinicius","phone"=>"",
                 "email"=>"","document"=>"","address"=>"","city"=>"Jaú",
                 "country_id"=>"BR","postal_code"=>"","state_abbr"=>"SP"],
-                "to"=>["name"=>$name,"phone"=>$number,"email"=>$email,"document"=>$document, "address"=>$line_1,"number"=>$numero_casa,"city"=>$city,"country_id"=>$country,"postal_code"=>$zip_code,"state_abbr"=>$state],
-                $produtos,
+                "to"=>["name"=>$name,"phone"=>$number,"email"=>$email,"document"=>$document, "address"=>$line_1,"number"=>$house_number,"city"=>$city,"country_id"=>$country,"postal_code"=>$zip_code,"state_abbr"=>$state],
+                $products,
                 "volumes"=>(["height"=>23,"width"=>26,"length"=>5,"weight"=>0.3]),
-
             ]),
 
-  'headers' => [
-    'Accept' => 'application/json',
-    'Authorization' => 'Bearer ',
-    'Content-Type' => 'application/json',
-    'User-Agent' => 'Aplicação (email para contato técnico)',
-    ],
-]);  
+            'headers' => [
+                'Accept' => 'application/json',
+                'Authorization' => 'Bearer ',
+                'Content-Type' => 'application/json',
+                'User-Agent' => 'Aplicação (email para contato técnico)',
+                ],
+            ]);  
 
     function renderDeliveryMin($responseDataMelhorEnvio)
     {
@@ -447,8 +438,7 @@ class BookletsController extends Controller
     
         $max = renderDeliveryMax($responseDataMelhorEnvio);
         require_once  './email.php';
-        parent::render('Booklets/success
-        ', $id,$model,$max);
+        parent::render('Booklets/success', $id,$model,$max);
   
     }
      catch (\Exception $exception) {
@@ -456,7 +446,7 @@ class BookletsController extends Controller
 }
 }
 
-    public static function pagamentoBoleto(){
+    public static function paymentTicket(){
         
     require_once  './vendor/autoload.php';
     
@@ -470,43 +460,40 @@ class BookletsController extends Controller
         $area_code= $_POST['area_code'] ?? '';
         $number= $_POST['number'] ?? '';
         $document= $_POST['document'] ?? '';
-        $valor = $_POST['totalCompraBoleto'] ?? '' ;
+        $amount = $_POST['totalPurchaseBoleto'] ?? '' ;
         $service= $_POST['transportadoras'];
         $description = $_POST['nome'] ?? '';
         $installments= $_POST['installments'] ?? '';
         $code = $_POST['id'] ?? '';
         $payment_method= $_POST['visibility'];
-        $descricao= $_POST['descricao'];
+        $description= $_POST['description'];
         $country= $_POST['country'];
         $state= $_POST['state'];
         $city= $_POST['city'];
         $zip_code= $_POST['zip_code'];
-        $numero_casa= $_POST['numero_casa'];
+        $house_number= $_POST['house_number'];
         $line_1= $_POST['line_1'];
         $complemento= $_POST['complemento'];
-        $dataAtual = new \DateTime();
-        $dataFutura = $dataAtual->add(new \DateInterval('P3D'));
+        $actualDate = new \DateTime();
+        $futureDate = $actualDate->add(new \DateInterval('P3D'));
 
-        $dataFormatada = $dataFutura->format('Y-m-d\TH:i:s\Z');
+        $formmatedDate = $futureDate->format('Y-m-d\TH:i:s\Z');
 
-        function adicionarDiasUteis($dataInicial, $diasUteis) {
-        $dataAtual = new \DateTime($dataInicial);
-
+        function adicionarDiasUteis($inicialDate, $diasUteis) {
+        $actualDate = new \DateTime($inicialDate);
         for ($i = 0; $i < $diasUteis; $i++) {
-            $dataAtual->add(new \DateInterval('P1D'));
+            $actualDate->add(new \DateInterval('P1D'));
 
-            // Verificar se o dia adicionado é um fim de semana (sábado ou domingo)
-            while ($dataAtual->format('N') >= 6) {
-                $dataAtual->add(new \DateInterval('P1D'));
+           while ($actualDate->format('N') >= 6) {
+                $actualDate->add(new \DateInterval('P1D'));
             }
         }
-
-        return $dataAtual->format('Y-m-d');
+        return $actualDate->format('Y-m-d');
     }
     
-    $diasUteis = adicionarDiasUteis($dataAtual->format('Y-m-d'), 3);
+    $diasUteis = adicionarDiasUteis($actualDate->format('Y-m-d'), 3);
 
-     $responseBoleto = $client->request('POST', 'https://api.pagar.me/core/v5/orders', [
+     $responseTicket = $client->request('POST', 'https://api.pagar.me/core/v5/orders', [
         'body' => json_encode([
             'customer' => [
                 'address'=>[
@@ -533,7 +520,7 @@ class BookletsController extends Controller
                 
             'items' => [
                 [
-                    'amount' => (float)$valor * 100,
+                    'amount' => (float)$amount * 100,
                     'description'=> $description,
                     'quantity' => 1,
                     'code' => $code,
@@ -541,21 +528,17 @@ class BookletsController extends Controller
             ],
             
             'payments' => [
-                [
-                    
-                'payment_method' => 'boleto',
-                'boleto' => [
-                'instructions' => "O código de barras é esse no canto superior direito. Mas se não achar fique tranquilo, que foi enviado ao seu email",
-                'due_at' => $dataFormatada,
-                'document_number' => $number,
-                'type' => 'DM',
-                'payment_method' => 'boleto',
-                
-            ],
-             
+                [   
+                    'payment_method' => 'boleto',
+                    'boleto' => [
+                    'instructions' => "O código de barras é esse no canto superior direito. Mas se não achar fique tranquilo, que foi enviado ao seu email",
+                    'due_at' => $formmatedDate,
+                    'document_number' => $number,
+                    'type' => 'DM',
+                    'payment_method' => 'boleto',
             ],
             ],
-           
+            ],
         ]),
             'headers' => [
                 'accept' => 'application/json',
@@ -563,11 +546,11 @@ class BookletsController extends Controller
                 'content-type' => 'application/json',
             ],
         ]);
-           $responseBoleto->getBody();
-        $responseBodyBoleto = $responseBoleto->getBody()->getContents();
-        $responseDataBoleto = json_decode($responseBodyBoleto, true);
-        $model = $responseDataBoleto['charges'][0]['last_transaction']['pdf'];
-        $id = $responseDataBoleto['charges'][0]['last_transaction']['line'];
+        $responseTicket->getBody();
+        $responseBodyTicket = $responseTicket->getBody()->getContents();
+        $responseDataTicket = json_decode($responseBodyTicket, true);
+        $model = $responseDataTicket['charges'][0]['last_transaction']['pdf'];
+        $id = $responseDataTicket['charges'][0]['last_transaction']['line'];
 
                       
       /*  $responseMelhorEnvio = $client->request('POST', 'https://sandbox.melhorenvio.com.br/api/v2/me/cart', [
@@ -576,8 +559,8 @@ class BookletsController extends Controller
             ["name"=>"Marcos Vinicius","phone"=>"",
                 "email"=>"","document"=>"","address"=>"","city"=>"Jaú",
                 "country_id"=>"BR","postal_code"=>"","state_abbr"=>"SP"],
-                "to"=>["name"=>$fullName,"phone"=>$number,"email"=>$email,"document"=>$document, "address"=>$line_1,"number"=>$numero_casa,"city"=>$city,"country_id"=>$country,"postal_code"=>$zip_code,"state_abbr"=>$state],
-                $produtos,
+                "to"=>["name"=>$fullName,"phone"=>$number,"email"=>$email,"document"=>$document, "address"=>$line_1,"number"=>$house_number,"city"=>$city,"country_id"=>$country,"postal_code"=>$zip_code,"state_abbr"=>$state],
+                $products,
                 "volumes"=>(["height"=>23,"width"=>26,"length"=>5,"weight"=>0.3]),
 
             ]),
@@ -614,8 +597,8 @@ class BookletsController extends Controller
     
         $max = renderDeliveryMax($responseDataMelhorEnvio);
 /** */
-        require_once  './email_boleto.php';
-        parent::render('Booklets/boleto', $model, $id);
+        require_once  './ticket_email.php';
+        parent::render('Booklets/tickets', $model, $id);
      
        
     }
@@ -625,7 +608,7 @@ class BookletsController extends Controller
     }
     }
 
-    public static function pagamentoPix(){
+    public static function paymentPix(){
 
     require_once  './vendor/autoload.php';
     try {
@@ -638,23 +621,23 @@ class BookletsController extends Controller
         $area_code= $_POST['area_code'] ?? '';
         $number= $_POST['number'] ?? '';
         $document= $_POST['document'] ?? '';
-        $valor = $_POST['totalCompraPix'] ?? '';
+        $amount = $_POST['totalPurchasePix'] ?? '';
         $description = $_POST['nome'] ?? '';
         $installments= $_POST['installments'] ?? '';
         $code = $_POST['id'] ?? '';
         $payment_method= $_POST['visibility'];
-        $descricao= $_POST['descricao'];
+        $description= $_POST['description'];
         $country= $_POST['country'];
         $state= $_POST['state'];
         $city= $_POST['city'];
         $zip_code= $_POST['zip_code'];
-        $numero_casa= $_POST['numero_casa'];
-        $line_1= implode(',', [$_POST['numero_casa'], $_POST['line_1']]) ;
-        $dataAtual = new \DateTime();
-        $dataFutura = $dataAtual->add(new \DateInterval('P3D'));
-        $dataFormatada = $dataFutura->format('Y-m-d\TH:i:s\Z');
+        $house_number= $_POST['house_number'];
+        $line_1= implode(',', [$_POST['house_number'], $_POST['line_1']]) ;
+        $actualDate = new \DateTime();
+        $futureDate = $actualDate->add(new \DateInterval('P3D'));
+        $formmatedDate = $futureDate->format('Y-m-d\TH:i:s\Z');
 
-     $responsePix = $client->request('POST', 'https://api.pagar.me/core/v5/orders', [
+        $responsePix = $client->request('POST', 'https://api.pagar.me/core/v5/orders', [
         'body' => json_encode([
             'customer' => [
                 'address'=>[
@@ -681,7 +664,7 @@ class BookletsController extends Controller
                 
             'items' => [
                 [
-                    'amount' => (float)$valor * 100,
+                    'amount' => (float)$amount * 100,
                     'description'=> $description,
                     'quantity' => 1,
                     'code' => $code,
@@ -693,7 +676,7 @@ class BookletsController extends Controller
                     
                 'payment_method' => 'pix',
                  'pix' => [
-                    'expires_at' =>  $dataFormatada,
+                    'expires_at' =>  $formmatedDate,
                 
                 
             ],
@@ -725,27 +708,26 @@ class BookletsController extends Controller
             ["name"=>"Marcos Vinicius","phone"=>"",
                 "email"=>"","document"=>"","address"=>"","city"=>"Jaú",
                 "country_id"=>"BR","postal_code"=>"","state_abbr"=>"SP"],
-                "to"=>["name"=>$fullName,"phone"=>$number,"email"=>$email,"document"=>$document, "address"=>$line_1,"number"=>$numero_casa,"city"=>$city,"country_id"=>$country,"postal_code"=>$zip_code,"state_abbr"=>$state],
-                $produtos,
+                "to"=>["name"=>$fullName,"phone"=>$number,"email"=>$email,"document"=>$document, "address"=>$line_1,"number"=>$house_number,"city"=>$city,"country_id"=>$country,"postal_code"=>$zip_code,"state_abbr"=>$state],
+                $products,
                 "volumes"=>(["height"=>23,"width"=>26,"length"=>5,"weight"=>0.3]),
 
             ]),
 
-  'headers' => [
-    'Accept' => 'application/json',
-    'Authorization' =>  'Bearer ',
-    'Content-Type' => 'application/json',
-    'User-Agent' => 'Aplicação (email para contato técnico)',
-    ],
-]);  
-        $responseBodyMelhorEnvio = $responseMelhorEnvio->getBody()->getContents();
+        'headers' => [
+            'Accept' => 'application/json',
+            'Authorization' =>  'Bearer ',
+            'Content-Type' => 'application/json',
+            'User-Agent' => 'Aplicação (email para contato técnico)',
+            ],
+        ]);  
+       $responseBodyMelhorEnvio = $responseMelhorEnvio->getBody()->getContents();
        $responseDataMelhorEnvio = json_decode($responseBodyMelhorEnvio, true);
        $id= array_shift($responseDataMelhorEnvio);
-        $model = renderDeliveryMin($responseDataMelhorEnvio);
-    
-        $max = renderDeliveryMax($responseDataMelhorEnvio);
+       $model = renderDeliveryMin($responseDataMelhorEnvio);
+       $max = renderDeliveryMax($responseDataMelhorEnvio);
 
-        $delivery_max= $responseDataMelhorEnvio['delivery_max'];
+       $delivery_max= $responseDataMelhorEnvio['delivery_max'];
     }
      catch (\Exception $exception) {
     echo json_encode(['error' => $exception->getMessage()]);
@@ -754,9 +736,7 @@ class BookletsController extends Controller
     }
     public static function sendPaymentSuccess()
     {
-    
-       parent::render('Booklets/success
-       ', $orderId);
+       parent::render('Booklets/success', $orderId);
     }
   
     
