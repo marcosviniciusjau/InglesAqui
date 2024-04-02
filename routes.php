@@ -1,7 +1,7 @@
 <?php
 
 use App\Controller\{HomeController,BookletsController,ProductController,
-    ContatoController,LoginADMController,TelaADMController,CadastrosController,ADMController};
+    ContactController,LoginADMController,TelaADMController,CadastrosController,ADMController};
 
     $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -15,8 +15,12 @@ use App\Controller\{HomeController,BookletsController,ProductController,
             BookletsController::index();
         break;
 
-         case '/apostilas/carrinho':
+        case '/apostilas/carrinho':
             BookletsController::cart();
+        break;
+
+        case '/apostilas/pagamento':
+            BookletsController::paymentCart();
         break;
        
         
@@ -124,7 +128,7 @@ use App\Controller\{HomeController,BookletsController,ProductController,
         break;
 
         case '/contato':
-            ContatoController::index();
+            ContactController::index();
         break;
 
         case '/avaliacoes/form/save':

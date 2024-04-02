@@ -18,7 +18,7 @@ class BookletsDAO  extends DAO
     {
         $sql = "INSERT INTO booklets (name, price,description, image) VALUES (?, ?, ?, ?) ";
 
-        $stmt = $this->conexao->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
         $stmt->bindValue(1, $model->name);
         $stmt->bindValue(2, $model->price);
         $stmt->bindValue(3, $model->description);
@@ -30,7 +30,7 @@ class BookletsDAO  extends DAO
     {
         $sql = "UPDATE booklets SET name=?,price=?,description=?, image=? WHERE id=? ";
 
-        $stmt = $this->conexao->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
         $stmt->bindValue(1, $model->name);
         $stmt->bindValue(2, $model->price);
         $stmt->bindValue(3, $model->description);
@@ -43,16 +43,34 @@ class BookletsDAO  extends DAO
     {
         $sql = "SELECT * FROM booklets";
 
-        $stmt = $this->conexao->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
+    public function getByCartIds($ids)
+    {
+        $placeholders = rtrim(str_repeat('?,', count($ids)), ',');
+        
+        $sql = "SELECT * FROM booklets WHERE id IN ($placeholders)";
+        
+        $stmt = $this->conn->prepare($sql);
+        
+        foreach ($ids as $key => $value) {
+            $stmt->bindValue($key + 1, $value, PDO::PARAM_INT);
+        }
+        
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
+    }
+
+
     public function getAllRowsId($id)
     {
         $sql = "SELECT * FROM booklets WHERE id<> ? and price > 30";
-        $stmt = $this->conexao->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
        
         $stmt->bindValue(1,$id);
         $stmt->execute();
@@ -63,7 +81,7 @@ class BookletsDAO  extends DAO
     public function getById($id)
     {
         try {
-            $stmt = $this->conexao->prepare("SELECT * FROM booklets WHERE id = ?");
+            $stmt = $this->conn->prepare("SELECT * FROM booklets WHERE id = ?");
             $stmt->bindValue(1, $id);
             $stmt->execute();
             return $stmt->fetchObject('App\Model\BookletsModel');
@@ -73,10 +91,11 @@ class BookletsDAO  extends DAO
             throw new Exception("Erro ao obter o produto no banco de dados.");
         }
     }
+    
     public function getByCategoryTrip($id)
     {
         try {
-            $stmt = $this->conexao->prepare("SELECT * FROM booklets WHERE id in (1,3,5,6)");
+            $stmt = $this->conn->prepare("SELECT * FROM booklets WHERE id in (1,3,5,6)");
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_CLASS,'App\Model\BookletsModel');
             
@@ -88,7 +107,7 @@ class BookletsDAO  extends DAO
       public function getByCategoryBusiness($id)
     {
         try {
-            $stmt = $this->conexao->prepare("SELECT * FROM booklets WHERE id = 7");
+            $stmt = $this->conn->prepare("SELECT * FROM booklets WHERE id = 7");
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_CLASS,'App\Model\BookletsModel');
             
@@ -100,7 +119,7 @@ class BookletsDAO  extends DAO
   public function getByCategoryLearn($id)
     {
         try {
-            $stmt = $this->conexao->prepare("SELECT * FROM booklets WHERE id in (2,4)");
+            $stmt = $this->conn->prepare("SELECT * FROM booklets WHERE id in (2,4)");
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_CLASS,'App\Model\BookletesModel');
             
@@ -113,10 +132,8 @@ class BookletsDAO  extends DAO
     {
         $sql = "DELETE FROM booklets WHERE id = ? ";
 
-        $stmt = $this->conexao->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
         $stmt->bindValue(1, $id);
         $stmt->execute();
     }
-
-
 }

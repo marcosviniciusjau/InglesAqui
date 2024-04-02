@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const icon = document.createElement('ion-icon');
         icon.setAttribute('name', 'person-circle-outline');
         icon.style.fontSize = '20px';
-        
+
 
         p.appendChild(icon);
         p.innerHTML += ' ' + comment + ' (' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ')';
@@ -61,56 +61,80 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function displayQuestion(selectedOption) {
     const conversationItem = document.createElement('div');
-  conversationItem.classList.add('conversation-item', '#comment-list');
+    conversationItem.classList.add('conversation-item', '#comment-list');
 
-    
+
     const icon = document.createElement('ion-icon');
     icon.setAttribute('name', 'person-circle-outline');
     icon.style.fontSize = '20px';
-    
+
     const questionP = document.createElement('p');
     questionP.textContent = selectedOption + ' (' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ')';
-    
+
     conversationItem.appendChild(icon);
     conversationItem.appendChild(questionP);
-  
+
     conversationHistory.push(conversationItem);
-  
+
     updateConversationDisplay();
   }
-  
+
   function displayAnswer(selectedOption) {
+    const url = 'https://api.openai.com/v1/threads'
+    const data = {
+      "thread": {
+        "messages": [
+          { "role": "user", "content": document.getElementById("message-text").value }
+        ]
+      }
+    };
+    const headers = new Headers({
+      'Authorization': `Bearer ${OPENAI_API_KEY}`,
+      'Content-Type': 'application/json',
+      'OpenAI-Beta': 'assistants=v1'
+    });
+
+    fetch(url, {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify(data)
+    })
+      .then(response => response.json())
+    console.log(respo)
+      .then(result => console.log(result))
+      .catch(error => console.error('Erro:', error));
+
     const answers = {
       "Como solicitar um reembolso?": "Por favor, forneça mais detalhes sobre sua compra e nós o ajudaremos com o processo de reembolso.",
       "Me fale sobre a política de devolução.": "Nossa política de devolução permite devoluções em até 30 dias após a compra. Certifique-se de que o item esteja em sua condição original.",
       "Posso cancelar meu pedido?": "Sim, você pode cancelar seu pedido em até 24 horas após a compra. Após esse período, entre em contato com nosso serviço de atendimento ao cliente para obter ajuda."
     };
-  
-    const formattedAnswer = answers[selectedOption] + ' (' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ')';
+
+    const formattedAnswer = response + ' (' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ')';
     const conversationItem = document.createElement('div');
-  conversationItem.classList.add('conversation-item'); // Adiciona a classe 'answer' à div
+    conversationItem.classList.add('conversation-item'); // Adiciona a classe 'answer' à div
 
     const img = document.createElement('img');
     img.setAttribute('src', '/View/Imagens/icon.png');
     img.style.width = '20px';
     img.style.height = '20px';
     const questionP = document.createElement('p');
-  questionP.textContent = selectedOption;
-  
+    questionP.textContent = selectedOption;
+
     const answerP = document.createElement('p');
     answerP.textContent = formattedAnswer;
-    
+
     conversationItem.appendChild(img);
     conversationItem.appendChild(answerP);
-  
+
     conversationHistory.push(conversationItem);
-  
+
     updateConversationDisplay();
   }
-  
+
   function updateConversationDisplay() {
     commentList.innerHTML = ''; // Limpa o conteúdo existente
-  
+
     for (const entry of conversationHistory) {
       commentList.appendChild(entry);
     }

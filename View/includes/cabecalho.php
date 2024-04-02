@@ -7,9 +7,12 @@
       
       <a class="navbar-brand" href="/apostilas_category/business">Negócios</a>
   
-      
       <a class="navbar-brand" href="/apostilas_category/learn">Estudo</a>
 
+      <a class="navbar-brand" href="/apostilas/carrinho" >
+          <ion-icon name="cart-outline" id="cart-icon"></ion-icon>
+          <span id="cart">Carrinho</span></a>
+    
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

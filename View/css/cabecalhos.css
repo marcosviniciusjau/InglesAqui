@@ -1,10 +1,19 @@
- @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Forum&display=swap");
 
- #nav{
-    background-color:#020D2B;
-    font-family:'Forum', cursive;
-  }
-  
-.navbar-brand:hover{
-  color:#5D0101
+#nav {
+  background-color: #020d2b;
+  font-family: "Forum", cursive;
+}
+
+.navbar-brand:hover {
+  color: #5d0101;
+}
+
+#cart-icon {
+  width: 30px;
+  height: 30px;
+}
+#cart {
+  display: flex;
+  margin-top:-15px;
 }

@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     
-    <script type="text/javascript" src="\View\js\payment.js"></script>
+    <script type="text/javascript" src="\View\js\payment_cart.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -23,24 +23,22 @@
     
 <main>
   <?php include PATH_VIEW . 'includes/cabecalho_home.php' ?>
-  <div class="container">
-    <div class="d-md-flex flex-md-equal" id="division">
-     <div id="contato">
-        <div class="my">
-          <img src="/View/Uploads/<?= $model->image ?>" width="150" height="200"/>
-         </div>
-      </div>
-      <div id="sobre">
-        <h2 id="titulo" class="display-5"> <?= $model->name ?></h2>
-        <p id="selected_quantity" class="display-6"></p>
-        <p id="price" class="prices" data-price="<?= $model->price ?>" >Valor: R$ <?=number_format($model->price,2, ',', '.') ?></p>
+    <div class="row cart">
+    <?php foreach($model->rows as $item): ?>
+      <div class="col">
+       <div class="card" style="width: 10rem;">
+         <img  src="/View/Uploads/<?= $item->image ?>" class="card"  width="50%" height="50%">
+        <div class="card-body">
+        <h1 class="card-title" id="texto" data-name="<?= $item->name ?>" value="<?= $item->name ?>"><?= $item->name ?></h1>
+        <p id="selected_quantity" class="prices"></p>
         <p id="total_prices" class="prices"></p>
-        <p id="descricao" data-description="<?= $model->description ?>"><?= $model->description ?></p>
-        <p id="descricao" ></p>
-        
+        <p class="card-text" id="valor" data-price="<?= $item->price ?>">  R$ <?=number_format($item->price,2, ',', '.') ?></p>
         </div>
-      
-</div>
+      </div>
+   </div> 
+      <?php endforeach ?>
+      </div>
+
 <div class="container__form">
   <form method="POST" data-pagarmecheckout-form enctype="multipart/form-data" id="form_pagamento">
 
@@ -200,24 +198,24 @@
             <div id="pagamentos">
               <div class="cartao_icon">
                 <input type="radio" id="checkbox" name="visibility" onclick="toggleVisibility('credit_card')" value="credit_card"> 
-                <img src="View/Imagens/credit_card.svg" id="icones">
+                <img src="/View/Imagens/credit_card.svg" id="icones">
                 <h1 class="form-label" id="cartoes">Cartão de Crédito</h1>
             </div>
      <div class="cartao_icon">
                 <input type="radio" id="checkbox" name="visibility" onclick="toggleVisibility('debit_card')" value="debit_card"> 
-               <img src="View/Imagens/credit_card.svg" id="icones">
+               <img src="/View/Imagens/credit_card.svg" id="icones">
                 <h1 class="form-label" id="cartoes">Cartão de Débito</h1>
             </div>
 
             <div class="boleto_icon">
               <input type="radio" id="checkbox"  name="visibility" onclick="toggleVisibility('boleto')" value="boleto">    
-               <img src="View/Imagens/boleto.png" id="icones" alt="iconGoodWare">
+               <img src="/View/Imagens/boleto.png" id="icones" alt="iconGoodWare">
               <h1 class="form-label" id="outros_pag">Boleto</h1>
             </div>
   
             <div class="pix_icon">  
               <input type="radio" id="checkbox" name="visibility" onclick="toggleVisibility('pix')" value="pix">  
-              <img src="View/Imagens/pix.svg" id="icones">
+              <img src="/View/Imagens/pix.svg" id="icones">
               <h1 class="form-label" id="outros_pag">Pix</h1>
             </div>
           </div>
@@ -342,9 +340,12 @@
         <h3 id="boleto-card" class="form-label">🌐 Conveniência Digital: Sem papel, sem impressão. PIX é o caminho digital, permitindo que você pague e aterrize no mundo das apostilas em inglês sem complicação.</h3>
         
           <br>
+        
         <button class="botao" type="submit" onClick="pagarPix()">Gerar Pix</button>
     </div>
   </div>
+  
+  <h4>Valor Total da Compra: <span id="totalCompra"></span></h4>
       <input type="hidden" name="id" value="<?= $model->id ?>">
       <input type="hidden" id="nome" name="nome" value="<?= $model->nome ?>">
       <input type="hidden" id="valor" name="valor" value="<?= $model->valor ?>">
@@ -353,12 +354,20 @@
       <input type="hidden" id="id">
       </form>
 </div>
-
 </div>
 </main>
 </body>
+</html>
+
+<script>
+    let total = 0;
+    <?php foreach($model->rows as $item): ?>
+        total += <?= $item->price ?>;
+    <?php endforeach ?>
+   
+    document.querySelector("#totalCompra").innerHTML = "Total: R$ " + total.toFixed(2);
+  
+</script>
 <script>
 handleOptionSelection()
 </script>
-
-</html>

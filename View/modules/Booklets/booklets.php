@@ -6,11 +6,13 @@
     <title>Inglês Aqui- Apostilas</title>
     <link rel="icon" href="/View/Imagens/icon.png" type="image/icon type">
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="\View\css\apostilas.css">
+    <link rel="stylesheet" href="\View\css\booklets.css">
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    
-    <script type="text/javascript" src="\View\js\apostilas.js" defer></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script type="text/javascript" src="\View\js\cart.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </head>
   <body>
@@ -48,19 +50,19 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
 
               <div class="col">
-                <a href="alimentacao"><img class="categorias" src="View/Imagens/viagem.png"></a>
+                <a href="/apostilas_category/trip"><img class="categorias" src="View/Imagens/viagem.png"></a>
                 <br>
                 <font size="5" style="font-family: Corbel">VIAGEM</font>
               </div>
 
               <div class="col">
-                <a href="vestuario"><img class="categorias" src="View/Imagens/negocios.jpg"></a>
+                <a href="/apostilas_category/business"><img class="categorias" src="View/Imagens/negocios.jpg"></a>
                 <br>
                 <font size="5" style="font-family: Corbel">NEGÓCIOS</font>
               </div>
 
               <div class="col">
-                <a href="higiene"><img class="categorias" src="View/Imagens/estudos.jpg"></a>
+                <a href="/apostilas_category/learn"><img class="categorias" src="View/Imagens/estudos.jpg"></a>
                 <br>
                 <font size="5" style="font-family: Corbel">ESTUDOS</font>
               </div>
@@ -81,7 +83,9 @@
       <div class="card-body">
       <h1 class="card-title" id="texto" data-name="<?= $item->name ?>" value="<?= $item->name ?>"><?= $item->name ?></h1>
       <p class="card-text" id="valor" data-price="<?= $item->price ?>">  R$ <?=number_format($item->price,2, ',', '.') ?></p>
-      <a href="/apostilas_desc?id=<?= $item->id ?>"><button class="botao">Ver mais</button></a></button>
+     <a href="/apostilas_desc?id=<?= $item->id ?>"><button class="botao">Ver mais</button></a></button>
+
+      <button class="botao" onClick="addCart(<?= $item->id ?>)">Adicionar ao carrinho</button></button>
      
      </div>
   </div>

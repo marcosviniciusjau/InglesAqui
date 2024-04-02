@@ -1,18 +1,19 @@
-const preco = parseFloat(document.getElementById("valor").dataset.valor)
+
+document.addEventListener("DOMContentLoaded", function() {
+  const selectedQuantity = JSON.parse(localStorage.getItem('quantityArray'));
+  console.log(selectedQuantity)
+  selectedQuantity.forEach((quantity) => {
+    const quantityElement = document.getElementById('selected_quantity');
+    quantityElement.textContent = quantity.quantity;
+  });
+});
+
 const select = document.getElementById("installments")
-const cardNumber = document.getElementById("cardNumber").value
-const cardHolderName = document.getElementById("cardHolderName").value.toUpperCase()
 const expMonth = document.getElementById("expMonth").value
 const expYear = document.getElementById("expYear").value
 const cvv = document.getElementById("cvv").value
 const zip_code= document.getElementById("zip_code").value
 const nome = document.getElementById("nome").value
-
-const taxaVista = 0.0349
-const calculoBasico = preco * taxaVista + taxaVista
-console.log(calculoBasico)
-const calculoTaxa = preco + calculoBasico - taxaVista + 0.05
-console.log(calculoTaxa)
 
 document.getElementById("cardHolderName").addEventListener("input",nameUppercase)
 
@@ -229,64 +230,26 @@ function updateCard(data) {
   }
 }
 
-
-function handleOptionSelection(optionName, customPrice,selectedElement) {
-  let selectedOption = document.querySelector(
-    `.card[data-option-name="${optionName}"]`
-  )
-  document.querySelectorAll(".card").forEach((option) => {
-    option.classList.remove("selected")
-  })
-
-  selectedOption.classList.add("selected")
-
+function handleOptionSelection(optionName, customPrice, selectedElement) {
+  const preco = total
+  const select = document.getElementById("installments")
   select.innerHTML = ""
-  
-let totalPrice = preco + customPrice
 
-document.getElementById("totalCompra").textContent =
-  totalPrice.toFixed(2).replace(".", ",") +
-  " Preço Apostila: R$ " +
-  preco.toFixed(2).replace(".", ",") +
-  "\nFrete: R$ " +
-  customPrice.toFixed(2).replace(".", ",")
+  const totals = preco 
 
-document.getElementById("totalCompraDebit").textContent =
-  totalPrice.toFixed(2) +
-  " Preço Apostila: R$ " +
-  preco.toFixed(2).replace(".", ",") +
-  "\nFrete: R$ " +
-  customPrice.toFixed(2).replace(".", ",")
-
- document.getElementById("totalCompraBoleto").textContent =
-   totalPrice.toFixed(2) +
-   " Preço Apostila: R$ " +
-   preco.toFixed(2).replace(".", ",") +
-   "\nFrete: R$ " +
-   customPrice.toFixed(2).replace(".", ",")
-
-document.getElementById("totalCompraPix").textContent =
-  totalPrice.toFixed(2) +
-  " Preço Apostila: R$ " +
-  preco.toFixed(2).replace(".", ",") +
-  "\nFrete: R$ " +
-  customPrice.toFixed(2).replace(".", ",")
-
-    toggleVisibility(selectedElement, customPrice)
+  toggleVisibility(selectedElement, customPrice)
 
   const optionVista = document.createElement("option")
   optionVista.value = 1
-  optionVista.textContent = "À vista - R$" + totalPrice.toFixed(2)
+  optionVista.textContent = "À vista - R$" + totals.toFixed(2)
   select.appendChild(optionVista)
-
   for (let i = 2; i <= 6; i++) {
     const option = document.createElement("option")
     option.value = i
-    option.textContent = `${i}x - R$${(totalPrice / i).toFixed(2)}`
+    option.textContent = `${i}x R$ ${(totals / i).toFixed(2)}`
     select.appendChild(option)
   }
 }
-
 
 function pagarCreditCard() {
   const form = document.getElementById("form_pagamento")

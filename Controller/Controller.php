@@ -7,6 +7,7 @@ abstract class Controller
 {
     protected $id_categoria; 
     protected $validation_errors = array();
+    
     public function setCategoria(int $_id_categoria)
     {
         if (!empty($_id_categoria)) {

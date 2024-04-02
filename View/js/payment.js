@@ -1,13 +1,38 @@
-const preco = parseFloat(document.getElementById("soma").value)
+
+document.addEventListener("DOMContentLoaded", function() {
+  const selectedQuantity = localStorage.getItem('selectedOption');
+
+  const selectedOptionElement = document.getElementById('selected_quantity');
+  if (selectedOptionElement) {
+      selectedOptionElement.innerText = "Quantidade " + selectedQuantity;
+      
+  } else {
+      console.error("Element with ID 'selected_option' not found.");
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+const selectedQuantity = localStorage.getItem('selectedOption');
+const preco = parseFloat(document.getElementById("price").dataset.price)
+const total= preco * selectedQuantity
+var totalPrices = document.getElementById('total_prices');
+  if (totalPrices) {
+    totalPrices.innerText= "Valor Total: R$" + total.toFixed(2);
+      
+  } else {
+      console.error("Element with ID 'selected_option' not found.");
+  }
+});
+
+
 const select = document.getElementById("installments")
 const cardNumber = document.getElementById("cardNumber").value
-const cardHolderName = document
-  .getElementById("cardHolderName")
-  .value.toUpperCase()
+const cardHolderName = document.getElementById("cardHolderName").value.toUpperCase()
 const expMonth = document.getElementById("expMonth").value
 const expYear = document.getElementById("expYear").value
 const cvv = document.getElementById("cvv").value
-const zip_code = document.getElementById("zip_code").value
+const zip_code= document.getElementById("zip_code").value
+const nome = document.getElementById("nome").value
 
 const taxaVista = 0.0349
 const calculoBasico = preco * taxaVista + taxaVista
@@ -15,14 +40,20 @@ console.log(calculoBasico)
 const calculoTaxa = preco + calculoBasico - taxaVista + 0.05
 console.log(calculoTaxa)
 
-document
-  .getElementById("cardHolderName")
-  .addEventListener("input", nameUppercase)
+document.getElementById("cardHolderName").addEventListener("input",nameUppercase)
 
-function nameUppercase() {
+var selectedOption = localStorage.getItem('selectedOption');
+console.log(selectedOption)
+if (selectedOption) {
+    document.getElementById('selected_quantity').innerText = selectedOption;
+} else {
+    document.getElementById('result').innerText = "Nenhuma opção selecionada.";
+}
+function nameUppercase(){
   const inputElement = document.getElementById("cardHolderName")
   uppercase = document.getElementById("cardHolderName").value.toUpperCase()
-  inputElement.value = uppercase
+  inputElement.value= uppercase
+
 }
 function nameUppercaseDebitCard() {
   const inputElement = document.getElementById("cardHolderNameDebitCard")
@@ -72,10 +103,8 @@ function formatPhoneNumber(inputId) {
   inputElement.value = formattedValue
 }
 
-function toggleVisibility(selectedElement, customPrice) {
-  let elements = document.querySelectorAll(
-    "#credit_card, #debit_card, #boleto, #pix"
-  )
+function toggleVisibility(selectedElement,customPrice) {
+  let elements = document.querySelectorAll("#credit_card, #debit_card, #boleto, #pix")
 
   elements.forEach(function (element) {
     if (element.id === selectedElement) {
@@ -84,17 +113,18 @@ function toggleVisibility(selectedElement, customPrice) {
       element.classList.add("hidden")
     }
   })
-  let elementsBoleto = document.querySelectorAll("#boleto,.boleto_icon")
-  let errorBoleto = document.getElementById("errorBoleto")
-  elementsBoleto.forEach(function (elementBoleto) {
-    if (customPrice > 40) {
-      elementBoleto.classList.remove("hidden")
-    } else {
-      elementBoleto.classList.add("hidden")
-      errorBoleto.textContent =
-        "Ops! Devido a politíca do Melhor Envio só fretes a partir de R$ 40,00 são permitidos para boletos! 🚀"
-    }
-  })
+   let elementsBoleto = document.querySelectorAll("#boleto,.boleto_icon")
+   let errorBoleto = document.getElementById("errorBoleto")
+   elementsBoleto.forEach(function (elementBoleto) {
+     if (customPrice > 40) {
+       elementBoleto.classList.remove("hidden")
+     } else {
+       elementBoleto.classList.add("hidden")
+       errorBoleto.textContent =
+         "Ops! Devido a politíca do Melhor Envio só fretes a partir de R$ 40,00 são permitidos para boletos! 🚀"
+     }
+   })
+
 }
 
 function consultaCEP() {
@@ -116,21 +146,26 @@ function consultaCEP() {
           endereco.logradouro + " ," + endereco.bairro
         document.getElementById("cidade").value = endereco.localidade
         document.getElementById("estado").value = endereco.uf
-      } else {
+
+      } 
+      
+     else {
         alert("Erro ao consultar o CEP. Verifique se o CEP é válido.")
       }
     }
 
     xhr.send()
-  }
+  } 
 }
 
-function address() {
-  let errorElement = document.getElementById("enderecoError")
-  if (document.getElementById("endereco").value === " ,") {
-    errorElement.textContent =
-      "Preencha o endereço corretamente, com o nome da rua e bairro para chegar tudo certinho! 🚀"
-  } else {
+function address(){
+  
+ let errorElement = document.getElementById("enderecoError")
+  if(document.getElementById("endereco").value === " ,"){
+   errorElement.textContent = "Preencha o endereço corretamente, com o nome da rua e bairro para chegar tudo certinho! 🚀"
+  } 
+
+else{
     let cep_correio = document.getElementById("zip_code").value
 
     let formData = new FormData()
@@ -148,6 +183,7 @@ function address() {
 
     xhr.send(formData)
   }
+
 }
 
 document.getElementById("zip_code").addEventListener("input", consultaCEP)
@@ -172,10 +208,10 @@ function updateCard(data) {
         cardElement.className = "card"
         cardElement.dataset.optionName = option.name
 
-        let idElement = document.createElement("p")
-        idElement.className = "card-text"
-        idElement.textContent = option.id
-        idElement.value = option.id
+         let idElement = document.createElement("p")
+         idElement.className = "card-text"
+         idElement.textContent= option.id
+         idElement.value = option.id  
 
         let inputRadio = document.createElement("input")
         inputRadio.type = "radio"
@@ -183,12 +219,12 @@ function updateCard(data) {
         inputRadio.id = "radio"
 
         let customPrice = parseFloat(option.price) - parseFloat(option.discount)
-        inputRadio.value = customPrice
+        inputRadio.value = customPrice.toFixed(2)
 
         let customPriceElement = document.createElement("h1")
         customPriceElement.className = "card-text"
         customPriceElement.id = "texto"
-        customPriceElement.textContent = "Preço: R$ " + customPrice
+        customPriceElement.textContent = "Preço: R$ " + customPrice.toFixed(2)
 
         let imgElement = document.createElement("img")
         imgElement.src = option.company.picture
@@ -211,6 +247,7 @@ function updateCard(data) {
         cardElement.appendChild(customPriceElement)
         cardElement.appendChild(deliveryElement)
         cardBody.appendChild(cardElement)
+        
 
         cardElement.addEventListener("click", function () {
           handleOptionSelection(option.name, customPrice)
@@ -225,122 +262,97 @@ function updateCard(data) {
   }
 }
 
+
 function handleOptionSelection(optionName, customPrice, selectedElement) {
-  let selectedOption = document.querySelector(
-    `.card[data-option-name="${optionName}"]`
-  )
-  document.querySelectorAll(".card").forEach((option) => {
-    option.classList.remove("selected")
-  })
-
-  selectedOption.classList.add("selected")
-
+  const preco = parseFloat(document.getElementById("price").dataset.price)
+  const select = document.getElementById("installments")
   select.innerHTML = ""
 
-  let totalPrice = preco + customPrice
-
-  document.getElementById("totalCompra").textContent =
-    totalPrice +
-    " Preço Apostila: R$ " +
-    preco +
-    "\nFrete: R$ " +
-    customPrice
-
-  document.getElementById("totalCompraDebit").textContent =
-    totalPrice +
-    " Preço Apostila: R$ " +
-    preco +
-    "\nFrete: R$ " +
-    customPrice
-
-  document.getElementById("totalCompraBoleto").textContent =
-    totalPrice +
-    " Preço Apostila: R$ " +
-    preco +
-    "\nFrete: R$ " +
-    customPrice
-
-  document.getElementById("totalCompraPix").textContent =
-    totalPrice +
-    " Preço Apostila: R$ " +
-    preco +
-    "\nFrete: R$ " +
-    customPrice
+  const totals = preco 
 
   toggleVisibility(selectedElement, customPrice)
 
   const optionVista = document.createElement("option")
   optionVista.value = 1
-  optionVista.textContent = "À vista - R$" + totalPrice.toFixed(2)
+  optionVista.textContent = "À vista - R$" + totals.toFixed(2)
   select.appendChild(optionVista)
-
   for (let i = 2; i <= 6; i++) {
     const option = document.createElement("option")
     option.value = i
-    option.textContent = `${i}x - R$${(totalPrice / i).toFixed(2)}`
+    option.textContent = `${i}x R$ ${(totals / i).toFixed(2)}`
     select.appendChild(option)
   }
 }
 
+
+
 function pagarCreditCard() {
   const form = document.getElementById("form_pagamento")
+  
+   const idSpan = document.getElementById("id")
 
-  const idSpan = document.getElementById("id")
+   const idInput = document.createElement("input")
+   idInput.type = "hidden"
+   idInput.name = "id"
+   idInput.value = idSpan.idElement
+   form.appendChild(idInput)
 
-  const idInput = document.createElement("input")
-  idInput.type = "hidden"
-  idInput.name = "id"
-  idInput.value = idSpan.idElement
-  form.appendChild(idInput)
+    form.action = "/pagamento/credit_card"
+    form.submit()
 
-  form.action = "/pagamento/credit_card"
-  form.submit()
 }
 
 function pagarDebitCard() {
   const form = document.getElementById("form_pagamento")
   const totalCompraDebitSpan = document.getElementById("totalCompraDebit")
 
-  const totalCompraDebitInput = document.createElement("input")
-  totalCompraDebitInput.type = "hidden"
-  totalCompraDebitInput.name = "totalCompraDebit"
-  totalCompraDebitInput.value = totalCompraDebitSpan.textContent.trim()
-  form.appendChild(totalCompraDebitInput)
+    const totalCompraDebitInput = document.createElement("input")
+    totalCompraDebitInput.type = "hidden"
+    totalCompraDebitInput.name = "totalCompraDebit" 
+    totalCompraDebitInput.value = totalCompraDebitSpan.textContent.trim() 
+    form.appendChild(totalCompraDebitInput)
 
-  form.action = "/pagamento/debit_card"
-  form.submit()
+    form.action = "/pagamento/debit_card"
+    form.submit()
 
-  form.removeChild(totalCompraDebitInput)
+    form.removeChild(totalCompraDebitInput)
+ 
 }
 
+
 function pagarBoleto() {
-  const form = document.getElementById("form_pagamento")
-  const totalCompraBoletoSpan = document.getElementById("totalCompraBoleto")
+ const form = document.getElementById("form_pagamento")
+ const totalCompraBoletoSpan = document.getElementById("totalCompraBoleto")
 
-  const totalCompraInputBoleto = document.createElement("input")
-  totalCompraInputBoleto.type = "hidden"
-  totalCompraInputBoleto.name = "totalCompraBoleto"
-  totalCompraInputBoleto.value = totalCompraBoletoSpan.textContent.trim()
-  form.appendChild(totalCompraInputBoleto)
+ const totalCompraInputBoleto = document.createElement("input")
+ totalCompraInputBoleto.type = "hidden"
+ totalCompraInputBoleto.name = "totalCompraBoleto"
+ totalCompraInputBoleto.value = totalCompraBoletoSpan.textContent.trim()
+ form.appendChild(totalCompraInputBoleto)
 
-  form.action = "/pagamento/boleto"
-  form.submit()
+ form.action = "/pagamento/boleto"
+ form.submit()
 
-  form.removeChild(totalCompraInputBoleto)
+ form.removeChild(totalCompraInputBoleto)
+ 
+
 }
 
 function pagarPix() {
-  const form = document.getElementById("form_pagamento")
-  const totalCompraPixSpan = document.getElementById("totalCompraPix")
+const form = document.getElementById("form_pagamento")
+const totalCompraPixSpan = document.getElementById("totalCompraPix")
 
-  const totalCompraInputPix = document.createElement("input")
-  totalCompraInputPix.type = "hidden"
-  totalCompraInputPix.name = "totalCompraPix"
-  totalCompraInputPix.value = totalCompraPixSpan.textContent.trim()
-  form.appendChild(totalCompraInputPix)
+const totalCompraInputPix = document.createElement("input")
+totalCompraInputPix.type = "hidden"
+totalCompraInputPix.name = "totalCompraPix"
+totalCompraInputPix.value = totalCompraPixSpan.textContent.trim()
+form.appendChild(totalCompraInputPix)
 
-  form.action = "/pagamento/pix"
-  form.submit()
+form.action = "/pagamento/pix"
+form.submit()
 
-  form.removeChild(totalCompraInputPix)
+form.removeChild(totalCompraInputPix)
+ 
+
+
 }

@@ -14,29 +14,29 @@ class LoginADMDAO extends DAO
     {
         $sql = "UPDATE adm SET password = :password WHERE email = :email";
         
-        $stmt = $this->conexao->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
         $stmt->bindValue(':password', password_hash($newpassword, PASSWORD_DEFAULT));
         $stmt->bindValue(':email', $email);
         $stmt->execute();
     }
     
     public function getByEmailAndPassword($email, $password)
-{
-    $sql = "SELECT id, email, password
-            FROM adm
-            WHERE email = :email";
+    {
+        $sql = "SELECT id, email, password
+                FROM adm
+                WHERE email = :email";
 
-    $stmt = $this->conexao->prepare($sql);
-    $stmt->bindValue(':email', $email);
-    $stmt->execute();
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(':email', $email);
+        $stmt->execute();
 
-    $user_data = $stmt->fetchObject();
+        $user_data = $stmt->fetchObject();
 
-    if ($user_data && password_verify($password, $user_data->password)) {
-        return $user_data;
-    } else {
-        return null; 
-    }
+        if ($user_data && password_verify($password, $user_data->password)) {
+            return $user_data;
+        } else {
+            return null; 
+        }
 }
 
 }

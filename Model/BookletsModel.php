@@ -5,7 +5,7 @@ use App\DAO\BookletsDAO;
 class BookletsModel extends Model
 {
     public $id, $name;
-    public $price, $quantity, $image;
+    public $price, $stock,$sold, $image;
     public $arr_products;
 
     public function save()
@@ -65,6 +65,19 @@ class BookletsModel extends Model
         $model = new BookletsModel();
         $this->array_products = $dao->getAllRowsId((int)$_GET['id']);
     }
+
+    public function getByCartIds($ids)
+    {
+        // Criar uma instância do DAO
+        $dao = new BookletsDAO();
+    
+        // Chamar a função do DAO e passar os IDs do carrinho
+        $this->rows = $dao->getByCartIds($ids);
+        
+        // Retorna os resultados, se necessário
+        return $this->rows;
+    }
+    
 
     public function getById(int $id)
     {
