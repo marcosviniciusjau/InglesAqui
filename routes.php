@@ -16,7 +16,15 @@ use App\Controller\{HomeController,BookletsController,ProductController,
         break;
 
         case '/apostilas/carrinho':
-            BookletsController::cart();
+            BookletsController::getCart();
+        break;
+
+        case '/apostilas/carrinho/adicionar':
+            BookletsController::addCart();
+        break;
+
+        case '/apostilas/carrinho/excluir':
+            BookletsController::deleteCartItem();
         break;
 
         case '/apostilas/pagamento':
@@ -24,15 +32,15 @@ use App\Controller\{HomeController,BookletsController,ProductController,
         break;
        
         
-        case '/apostilas_category/trip':
+        case '/apostilas/categoria/viagem':
             BookletsController::categoryTrip();
         break;
 
-        case '/apostilas_category/business':
+        case '/apostilas/categoria/negocios':
             BookletsController::categoryBusiness();
         break;
 
-        case '/apostilas_category/learn':
+        case '/apostilas/categoria/educacao':
             BookletsController::categoryLearn();
         break;
 
@@ -44,10 +52,11 @@ use App\Controller\{HomeController,BookletsController,ProductController,
             BookletsController::payment();
         break;
 
-        case '/pagamento/credit_card':
+        case '/pagamento/cartao_credito':
             BookletsController::pagamentoCreditCard();
         break;
-         case '/pagamento/debit_card':
+
+         case '/pagamento/cartao_debito':
             BookletsController::pagamentoDebitCard();
         break;
 
@@ -58,7 +67,6 @@ use App\Controller\{HomeController,BookletsController,ProductController,
          case '/pagamento/pix':
             BookletsController::pagamentoPix();
         break;
-
 
          case '/pagamento/sucesso':
             BookletsController::enviarPagamentoSucesso();
@@ -138,7 +146,5 @@ use App\Controller\{HomeController,BookletsController,ProductController,
         default:
         HomeController::error();
         break;
-        case '/422':
-            HomeController::error();
-            break;
+    
 }

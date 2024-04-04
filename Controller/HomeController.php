@@ -12,7 +12,7 @@ class HomeController extends Controller
 
     public static function error()
     {
-        parent::render('Home/erro' );
+        parent::render('Home/error' );
     }
     
 }

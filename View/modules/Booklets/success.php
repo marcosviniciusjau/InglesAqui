@@ -16,7 +16,7 @@
     <link rel="icon" href="/View/Imagens/icon.png" type="image/icon type">
   </head>
   
-  <?php include PATH_VIEW . 'includes/cabecalho_home.php' ?>
+  <?php include PATH_VIEW . 'includes/header_home.php' ?>
   <body>
     
 <main>
@@ -31,5 +31,5 @@
 </main>
 </body>
 
-  <?php include PATH_VIEW . 'includes/rodape.php' ?>
+  <?php include PATH_VIEW . 'includes/footer.php' ?>
   <html>

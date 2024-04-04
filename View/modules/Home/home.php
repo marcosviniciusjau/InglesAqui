@@ -17,7 +17,7 @@
   <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
-      <?php include PATH_VIEW . 'includes/cabecalho_home.php' ?>
+      <?php include PATH_VIEW . 'includes/header_home.php' ?>
     <img src="/View/Imagens/fundo1.png" id="fundo_img">
   
   <div class="assistente">
@@ -140,5 +140,8 @@
 <script src="/View/js/home.js"></script>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<?php include PATH_VIEW . 'includes/footer.php' ?>
+
 </body>
 </html>

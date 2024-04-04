@@ -22,7 +22,7 @@
   <body>
     
 <main>
-  <?php include PATH_VIEW . 'includes/cabecalho_home.php' ?>
+  <?php include PATH_VIEW . 'includes/header_home.php' ?>
   <div class="container">
     <div class="d-md-flex flex-md-equal" id="division">
      <div id="contato">
@@ -356,6 +356,9 @@
 
 </div>
 </main>
+
+<?php include PATH_VIEW . 'includes/footer.php' ?>
+
 </body>
 <script>
 handleOptionSelection()

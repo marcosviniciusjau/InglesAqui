@@ -22,7 +22,7 @@
   <body>
     
 <main>
-  <?php include PATH_VIEW . 'includes/cabecalho_home.php' ?>
+  <?php include PATH_VIEW . 'includes/header_home.php' ?>
     <div class="row cart">
     <?php foreach($model->rows as $item): ?>
       <div class="col">
@@ -357,6 +357,8 @@
 </div>
 </main>
 </body>
+<?php include PATH_VIEW . 'includes/footer.php' ?>
+
 </html>
 
 <script>

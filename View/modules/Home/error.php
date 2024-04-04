@@ -16,7 +16,7 @@
   </head>
   
   <body>
-  <?php include PATH_VIEW . 'includes/cabecalho_home.php' ?>
+  <?php include PATH_VIEW . 'includes/header_home.php' ?>
 <h1>Ops! Parece que você se perdeu por aqui. Mas não precisa ficar bravo(a), afinal, até as melhores apostilas têm seus momentos de sumiço. 😅</h1>
 
 <h2> 
@@ -30,4 +30,7 @@ Como prosseguir:
 <h5> 🏡 Volte para a página inicial e comece sua jornada de aprendizado novamente.
 📡 Entre em contato conosco e informe sobre esta aventura interplanetária. Estamos aqui para ajudar!</h5>
 </body>
+
+<?php include PATH_VIEW . 'includes/footer.php' ?>
+
 </html>

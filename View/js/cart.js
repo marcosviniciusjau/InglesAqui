@@ -35,13 +35,24 @@ function addCart(id) {
   let itemJaAdicionado = carrinho.some(item => item.id === id);
 
   if (itemJaAdicionado) {
-      alert('Item já foi adicionado ao carrinho');
+    document.getElementById("alert").style.display = "block";
+      document.getElementById("alert").style.color = "red";
+      document.getElementById("alert").textContent = "Item já foi adicionado ao carrinho!";
+      
   } else {
       carrinho.push({ id: id });
 
       salvarCarrinhoNoCookie(carrinho);
+      document.getElementById("alert").style.display = "block";
+      document.getElementById("alert").style.color = "green";
+      document.getElementById("alert").textContent = "Item adicionado com sucesso!";
+      setTimeout(function(){ 
+        document.getElementById("alert").style.display = "none"; 
+        
+        window.location.href = '/apostilas/carrinho';
+      }, 5000);
+    
 
-      window.location.href = '/apostilas/carrinho';
   }
 }
 
