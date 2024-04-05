@@ -91,6 +91,20 @@ class BookletsDAO  extends DAO
             throw new Exception("Erro ao obter o produto no banco de dados.");
         }
     }
+
+    public function getByName($name)
+    {    
+        $sql = "SELECT * FROM booklets WHERE name LIKE '% Guide%'";
+
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
+          
+    }
+    
+
     
     public function getByCategoryTrip($id)
     {

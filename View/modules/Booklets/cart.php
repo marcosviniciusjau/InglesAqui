@@ -34,7 +34,7 @@ session_start();
       <div class="col">
   <div class="thumbnail">  
   <div class="card" style="width: 10rem;">
-   <img  src="/View/Uploads/<?= $item->image ?>" class="card"   width="50%" height="50%">
+   <img  src="/View/Uploads/<?= $item->image ?>" class="card" id="image" data-img="<?= $item->image ?>" width="50%" height="50%">
 
    <form id="form_quantity" method="post" action="/apostilas/carrinho/pagamento">
       <div class="card-body">
@@ -97,11 +97,13 @@ function updateTotalPrice() {
         const selectedQuantity = parseInt(select.value);
         const price = parseFloat(select.closest('.card-body').querySelector("#price").dataset.price);
         const name = select.closest('.card-body').querySelector("#texto").dataset.name;
+        const img = select.closest('.card').querySelector("#image").dataset.img;
+
         const itemTotalPrice = selectedQuantity * price;
         
         totalPrice += itemTotalPrice;
         
-        quantityArray.push({ id: name, quantity: selectedQuantity, price:price });
+        quantityArray.push({ id: name, quantity: selectedQuantity, price:price, img:img });
         console.log(quantityArray)
     });
     

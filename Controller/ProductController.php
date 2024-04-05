@@ -17,7 +17,7 @@ class ProductController extends Controller
        
         $model->getAllRows();
         
-       parent::render('Product/ListaProduct', $model);
+       parent::render('Product/ListProduct', $model);
     }
 
     

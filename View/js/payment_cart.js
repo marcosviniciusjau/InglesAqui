@@ -14,16 +14,26 @@ document.addEventListener("DOMContentLoaded", function() {
     const card = document.createElement('div');
     card.classList.add('col');
     card.innerHTML = `
-        <div class="card" style="width: 10rem;">
-            <div class="card-body">
-                <h1 class="card-title" id="name" data-name="${quantity.id}">${quantity.id}</h1>
-                <div id="quantity-container">
-                    <p class="card-text" id="quantity" data-quantity="${quantity.quantity}">Quantidade: ${quantity.quantity}</p>
-                    <p class="card-text" id="price" data-price="${quantity.price}">R$: ${quantity.price.toFixed(2).replace('.', ',')}</p>
-                </div>
-            </div>
-            <p class="card-text" id="subtotal">Subtotal: R$ ${(quantity.price * quantity.quantity).toFixed(2).replace('.', ',')}</p>
-            </div>
+    <div class="row">
+  
+      <div class="col">
+  <div class="thumbnail">  
+  <div class="card" style="width: 12rem;">
+    <img src="/View/Uploads/${quantity.img}" width="150" height="200"/>
+       
+    <div class="card" style="width: 10rem;">
+    <div class="card-body">
+        <h1 class="card-title" id="name" data-name="${quantity.id}">${quantity.id}</h1>
+        <div id="quantity-container">
+            <p class="card-text" id="quantity" data-quantity="${quantity.quantity}">Quantidade: ${quantity.quantity}</p>
+            <p class="card-text" id="price" data-price="${quantity.price}">R$: ${quantity.price.toFixed(2).replace('.', ',')}</p>
+        </div>
+    </div>
+    <p class="card-text" id="subtotal">Subtotal: R$ ${(quantity.price * quantity.quantity).toFixed(2).replace('.', ',')}</p>
+    </div>
+    </div>
+    </div>
+    </div>
     `;
     container.appendChild(card);
 
