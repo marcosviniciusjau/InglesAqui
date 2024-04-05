@@ -27,11 +27,10 @@ use App\Controller\{HomeController,BookletsController,ProductController,
             BookletsController::deleteCartItem();
         break;
 
-        case '/apostilas/pagamento':
+        case '/apostilas/carrinho/pagamento':
             BookletsController::paymentCart();
         break;
        
-        
         case '/apostilas/categoria/viagem':
             BookletsController::categoryTrip();
         break;

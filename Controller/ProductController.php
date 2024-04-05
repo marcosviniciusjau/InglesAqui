@@ -13,7 +13,6 @@ class ProductController extends Controller
 
     public static function index()
     {    
-        parent::isprotected();
         $model = new BookletsModel();
        
         $model->getAllRows();
@@ -24,14 +23,12 @@ class ProductController extends Controller
     
     public static function form(BookletsModel $_model = null)
     {
-        parent::isprotected();
         $model = ($_model == null) ? new BookletsModel() : $_model;
-        include PATH_VIEW . 'modules/Product/FormProduct.php';
+        include PATH_VIEW . '/modules/Product/FormProduct.php';
     }
    
     public static function save()
     {
-        parent::isprotected();
         try {
             $model = new BookletsModel();
     
@@ -80,7 +77,6 @@ class ProductController extends Controller
 
     public static function ver()
     { 
-        parent::isprotected();
         try {
             if (isset($_GET['id'])) {
                 $model = new BookletsModel();
@@ -99,7 +95,6 @@ class ProductController extends Controller
 
     public static function delete()
     { 
-        parent::isprotected();
         $model = new BookletsModel();
 
         $model->delete((int) $_GET['id']); 

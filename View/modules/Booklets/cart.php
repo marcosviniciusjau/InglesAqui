@@ -14,7 +14,7 @@ session_start();
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script type="text/javascript" src="\View\js\cart.js" ></script>
+
 
      <link rel="preconnect" href="https://fonts.googleapis.com">
     <title>Inglês Aqui Carrinho</title>
@@ -36,8 +36,9 @@ session_start();
   <div class="card" style="width: 10rem;">
    <img  src="/View/Uploads/<?= $item->image ?>" class="card"   width="50%" height="50%">
 
-   <form id="form_quantity" method="post" action="/apostilas/pagamento">
+   <form id="form_quantity" method="post" action="/apostilas/carrinho/pagamento">
       <div class="card-body">
+        <input type="hidden" name="id" value="<?= $item->id ?>">
    
       <h1 class="card-title" id="texto" data-name="<?= $item->name ?>" value="<?= $item->name ?>"><?= $item->name ?></h1>
       <div class="row g-3">
@@ -50,7 +51,7 @@ session_start();
             <option value="6">6</option> 
           </select>
         </div>
-        <p class="card-text" id="price" data-price="<?= $item->price ?>">  R$ <?=number_format($item->price,2, ',', '.') ?></p>
+        <p class="card-text" id="price" data-price="<?= $item->price ?>" value="<?= $item->price ?>">  R$ <?=number_format($item->price,2, ',', '.') ?></p>
       </div>
 
      <td><a class='btn btn-sm btn-danger' onClick="window.location.href='/apostilas/carrinho/excluir?id=<?= $item->id ?>'">
@@ -97,9 +98,11 @@ function updateTotalPrice() {
         const price = parseFloat(select.closest('.card-body').querySelector("#price").dataset.price);
         const name = select.closest('.card-body').querySelector("#texto").dataset.name;
         const itemTotalPrice = selectedQuantity * price;
+        
         totalPrice += itemTotalPrice;
         
-        quantityArray.push({ id: name, quantity: selectedQuantity });
+        quantityArray.push({ id: name, quantity: selectedQuantity, price:price });
+        console.log(quantityArray)
     });
     
     const totalPrices = document.getElementById('total_values');
@@ -108,10 +111,12 @@ function updateTotalPrice() {
 
 document.getElementById('form_quantity').addEventListener('submit', function(event) {
         event.preventDefault();
-        
+        const quantityArrayJSON = JSON.stringify(quantityArray);
+
+     
         localStorage.setItem('quantityArray', JSON.stringify(quantityArray))
 
-        href= "/apostilas/pagamento"
+        href= "/apostilas/carrinho/pagamento"
         window.location.href = href
 });
       

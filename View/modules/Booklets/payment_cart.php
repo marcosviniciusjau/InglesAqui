@@ -23,21 +23,8 @@
     
 <main>
   <?php include PATH_VIEW . 'includes/header_home.php' ?>
-    <div class="row cart">
-    <?php foreach($model->rows as $item): ?>
-      <div class="col">
-       <div class="card" style="width: 10rem;">
-         <img  src="/View/Uploads/<?= $item->image ?>" class="card"  width="50%" height="50%">
-        <div class="card-body">
-        <h1 class="card-title" id="texto" data-name="<?= $item->name ?>" value="<?= $item->name ?>"><?= $item->name ?></h1>
-        <p id="selected_quantity" class="prices"></p>
-        <p id="total_prices" class="prices"></p>
-        <p class="card-text" id="valor" data-price="<?= $item->price ?>">  R$ <?=number_format($item->price,2, ',', '.') ?></p>
-        </div>
-      </div>
-   </div> 
-      <?php endforeach ?>
-      </div>
+    <div class="row cart" id="cart-container">
+    </div>
 
 <div class="container__form">
   <form method="POST" data-pagarmecheckout-form enctype="multipart/form-data" id="form_pagamento">
@@ -344,8 +331,6 @@
         <button class="botao" type="submit" onClick="pagarPix()">Gerar Pix</button>
     </div>
   </div>
-  
-  <h4>Valor Total da Compra: <span id="totalCompra"></span></h4>
       <input type="hidden" name="id" value="<?= $model->id ?>">
       <input type="hidden" id="nome" name="nome" value="<?= $model->nome ?>">
       <input type="hidden" id="valor" name="valor" value="<?= $model->valor ?>">
@@ -354,22 +339,14 @@
       <input type="hidden" id="id">
       </form>
 </div>
+
+<h4>Valor Total da Compra: <span id="total_values"></span></h4>
 </div>
+
 </main>
+
+  
 </body>
 <?php include PATH_VIEW . 'includes/footer.php' ?>
 
 </html>
-
-<script>
-    let total = 0;
-    <?php foreach($model->rows as $item): ?>
-        total += <?= $item->price ?>;
-    <?php endforeach ?>
-   
-    document.querySelector("#totalCompra").innerHTML = "Total: R$ " + total.toFixed(2);
-  
-</script>
-<script>
-handleOptionSelection()
-</script>

@@ -1,12 +1,77 @@
-
 document.addEventListener("DOMContentLoaded", function() {
-  const selectedQuantity = JSON.parse(localStorage.getItem('quantityArray'));
-  console.log(selectedQuantity)
-  selectedQuantity.forEach((quantity) => {
-    const quantityElement = document.getElementById('selected_quantity');
-    quantityElement.textContent = quantity.quantity;
+  // Supondo que 'quantityArray' é um array de objetos com id, quantidade e preço
+  const selectedQuantities = JSON.parse(localStorage.getItem('quantityArray')) || [];
+  const container = document.getElementById('cart-container');
+
+  // Verifica se o array não está vazio
+  if (selectedQuantities.length === 0) {
+    console.error('Erro: Nenhum item no carrinho.');
+    return;
+  }
+
+  // Cria os cartões de itens no carrinho
+  selectedQuantities.forEach((quantity) => {
+    const card = document.createElement('div');
+    card.classList.add('col');
+    card.innerHTML = `
+        <div class="card" style="width: 10rem;">
+            <div class="card-body">
+                <h1 class="card-title" id="name" data-name="${quantity.id}">${quantity.id}</h1>
+                <div id="quantity-container">
+                    <p class="card-text" id="quantity" data-quantity="${quantity.quantity}">Quantidade: ${quantity.quantity}</p>
+                    <p class="card-text" id="price" data-price="${quantity.price}">R$: ${quantity.price.toFixed(2).replace('.', ',')}</p>
+                </div>
+            </div>
+            <p class="card-text" id="subtotal">Subtotal: R$ ${(quantity.price * quantity.quantity).toFixed(2).replace('.', ',')}</p>
+            </div>
+    `;
+    container.appendChild(card);
+
   });
+
+  updateTotalPrice();
 });
+
+function updateTotalPrice() {
+  let totalPrice = 0;
+  const quantityElements = document.querySelectorAll('#quantity');
+  const priceElements = document.querySelectorAll('#price');
+
+  // Calcula o preço total
+  quantityElements.forEach((quantityElement, index) => {
+    const quantity = parseInt(quantityElement.dataset.quantity);
+    const price = parseFloat(priceElements[index].dataset.price);
+
+    if (!isNaN(quantity) && !isNaN(price)) {
+      totalPrice += quantity * price;
+    } else {
+      console.error('Erro: Valor inválido encontrado.');
+    }
+  });
+
+  const select = document.getElementById("installments")
+  select.innerHTML = ""
+
+  const totals = totalPrice
+
+  const optionVista = document.createElement("option")
+  optionVista.value = 1
+  optionVista.textContent = "À vista - R$" + totals.toFixed(2)
+  select.appendChild(optionVista)
+  for (let i = 2; i <= 6; i++) {
+    const option = document.createElement("option")
+    option.value = i
+    option.textContent = `${i}x R$ ${(totals / i).toFixed(2).replace('.', ',')}`
+    select.appendChild(option)
+  }
+  // Atualiza o preço total na interface do usuário
+  const totalPriceElement = document.getElementById('total_values');
+  if (totalPriceElement) {
+    totalPriceElement.textContent = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+  } else {
+    console.error('Erro: Elemento do preço total não encontrado.');
+  }
+}
 
 const select = document.getElementById("installments")
 const expMonth = document.getElementById("expMonth").value
@@ -186,8 +251,7 @@ function updateCard(data) {
         inputRadio.name = "transportadoras"
         inputRadio.id = "radio"
 
-        let customPrice = parseFloat(option.price) - parseFloat(option.discount)
-        inputRadio.value = customPrice.toFixed(2)
+        let customPrice = price
 
         let customPriceElement = document.createElement("h1")
         customPriceElement.className = "card-text"
@@ -230,26 +294,8 @@ function updateCard(data) {
   }
 }
 
-function handleOptionSelection(optionName, customPrice, selectedElement) {
-  const preco = total
-  const select = document.getElementById("installments")
-  select.innerHTML = ""
 
-  const totals = preco 
 
-  toggleVisibility(selectedElement, customPrice)
-
-  const optionVista = document.createElement("option")
-  optionVista.value = 1
-  optionVista.textContent = "À vista - R$" + totals.toFixed(2)
-  select.appendChild(optionVista)
-  for (let i = 2; i <= 6; i++) {
-    const option = document.createElement("option")
-    option.value = i
-    option.textContent = `${i}x R$ ${(totals / i).toFixed(2)}`
-    select.appendChild(option)
-  }
-}
 
 function pagarCreditCard() {
   const form = document.getElementById("form_pagamento")

@@ -7,16 +7,19 @@
   color: black;
   font-weight: 350;
 }
+
 #descricao_cart {
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
   color: black;
   font-weight: 350;
 }
+
 .cart{
   padding-top: 10px;
   padding-left: 8%;
 }
+
 @media (max-width: 510px) {
   body {
     background-image: url("/View/Imagens/fundo_celular.png");
@@ -267,18 +270,26 @@ select,
   font-weight: 700;
 }
 
-#texto {
+#name,#quantity {
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
   color: black;
   font-weight: 350;
 }
 
+#price,#subtotal{
+  font-family: 'Montserrat', sans-serif;
+  font-size:25px; 
+  color:black;
+  font-weight: 700;
+ }
+ 
 #titulo {
   font-family: "Forum", cursive;
   color: black;
   font-size: 25px;
 }
+
 #recomend {
   font-family: "Forum", cursive;
   color: black;
@@ -287,9 +298,11 @@ select,
   font-weight: 700;
   padding-bottom: 5%;
 }
+
 #valorTotalCartao {
   display: none;
 }
+
 #sobre {
   padding-top: 15px;
   padding-left: 8%;
