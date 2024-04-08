@@ -37,15 +37,19 @@ class CartController extends Controller
         if (isset($_GET['id'])) {
             if (isset($_COOKIE['cart'])) {
                 $cart = self::decrypt($_COOKIE['cart'], $key);
-                if (in_array($_GET['id'], $cart)) {
-                    echo 'Este item já está no carrinho.';
-                    return;
+                foreach ($cart as $item) {
+                    if ($item['id'] === $_GET['id']) {
+                        echo 'Este item já está no carrinho.';
+                        return;
+                    }
                 }
             } else {
                 $cart = [];
             }
 
-            $cart[] = $_GET['id'];
+            $cart[] = array(
+                'id' => $_GET['id'],
+            );
 
             $cookie_duration = time() + (30 * 24 * 60 * 60);
 
@@ -61,6 +65,7 @@ class CartController extends Controller
         parent::render('Home/error');
     }
     }
+
 
     private static function renderEmptyCartPage() {
         // Renderiza a página do carrinho vazio
@@ -127,7 +132,7 @@ class CartController extends Controller
                 echo 'Erro ao decodificar o carrinho.';
                 return;
             }
-            $ids= $cart;
+            $ids= array_column($cart,'id');
             if (!empty($ids)) {
                 $model->getByCartIds($ids);
                 parent::render('Booklets/cart', $model);
@@ -143,15 +148,16 @@ class CartController extends Controller
         }
 
     }
+
     public static function deleteCartItem()
     {
         try {
             if (isset($_GET['id'])) {
                 if (isset($_COOKIE['cart'])) {
                     $cart = self::decrypt($_COOKIE['cart'], $key);
-                    $index = array_search($_GET['id'], $cart);
+
+                    $index = array_search($_GET['id'], array_column($cart, 'id'));
                     
-                    // Se o item estiver no carrinho, remove-o
                     if ($index !== false) {
                         unset($cart[$index]);
                     } else {

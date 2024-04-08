@@ -68,17 +68,13 @@ class BookletsModel extends Model
 
     public function getByCartIds($ids)
     {
-        // Criar uma instância do DAO
         $dao = new BookletsDAO();
     
-        // Chamar a função do DAO e passar os IDs do carrinho
         $this->rows = $dao->getByCartIds($ids);
         
-        // Retorna os resultados, se necessário
         return $this->rows;
     }
     
-
     public function getById(int $id)
     {
         try {
@@ -94,28 +90,18 @@ class BookletsModel extends Model
             throw new Exception("Error in the DAO layer.");
         }
     }
-    public function getByName($name)
-    {
-        try {
-            $dao = new BookletsDAO();
-            $data_products = $dao->getByName($name);
-    
-            if (!empty($data_products)) {
-                return $data_products; // Supondo que $data_products seja um array de objetos
-            } else {
-                throw new Exception("Nenhum produto encontrado com o nome '{$name}'.");
-            }
-        } catch (PDOException $e) {
-            // Se ocorrer um erro no banco de dados, registramos o erro
-            error_log("Erro no banco de dados ao buscar produto por nome '{$name}': " . $e->getMessage());
-            throw new Exception("Erro no banco de dados ao buscar produto.");
-        } catch (Exception $e) {
-            // Se ocorrer uma exceção inesperada, registramos o erro
-            error_log("Erro inesperado ao buscar produto por nome '{$name}': " . $e->getMessage());
-            throw new Exception("Erro ao buscar produto por nome '{$name}'.");
-        }
+
+    public $booklets = [];
+    public function getBookletsByName($search) {
+        $dao = new BookletsDAO();
+        $this->booklets = $dao->getBookletsByName($search);
     }
-    
+
+    public $number_results = 0;
+    public function getNumberOfResults($search) {
+        $dao = new BookletsDAO();
+        $this->number_results = $dao->getNumberOfResults($search);
+    }
 
     public function delete(int $id)
     {

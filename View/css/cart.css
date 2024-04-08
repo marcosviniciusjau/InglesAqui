@@ -12,18 +12,13 @@ body {
   align-items: center;
   justify-content: center;
 }
-#cart-icon {
-  width: 100px;
-  height: 100px;
-  margin-left: 50%;
-  margin-right: 50%;
-}
 
 #cart-title {
   font-family: "Forum", cursive;
   color: black;
   text-align: center;
 }
+
 #cart-button {
   margin-top: 10px;
 }

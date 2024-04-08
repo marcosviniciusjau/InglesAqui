@@ -92,19 +92,19 @@ class BookletsDAO  extends DAO
         }
     }
 
-    public function getByName($name)
-    {    
-        $sql = "SELECT * FROM booklets WHERE name LIKE '% Guide%'";
-
-
-        $stmt = $this->conn->prepare($sql);
+    public function getBookletsByName($search) {
+        $stmt = $this->conn->prepare("SELECT * FROM booklets WHERE name LIKE ?");
+        $stmt->bindValue(1, "%{$search}%");
         $stmt->execute();
-
-        return $stmt->fetchAll(PDO::FETCH_CLASS);
-          
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    
 
+    public function getNumberOfResults($search) {
+        $stmt = $this->conn->prepare("SELECT count(*) FROM booklets WHERE name LIKE ?");
+        $stmt->bindValue(1, "%{$search}%");
+        $stmt->execute();
+        return $stmt->fetchColumn();
+    }
     
     public function getByCategoryTrip($id)
     {
@@ -135,7 +135,7 @@ class BookletsDAO  extends DAO
         try {
             $stmt = $this->conn->prepare("SELECT * FROM booklets WHERE id in (2,4)");
             $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_CLASS,'App\Model\BookletesModel');
+            return $stmt->fetchAll(PDO::FETCH_CLASS,'App\Model\BookletsModel');
             
         } catch (PDOException $e) {
          throw new Exception("Erro ao obter o produto no banco de dados.");

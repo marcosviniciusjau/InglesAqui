@@ -27,37 +27,31 @@
 </div>
 <div class="container">
     <div class="row">
-        <?php if (!empty($model->rows) && is_array($model->rows)): ?>
-            <?php foreach ($model->rows as $item): ?>
-                <?php if (isset($item->image, $item->name, $item->price, $item->id)): ?>
-                    <div class="col">
-                        <div class="thumbnail">  
-                            <div class="card" style="width: 12rem;">
-                                <img src="/View/Uploads/<?= $item->image ?>" class="card" width="100%" height="100%">
-                                <div class="card-body">
-                                    <h1 class="card-title" id="texto" data-name="<?= $item->name ?>" value="<?= $item->name ?>"><?= $item->name ?></h1>
-                                    <p class="card-text" id="valor" data-price="<?= $item->price ?>">R$ <?= number_format($item->price, 2, ',', '.') ?></p>
-                                    <a href="/apostilas_desc?id=<?= $item->id ?>"><button class="botao">Ver mais</button></a>
-                                    <button class="botao" onClick="window.location.href='/apostilas/carrinho/adicionar?id=<?= $item->id ?>'">Adicionar ao carrinho</button>
-                                </div>
+        <?php if (!empty($model->booklets)): ?>
+            <?php foreach ($model->booklets as $booklet): ?>
+                
+               <div class="col">
+                    <div class="thumbnail">  
+                        <div class="card" style="width: 12rem;">
+                            <img src="/View/Uploads/<?= $booklet['image'] ?>" class="card" width="100%" height="100%">
+                            <div class="card-body">
+                            <h1 class="card-title" id="texto"><?= $booklet['name'] ?></h1>
+                            <p class="card-text" id="valor">R$ <?= number_format($booklet['price'], 2, ',', '.') ?></p>
+                                <a href="/apostilas_desc?id=<?= $booklet['id'] ?>"><button class="botao">Ver mais</button></a>
+                                <button class="botao" onClick="window.location.href='/apostilas/carrinho/adicionar?id=<?= $booklet['id'] ?>'">Adicionar ao carrinho</button>
                             </div>
                         </div>
                     </div>
-                <?php endif; ?>
+                </div>
             <?php endforeach; ?>
         <?php else: ?>
             <div class="col">
-                <p>Nenhum resultado encontrado.</p>
+                <p class="card-text" id="valor">Nenhum resultado encontrado.</p>
             </div>
         <?php endif; ?>
     </div>
 </div>
 
-
-  </div> 
-   
-      </div>
-      </div>
   </div>
 
     <?php include PATH_VIEW . 'includes/footer.php' ?>

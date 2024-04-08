@@ -50,19 +50,28 @@ class BookletsController extends Controller
         parent::render('Booklets/booklets_desc' ,$model);
     }
     
-    public static function getBooklets()
-    {
-        if (isset($_GET['search'])) {
-            $name = $_GET['search'];
+    public static function getBooklets() {
+        try {
             $model = new BookletsModel();
-            $model->getByName("%{$name}%");
-            parent::render('Booklets/booklets_search', $model);
-        } else {
-            parent::render('Home/error');
+            
+            if (isset($_GET['search'])) {
+                $name = $_GET['search'];
+                $model->getBookletsByName($name);
+                $number_results= $model->getNumberOfResults($name);
+            } else {
+                throw new Exception("Parâmetro de busca não encontrado.");
+            }
+            
+            parent::render('Booklets/booklets_search', $model, $number_results);
+        } catch (Exception $e) {
+            parent::render('Home/error', ['error_message' => $e->getMessage()]);
         }
     }
     
-    
+    public function getNumberOfResults($search) {
+        $dao = new BookletsDAO();
+        return $dao->getNumberOfResults($search);
+    }
 
     public static function categoryTrip()
     {

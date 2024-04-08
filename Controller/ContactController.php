@@ -3,11 +3,11 @@
 namespace App\Controller;
 use \Exception;
 
-class ContatoController extends Controller
+class ContactController extends Controller
 {
     public static function index()
     {
-        parent::render('Contato/contato' );
+        parent::render('Contact/contact' );
     }
     
 }

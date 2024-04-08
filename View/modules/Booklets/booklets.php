@@ -16,8 +16,7 @@
   </head>
   <body>
   
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-  
+
   <?php include PATH_VIEW . 'includes/header_booklets.php' ?>
  
     <div class="content">
@@ -30,10 +29,10 @@
 
 
       <div class="slide s1">
-        <a href ="consulta"><img src="View/Imagens/banner_ingles_aqui.png"></a>
+        <a href ="consulta"><img src="/View/Imagens/banner_ingles_aqui.png"></a>
       </div>
       <div class="slide">
-        <img src="View/Imagens/aupairbanner.png">
+        <img src="/View/Imagens/aupairbanner.png">
       </div>
   
     </div>
@@ -51,24 +50,23 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
 
               <div class="col">
-                <a href="/apostilas/categoria/viagem"><img class="categorias" src="View/Imagens/viagem.png"></a>
+                <a href="/apostilas/categoria/viagem"><img class="categorias" src="/View/Imagens/viagem.png"></a>
                 <br>
                 <font size="5" style="font-family: Corbel">VIAGEM</font>
               </div>
 
               <div class="col">
-                <a href="/apostilas/categoria/negocios"><img class="categorias" src="View/Imagens/negocios.jpg"></a>
+                <a href="/apostilas/categoria/negocios"><img class="categorias" src="/View/Imagens/negocios.jpg"></a>
                 <br>
                 <font size="5" style="font-family: Corbel">NEGÓCIOS</font>
               </div>
 
               <div class="col">
-                <a href="/apostilas/categoria/educacao"><img class="categorias" src="View/Imagens/estudos.jpg"></a>
+                <a href="/apostilas/categoria/educacao"><img class="categorias" src="/View/Imagens/estudos.jpg"></a>
                 <br>
                 <font size="5" style="font-family: Corbel">ESTUDOS</font>
               </div>
-
-
+              
             </div>
         </div>
 

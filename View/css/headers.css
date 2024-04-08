@@ -9,11 +9,12 @@
   color: #5d0101;
 }
 
-#cart-icon {
-  width: 30px;
-  height: 30px;
-}
+
 #cart {
   display: flex;
   margin-top:-15px;
+}
+
+.search {
+  background-color: #5d0101;
 }
