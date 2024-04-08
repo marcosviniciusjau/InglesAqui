@@ -12,14 +12,12 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  </head>
+    </head>
   <body>
   
-
   <?php include PATH_VIEW . 'includes/header_booklets.php' ?>
  
-    <div class="content">
+  <div class="content">
     <div class="slides">
       <input type="radio" name="radio" id="slide1" checked>
       <input type="radio" name="radio" id="slide2">
@@ -29,7 +27,7 @@
 
 
       <div class="slide s1">
-        <a href ="consulta"><img src="/View/Imagens/banner_ingles_aqui.png"></a>
+        <a href="#"><img src="/View/Imagens/banner_ingles_aqui.png"></a>
       </div>
       <div class="slide">
         <img src="/View/Imagens/aupairbanner.png">
@@ -91,9 +89,7 @@
      
      </div>
   </div>
-
   </div> 
-   
       </div>
       <?php endforeach ?>
       </div>

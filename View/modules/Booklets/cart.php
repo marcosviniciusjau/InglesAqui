@@ -7,22 +7,21 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Inglês Aqui</title>
+    <title>Inglês Aqui- Carrinho</title>
     <link rel="icon" href="/View/Imagens/icon.png" type="image/icon type">
     <link rel="stylesheet" href="/View/css/success.css">
     <link rel="stylesheet" href="/View/css/cart.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="/View/js/cart.js"></script>
+   <script src="/View/js/cart.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </head>
   <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
-      <?php include PATH_VIEW . '/includes/header_booklets.php' ?>
+  
+    <?php include PATH_VIEW . '/includes/header_booklets.php' ?>
 <h1>Carrinho de Compras</h1>
+
 <div class="alert alert-success" role="alert" id="alert">
 </div>
 <div class="container ">
@@ -59,13 +58,12 @@ session_start();
             </a></td>
   </div>
 
-  </div> 
-   
+  </div>
       </div>
       <?php endforeach ?>
       </div>
       
-      <p id="total_values" class="prices"></p>
+        <p id="total_values" class="prices"></p>
         <button class="botao" type="submit">Comprar</button></a>
     </form>
   </div>

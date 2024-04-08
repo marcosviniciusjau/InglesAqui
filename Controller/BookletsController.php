@@ -97,7 +97,6 @@ class BookletsController extends Controller
 
         parent::render('Booklets/booklets',$model);
     }
-
     
     public static function payment()
     {
