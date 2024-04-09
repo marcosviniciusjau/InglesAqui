@@ -163,14 +163,38 @@ public static function paymentCart()
 
         // Verifique se o parâmetro 'quantityArray' foi enviado
         if (isset($_POST['quantityArray'])) {
-            // Atualize o carrinho com base nos dados do quantityArray
-            self::updateCartFromQuantityArray($cart, $_POST['quantityArray']);
+            $quantityArrayJSON = $_POST['quantityArray'];
+            $quantityArray = json_decode($quantityArrayJSON, true);
+        
+            // Iterar sobre cada item do array $quantityArray
+            foreach ($quantityArray as $item) {
+                // Acesso aos campos "id" e "quantity" de cada item
+                $id = $item['id'];
+                $name = $item['name'];
+                $price = $item['price'];
+                $image= $item['img'];
+                $quantity = $item['quantity'];
 
-            // Renderiza a página de pagamento com os detalhes do carrinho atualizados
-            $ids = array_column($cart, 'id');
-            $model->getByCartIds($ids);
+                $index = array_search($id, array_column($cart, 'id'));
+                $totalQuantity = $quantity;
+                $totalPrice = $price;
+                $total= $totalPrice * $totalQuantity;
+                $totais+= $total;
+                $updatedCart[] = ['id' => $id, 'quantity' => $quantity, 'name' => $name, 'price' => $price, 'img' => $image, 'totalQuantity' => $totalQuantity, 'totalPrice' => $totalPrice, 'total' => $total,'totais' => $totais];
+            }
+        
+        
+            // Criptografa o carrinho atualizado e define o cookie
+            $cookie_duration = time() + (30 * 24 * 60 * 60);
+            $encryptedUpdatedCart = self::encrypt($updatedCart, $key);
+            setcookie('cart', $encryptedUpdatedCart, $cookie_duration);
+            $updatedCartJSON = json_encode($updatedCart);
+            echo $updatedCartJSON;
+            $model->updatedCartJSON = $updatedCartJSON;
+            $model->quantities = $quantities;
+            $model->totalPrice= $totalPrice;
             parent::render('Booklets/payment_cart', $model);
-        } else {
+} else {
             echo 'O parâmetro "quantityArray" não foi definido.';
         }
     } else {
@@ -178,6 +202,7 @@ public static function paymentCart()
         self::renderEmptyCartPage();
     }
 }
+
 
 public static function updateCartFromQuantityArray(&$cart, $quantityArrayJSON)
 {

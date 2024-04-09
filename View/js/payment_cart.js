@@ -1,27 +1,12 @@
 
 
 function updateTotalPrice() {
-  let totalPrice = 0;
-  //const quantityElements = document.querySelectorAll('#quantity');
-  const priceElements = document.getElementById('#price');
-  
+ 
 
-  // Calcula o preço total
-  priceElements.forEach((priceElements, index) => {
-    const quantity = parseInt(quantityElement.dataset.quantity);
-    const price = parseFloat(priceElements[index].dataset.price);
-
-    if (isNaN(price)) {
-      totalPrice +=  price;
-    } else {
-      console.error('Erro: Valor inválido encontrado.');
-    }
-  });
-
+  const totals = document.getElementById("total_price").textContent
   const select = document.getElementById("installments")
   select.innerHTML = ""
 
-  const totals = totalPrice
 
   const optionVista = document.createElement("option")
   optionVista.value = 1

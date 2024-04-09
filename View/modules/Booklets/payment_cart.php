@@ -20,25 +20,30 @@
   <?php include PATH_VIEW . 'includes/header_home.php' ?>
   <div class="container">
     <div class="row">
-    <?php foreach($model->rows as $item): ?>
-      <div class="col">
-  <div>  
-  <div class="card" style="width: 12rem;">
-   <img  src="/View/Uploads/<?= $item->image ?>" class="card"   width="100%" height="100%">
-   
-      <div class="card-body">
-      <h1 class="card-title" id="name" data-name="<?= $item->name ?>" value="<?= $item->name ?>"><?= $item->name ?></h1>
-      <p class="card-text" id="price" data-price="<?= $item->price ?>">  R$ <?=number_format($item->price,2, ',', '.') ?></p>
-      <p class="card-text" id="quantity" data-price="<?= $item->quantity ?>"> <?=$item->quantity ?></p>
-     
-   
-     </div>
-  </div>
-  </div> 
-      </div>
-      <?php endforeach ?>
-      </div>
-  </div>
+        <?php 
+            // Decodifica o JSON recebido
+            $updatedCart = json_decode($model->updatedCartJSON, true);
+            // Itera sobre os itens do carrinho e os exibe
+            foreach ($updatedCart as $item) {
+        ?>
+        <div class="col">
+            <div class="card" style="width: 12rem;">
+                <img src="/View/Uploads/<?= $item['img'] ?>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" id="name" data-name="<?= $item['name'] ?>"><?= $item['name'] ?></h5>
+                    <p class="card-text" id="price" data-price="<?= $item['price'] ?>">R$ <?= number_format($item['price'], 2, ',', '.') ?></p>
+                    <p class="card-text" id="quantity">Quantidade: <?= $item['quantity'] ?></p>
+                </div>
+            </div>
+        </div>
+              
+        <?php 
+            }
+        ?>
+    </div>
+</div>
+<p class="card-text" id="total_price">Total R$  <?= number_format($item['totais'], 2, ',', '.') ?></p>
+        
 <div class="container__form">
   <form method="POST" data-pagarmecheckout-form enctype="multipart/form-data" id="form_pagamento">
 
