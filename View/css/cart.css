@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 body {
-  background-image: url("../../View/Imagens/fundo_sucesso.png");
+  background-image: url("../../View/Images/Booklets/success_background.webp");
   background-size: cover;
 }
 

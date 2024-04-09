@@ -36,14 +36,13 @@ const nome = document.getElementById("nome").value
 
 const taxaVista = 0.0349
 const calculoBasico = preco * taxaVista + taxaVista
-console.log(calculoBasico)
+
 const calculoTaxa = preco + calculoBasico - taxaVista + 0.05
-console.log(calculoTaxa)
 
 document.getElementById("cardHolderName").addEventListener("input",nameUppercase)
 
 var selectedOption = localStorage.getItem('selectedOption');
-console.log(selectedOption)
+
 if (selectedOption) {
     document.getElementById('selected_quantity').innerText = selectedOption;
 } else {

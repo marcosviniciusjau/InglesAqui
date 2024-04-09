@@ -1,59 +1,18 @@
-document.addEventListener("DOMContentLoaded", function() {
-  // Supondo que 'quantityArray' é um array de objetos com id, quantidade e preço
-  const selectedQuantities = JSON.parse(localStorage.getItem('quantityArray')) || [];
-  const container = document.getElementById('cart-container');
 
-  // Verifica se o array não está vazio
-  if (selectedQuantities.length === 0) {
-    console.error('Erro: Nenhum item no carrinho.');
-    return;
-  }
-
-  // Cria os cartões de itens no carrinho
-  selectedQuantities.forEach((quantity) => {
-    const card = document.createElement('div');
-    card.classList.add('col');
-    card.innerHTML = `
-    <div class="row">
-  
-      <div class="col">
-  <div class="thumbnail">  
-  <div class="card" style="width: 12rem;">
-    <img src="/View/Uploads/${quantity.img}" width="150" height="200"/>
-       
-    <div class="card" style="width: 10rem;">
-    <div class="card-body">
-        <h1 class="card-title" id="name" data-name="${quantity.id}">${quantity.id}</h1>
-        <div id="quantity-container">
-            <p class="card-text" id="quantity" data-quantity="${quantity.quantity}">Quantidade: ${quantity.quantity}</p>
-            <p class="card-text" id="price" data-price="${quantity.price}">R$: ${quantity.price.toFixed(2).replace('.', ',')}</p>
-        </div>
-    </div>
-    <p class="card-text" id="subtotal">Subtotal: R$ ${(quantity.price * quantity.quantity).toFixed(2).replace('.', ',')}</p>
-    </div>
-    </div>
-    </div>
-    </div>
-    `;
-    container.appendChild(card);
-
-  });
-
-  updateTotalPrice();
-});
 
 function updateTotalPrice() {
   let totalPrice = 0;
-  const quantityElements = document.querySelectorAll('#quantity');
-  const priceElements = document.querySelectorAll('#price');
+  //const quantityElements = document.querySelectorAll('#quantity');
+  const priceElements = document.getElementById('#price');
+  
 
   // Calcula o preço total
-  quantityElements.forEach((quantityElement, index) => {
+  priceElements.forEach((priceElements, index) => {
     const quantity = parseInt(quantityElement.dataset.quantity);
     const price = parseFloat(priceElements[index].dataset.price);
 
-    if (!isNaN(quantity) && !isNaN(price)) {
-      totalPrice += quantity * price;
+    if (isNaN(price)) {
+      totalPrice +=  price;
     } else {
       console.error('Erro: Valor inválido encontrado.');
     }
@@ -82,7 +41,7 @@ function updateTotalPrice() {
     console.error('Erro: Elemento do preço total não encontrado.');
   }
 }
-
+updateTotalPrice()
 const select = document.getElementById("installments")
 const expMonth = document.getElementById("expMonth").value
 const expYear = document.getElementById("expYear").value

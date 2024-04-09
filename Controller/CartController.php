@@ -122,32 +122,92 @@ class CartController extends Controller
     }
 
     public static function getCart()
-    {
-        $model = new BookletsModel();
-        if (isset($_COOKIE['cart'])) {
-            $encryptedCart = $_COOKIE["cart"];
-            $cart = self::decrypt($encryptedCart, $key);
+{
+    $model = new BookletsModel();
 
-            if (is_string($cart)) {
-                echo 'Erro ao decodificar o carrinho.';
-                return;
-            }
-            $ids= array_column($cart,'id');
-            if (!empty($ids)) {
-                $model->getByCartIds($ids);
-                parent::render('Booklets/cart', $model);
-                return;
-            }
-            else{
-                self::renderEmptyCartPage();
-                exit();
-            }
-        }else{
+    if (isset($_COOKIE['cart'])) {
+        $encryptedCart = $_COOKIE["cart"];
+        $cart = self::decrypt($encryptedCart, $key);
+
+        if ($cart === null || !is_array($cart)) {
+            echo 'Erro ao decodificar o carrinho.';
             self::renderEmptyCartPage();
-            exit();
+            return;
         }
 
+        $ids = array_column($cart, 'id');
+        if (!empty($ids)) {
+            $model->getByCartIds($ids);
+            parent::render('Booklets/cart', $model);
+        } else {
+            self::renderEmptyCartPage();
+        }
+    } else {
+        self::renderEmptyCartPage();
     }
+}
+
+public static function paymentCart()
+{
+    $model = new BookletsModel();
+
+    // Verifique se o cookie 'cart' está definido
+    if (isset($_COOKIE['cart'])) {
+        $encryptedCart = $_COOKIE["cart"];
+        $cart = self::decrypt($encryptedCart, $key);
+
+        if (is_string($cart)) {
+            echo 'Erro ao decodificar o carrinho.';
+            return;
+        }
+
+        // Verifique se o parâmetro 'quantityArray' foi enviado
+        if (isset($_POST['quantityArray'])) {
+            // Atualize o carrinho com base nos dados do quantityArray
+            self::updateCartFromQuantityArray($cart, $_POST['quantityArray']);
+
+            // Renderiza a página de pagamento com os detalhes do carrinho atualizados
+            $ids = array_column($cart, 'id');
+            $model->getByCartIds($ids);
+            parent::render('Booklets/payment_cart', $model);
+        } else {
+            echo 'O parâmetro "quantityArray" não foi definido.';
+        }
+    } else {
+        echo 'O cookie não foi definido.';
+        self::renderEmptyCartPage();
+    }
+}
+
+public static function updateCartFromQuantityArray(&$cart, $quantityArrayJSON)
+{
+    $quantityArray = json_decode($quantityArrayJSON, true);
+
+    if ($quantityArray === null) {
+        echo 'Erro ao decodificar o quantityArray JSON.';
+        return;
+    }
+
+    // Percorra o carrinho e atualize as quantidades
+    foreach ($cart as &$item) {
+        $id = $item['id'];
+        
+        // Verifique se o ID existe no quantityArray
+        if (isset($quantityArray[$id])) {
+            // Atualize a quantidade no carrinho
+            $item['quantity'] = $quantityArray[$id];
+        }
+    }
+
+    // Criptografe o carrinho atualizado
+    $encryptedCart = self::encrypt($cart, $key);
+    
+    // Defina o cookie atualizado
+    $cookie_duration = time() + (30 * 24 * 60 * 60);
+    setcookie('cart', $encryptedCart, $cookie_duration);
+}
+
+   
 
     public static function deleteCartItem()
     {
@@ -188,32 +248,7 @@ class CartController extends Controller
         }
     }
 
-    public static function paymentCart(){
-      
-                
-        $model = new BookletsModel();
-        if (isset($_COOKIE['cart'])) {
-            $encryptedCart = $_COOKIE["cart"];
-            $cart = self::decrypt($encryptedCart, $key);
+   
 
-            if (is_string($cart)) {
-                echo 'Erro ao decodificar o carrinho.';
-                return;
-            }
-            $ids= $cart;
-            if (!empty($ids)) {
-                $model->getByCartIds($ids);
-                parent::render('Booklets/payment_cart', $model);
-                return;
-            }
-            else{
-                self::renderEmptyCartPage();
-                exit();
-            }
-        }else{
-            echo 'O cookie não foi definido.';
-            self::renderEmptyCartPage();
-            exit();
-        }
-    }
+
 }

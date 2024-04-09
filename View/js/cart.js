@@ -19,17 +19,21 @@ function updateTotalPrice() {
       const price = parseFloat(select.closest('.card-body').querySelector("#price").dataset.price);
       const name = select.closest('.card-body').querySelector("#texto").dataset.name;
       const img = select.closest('.card').querySelector("#image").dataset.img;
+      const id = select.closest('.card').querySelector("#id").dataset.id;
 
       const itemTotalPrice = selectedQuantity * price;
       
       totalPrice += itemTotalPrice;
       
-      quantityArray.push({ id: name, quantity: selectedQuantity, price:price, img:img });
+      quantityArray.push({ id: id,name: name, quantity: selectedQuantity, price:price, img:img });
      
   });
   
   const totalPrices = document.getElementById('total_values');
   totalPrices.textContent = "Total: R$" + totalPrice.toFixed(2);
+
+  const quantityArrayJSON = JSON.stringify(quantityArray);
+  document.getElementById('quantityArrayInput').value = quantityArrayJSON;
   updateCartQuantity();
 }
 
@@ -39,12 +43,11 @@ function updateCartQuantity() {
 }
 
 document.getElementById('form_quantity').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const quantityArrayJSON = JSON.stringify(quantityArray);
-
-   
-      localStorage.setItem('quantityArray', JSON.stringify(quantityArray))
-
-      href= "/apostilas/carrinho/pagamento"
-      window.location.href = href
+  event.preventDefault();
+  const quantityArrayJSON = JSON.stringify(quantityArray);
+  // Define o valor do campo de input oculto com o JSON do quantityArray
+  document.getElementById('quantityArrayInput').value = quantityArrayJSON;
+  // Envie o formulário
+  this.submit();
 });
+

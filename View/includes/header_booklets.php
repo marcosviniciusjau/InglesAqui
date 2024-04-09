@@ -1,8 +1,7 @@
 <link rel="stylesheet" href="\View\css\headers.css">
-<script src="\View\js\cart.js"></script>
 <nav id= "nav" class="navbar navbar-expand-md navbar-dark ">
     <div class="container-fluid">
-      <a href="/"><img src="/View/Imagens/logo.png" class="navbar-brand" width="150" height="60"></a>
+      <a href="/"><img src="/View/Images/Home/logo.webp" class="navbar-brand" width="150" height="60"></a>
       <a class="navbar-brand" href="/apostilas/categoria/viagem">Viagem</a>
       
       <a class="navbar-brand" href="/apostilas/categoria/negocios">Negócios</a>

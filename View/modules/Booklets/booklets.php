@@ -4,14 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Inglês Aqui- Apostilas</title>
-    <link rel="icon" href="/View/Imagens/icon.png" type="image/icon type">
-    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="icon" href="/View/Images/Home/icon.webp" type="image/icon type">
     <link rel="stylesheet" href="\View\css\booklets.css">
-    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
     </head>
   <body>
   
@@ -27,10 +23,10 @@
 
 
       <div class="slide s1">
-        <a href="#"><img src="/View/Imagens/banner_ingles_aqui.png"></a>
+        <a href="#"><img src="/View/Images/Booklets/banner_ingles_aqui.webp"></a>
       </div>
       <div class="slide">
-        <img src="/View/Imagens/aupairbanner.png">
+        <img src="/View/Images/Booklets/aupairbanner.webp">
       </div>
   
     </div>
@@ -48,19 +44,19 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
 
               <div class="col">
-                <a href="/apostilas/categoria/viagem"><img class="categorias" src="/View/Imagens/viagem.png"></a>
+                <a href="/apostilas/categoria/viagem"><img class="categorias" src="/View/Images/Booklets/viagem.webp"></a>
                 <br>
                 <font size="5" style="font-family: Corbel">VIAGEM</font>
               </div>
 
               <div class="col">
-                <a href="/apostilas/categoria/negocios"><img class="categorias" src="/View/Imagens/negocios.jpg"></a>
+                <a href="/apostilas/categoria/negocios"><img class="categorias" src="/View/Images/Booklets/negocios.webp"></a>
                 <br>
                 <font size="5" style="font-family: Corbel">NEGÓCIOS</font>
               </div>
 
               <div class="col">
-                <a href="/apostilas/categoria/educacao"><img class="categorias" src="/View/Imagens/estudos.jpg"></a>
+                <a href="/apostilas/categoria/educacao"><img class="categorias" src="/View/Images/Booklets/estudos.webp"></a>
                 <br>
                 <font size="5" style="font-family: Corbel">ESTUDOS</font>
               </div>

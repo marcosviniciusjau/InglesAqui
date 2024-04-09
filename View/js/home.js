@@ -100,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function () {
       body: JSON.stringify(data)
     })
       .then(response => response.json())
-    console.log(respo)
       .then(result => console.log(result))
       .catch(error => console.error('Erro:', error));
 

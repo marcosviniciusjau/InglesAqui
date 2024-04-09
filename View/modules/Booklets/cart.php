@@ -8,14 +8,15 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <title>Inglês Aqui- Carrinho</title>
-    <link rel="icon" href="/View/Imagens/icon.png" type="image/icon type">
+    <link rel="icon" href="/View/Images/Home/icon.webp" type="image/icon type">
     <link rel="stylesheet" href="/View/css/success.css">
     <link rel="stylesheet" href="/View/css/cart.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-   <script src="/View/js/cart.js"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+    <script src="/View/js/cart.js"></script>
+   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </head>
   <body>
   
@@ -34,8 +35,7 @@ session_start();
 
    <form id="form_quantity" method="post" action="/apostilas/carrinho/pagamento">
       <div class="card-body">
-        <input type="hidden" name="id" value="<?= $item->id ?>">
-   
+  
       <h1 class="card-title" id="texto" data-name="<?= $item->name ?>" value="<?= $item->name ?>"><?= $item->name ?></h1>
       <div class="row g-3">
           <select class="form-select" id="selected_quantity">
@@ -48,6 +48,9 @@ session_start();
           </select>
         </div>
         <p class="card-text" id="price" data-price="<?= $item->price ?>" value="<?= $item->price ?>">  R$ <?=number_format($item->price,2, ',', '.') ?></p>
+        <p class="card-text" id="id" data-id="<?= $item->id ?>" value="<?= $item->id ?>"></p>
+      
+   
       </div>
 
      <td><a class='btn btn-sm btn-danger' onClick="window.location.href='/apostilas/carrinho/excluir?id=<?= $item->id ?>'">
@@ -62,8 +65,9 @@ session_start();
       </div>
       <?php endforeach ?>
       </div>
-      
         <p id="total_values" class="prices"></p>
+        <input type="hidden" id="quantityArrayInput" name="quantityArray">
+
         <button class="botao" type="submit">Comprar</button></a>
     </form>
   </div>

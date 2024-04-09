@@ -5,21 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <title>Inglês Aqui</title>
-    <link rel="icon" href="/View/Imagens/icon.png" type="image/icon type">
+    <link rel="icon" href="/View/Images/Home/icon.webp" type="image/icon type">
     <link rel="stylesheet" href="/View/css/home.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="/View/js/home.js"></script>
-    <script type="module" src="\View\js\cart.js"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  </head>
-  <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
+   </head>
+  <body>
+    
       <?php include PATH_VIEW . '/includes/header_home.php' ?>
-    <img src="/View/Imagens/fundo1.png" id="fundo_img">
+    <img src="/View/Images/Home/background.webp" id="fundo_img">
   
   <div class="assistente">
   <ion-icon name="chatbubble-ellipses-outline" id="assistente" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"></ion-icon>
@@ -30,14 +25,14 @@
         <div id="tabela">
           <div class="modal-content">
             <div class="modal-header"> 
-            <img src="/View/Imagens/icon.png" id="img-assist-header">
+            <img src="/View/Images/icon.png" id="img-assist-header">
               <h1 class="modal-title">Paige Assistente Virtual - Inglês Aqui</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
        
       <div class="card mb-3">
         <div id="message-text-enter">
-        <img src="/View/Imagens/icon.png" id="img-assist">
+        <img src="/View/Images/icon.png" id="img-assist">
 
     <div class="col-md-8">
     <div class="options-container" ng-app="myApp" ng-controller="myCtrl">
@@ -92,19 +87,19 @@
    </div>
      </div>
         <span class="livros">
-        <a href="/apostilas_desc?id=1"><img class="apostilas" src="View/Imagens/livro1.png"  class="thumbnail" /></a>
+        <a href="/apostilas_desc?id=1"><img class="apostilas" src="View/Images/Booklets/booklet1.webp"  class="thumbnail" /></a>
         </span>
         <span class="livros">
-        <a href="/apostilas_desc?id=7"><img class="apostilas"  src="View/Imagens/livro2.png"  class="thumbnail" /></a>
+        <a href="/apostilas_desc?id=7"><img class="apostilas"  src="View/Images/Booklets/booklet2.webp"  class="thumbnail" /></a>
         </span>
         <span class="livros"> 
-        <a href="/apostilas_desc?id=3"><img class="apostilas"  src="View/Imagens/livro3.png"  class="thumbnail" /></a>
+        <a href="/apostilas_desc?id=3"><img class="apostilas"  src="View/Images/Booklets/booklet3.webp"  class="thumbnail" /></a>
         <br> <br>
         <br> <br>
         </span>
     </div>
 <div class="d-md-flex flex-md-equal  w-100">
-  <img src="View/Imagens/sobre.png" class="imgs" id="azul">
+  <img src="View/Images/Home/about.webp" class="imgs" id="azul">
       <div id="sobre">
         <div class="my-5 py-5">
          <h1 class="display-5">Sobre</h1>
@@ -114,13 +109,11 @@
      </div>
        </div>
   
-   
-
   <div class="d-md-flex flex-md-equal" class="azul">
     <div id="mensagem">
     <h2 class="display-4" id="titulo_mensagem">Aprender inglês pode te levar para onde você  quiser!</h2> 
     </div> 
-    <img src="View\Imagens/mundo.png" id="mundo_img" class="mundo_img"/>
+    <img src="View/Images/Home/world.webp" id="mundo_img" class="mundo_img"/>
   </div>
   </div>
   </div>
@@ -133,7 +126,7 @@
       <br>
       <a href="/contato"><button class="botao">Ver mais</button></a>
    </div>
-      <img src="View/Imagens/contato.png" id="contato_imagem" class="img">
+      <img src="View/Images/Home/contact.webp" id="contato_imagem" class="img">
   </div>
      
 </main>
@@ -142,6 +135,3 @@
 
 </body>
 </html>
-<script>
-  updateCartQuantity()
-</script>

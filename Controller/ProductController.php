@@ -43,7 +43,7 @@ class ProductController extends Controller
                 throw new Exception("O arquivo é muito grande. O tamanho máximo permitido é 10MB.");
             }
     
-            if (!in_array($arquivo['type'], ['image/jpeg', 'image/png'])) {
+            if (!in_array($arquivo['type'], ['image/webp'])) {
                 throw new Exception("O arquivo deve ser uma imagem.");
             }
     
@@ -51,21 +51,21 @@ class ProductController extends Controller
                 throw new Exception("Arquivos executáveis não são permitidos.");
             }
 
-            $nome_unico = uniqid() . '.' . pathinfo($arquivo['name'], PATHINFO_EXTENSION);
-    
-            $image = imagecreatefrompng($arquivo['tmp_name']);
+            $unique_name = 'booklet' . uniqid() . '.' . pathinfo($arquivo['name'], PATHINFO_EXTENSION);
+        
+            $image = imagecreatefromwebp($arquivo['tmp_name']);
 
             if ($image === false) {
                 throw new Exception("Falha ao carregar a imagem.");
             }
 
-            if (imagepng($image, UPLOADS . $nome_unico) === false) {
+            if (imagepng($image, UPLOADS . $unique_name) === false) {
                 throw new Exception("Falha ao salvar a imagem.");
             }
 
             imagedestroy($image);
 
-            $model->image = $nome_unico;
+            $model->image = $unique_name;
 
             $model->save();
 

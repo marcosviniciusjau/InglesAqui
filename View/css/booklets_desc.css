@@ -1,29 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Forum&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 body{
    margin: 0;
     padding: 0;
     height: 100vh;
     widows: 100vw;
-  background-image: url("../../View/Imagens/fundo_sucesso.png")
+  background-image: url("../../View/Images/Booklets/success_background.webp");
 }
 
 
-#valor,#valor_1{
+#price,#price_1{
  font-family: 'Montserrat', sans-serif;
  font-size:25px; 
  color:black;
  font-weight: 700;
 }
 
-#descricao,#nome_1{  
+#description,#nome_1{  
  font-family: 'Montserrat', sans-serif;
  font-size: 20px;
  color:black;
  font-weight: 350;
 }
 
-#nome{    
+#name{    
  font-family: 'Forum', cursive;
  color:black;
  font-size:25px;
