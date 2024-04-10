@@ -166,16 +166,13 @@ public static function paymentCart()
             $quantityArrayJSON = $_POST['quantityArray'];
             $quantityArray = json_decode($quantityArrayJSON, true);
         
-            // Iterar sobre cada item do array $quantityArray
             foreach ($quantityArray as $item) {
-                // Acesso aos campos "id" e "quantity" de cada item
                 $id = $item['id'];
                 $name = $item['name'];
                 $price = $item['price'];
                 $image= $item['img'];
                 $quantity = $item['quantity'];
 
-                $index = array_search($id, array_column($cart, 'id'));
                 $totalQuantity = $quantity;
                 $totalPrice = $price;
                 $total= $totalPrice * $totalQuantity;
@@ -184,12 +181,11 @@ public static function paymentCart()
             }
         
         
-            // Criptografa o carrinho atualizado e define o cookie
             $cookie_duration = time() + (30 * 24 * 60 * 60);
             $encryptedUpdatedCart = self::encrypt($updatedCart, $key);
             setcookie('cart', $encryptedUpdatedCart, $cookie_duration);
             $updatedCartJSON = json_encode($updatedCart);
-            echo $updatedCartJSON;
+            
             $model->updatedCartJSON = $updatedCartJSON;
             $model->quantities = $quantities;
             $model->totalPrice= $totalPrice;

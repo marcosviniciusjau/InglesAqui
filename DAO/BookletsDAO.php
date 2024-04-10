@@ -81,7 +81,7 @@ class BookletsDAO  extends DAO
     public function getById($id)
     {
         try {
-            $stmt = $this->conn->prepare("SELECT * FROM booklets WHERE id = ?");
+            $stmt = $this->conn->prepare("SELECT name, price,description, image,stock FROM booklets WHERE id = ?");
             $stmt->bindValue(1, $id);
             $stmt->execute();
             return $stmt->fetchObject('App\Model\BookletsModel');

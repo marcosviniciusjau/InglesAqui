@@ -6,8 +6,6 @@
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="icon" href="/View/Images/Home/icon.webp" type="image/icon type">
    
-    <script type="text/javascript" src="\View\js\payment_cart.js"></script>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
    
    <link rel="stylesheet" href="\View\css\payment.css">
@@ -42,8 +40,8 @@
         ?>
     </div>
 </div>
-<p class="card-text" id="total_price">Total R$  <?= number_format($item['totais'], 2, ',', '.') ?></p>
-        
+<p class="card-text" id="totais" data-totais="<?= $item['totais'] ?>" value="<?= $item['totais'] ?>">Total R$  <?= number_format($item['totais'], 2, ',', '.') ?></p>
+
 <div class="container__form">
   <form method="POST" data-pagarmecheckout-form enctype="multipart/form-data" id="form_pagamento">
 
@@ -358,12 +356,14 @@
       </form>
 </div>
 
-<h4>Valor Total da Compra: <span id="total_values"></span></h4>
+<h4>Valor Total da Compra: <span id="total_values" class="prices"></span>
+</h4>
 </div>
 
 </main>
 
-  
+<script type="text/javascript" src="\View\js\payment_cart.js"></script>
+     
 </body>
 <?php include PATH_VIEW . 'includes/footer.php' ?>
 

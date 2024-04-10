@@ -4,10 +4,14 @@
     <div class="container-fluid">
       
       <a href="/"><img src="/View/Images/Home/logo.webp" class="navbar-brand" width="150" height="60"></a>
+      
       <form class="d-flex" role="search" method="GET" action="/apostilas/pesquisar">
-          <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" id="search" name="search">
+        <div class="autocomplete">
+          <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" id="search" name="search" required>
           <button class="btn btn-outline-search" type="submit"><ion-icon name="search-outline"></ion-icon></button>
-        </form>
+          <ul class= "list-group" id="searchResults"></ul>
+      </div>
+      </form>
 
       <a class="navbar-brand" href="/apostilas">Apostilas</a>
       <a class="navbar-brand" href="/contato">Contato</a>
@@ -19,3 +23,4 @@
       
     </div>
   </nav>
+  <script src="\View\js\header.js"></script>

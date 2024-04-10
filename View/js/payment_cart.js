@@ -1,9 +1,9 @@
 
 
 function updateTotalPrice() {
- 
+  const totals = parseFloat(document.getElementById("totais").dataset.totais)
+  console.log(totals)
 
-  const totals = document.getElementById("total_price").textContent
   const select = document.getElementById("installments")
   select.innerHTML = ""
 
@@ -21,7 +21,7 @@ function updateTotalPrice() {
   // Atualiza o preço total na interface do usuário
   const totalPriceElement = document.getElementById('total_values');
   if (totalPriceElement) {
-    totalPriceElement.textContent = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+    totalPriceElement.textContent = `R$ ${totals.toFixed(2).replace('.', ',')}`;
   } else {
     console.error('Erro: Elemento do preço total não encontrado.');
   }

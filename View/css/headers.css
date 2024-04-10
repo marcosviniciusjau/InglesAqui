@@ -1,5 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Forum&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+.autocomplete {
+display:flex;
+}
+#search{
+  font-family: "Montserrat", sans-serif;
+}
+
+#searchResults {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  list-style-type: none;
+  margin-top:50px;
+  padding: 0;
+  width: 20%;
+  z-index: 1;
+}
+
+#searchResults li {
+  font-family: "Montserrat", sans-serif;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+#searchResults li:hover {
+  background-color: #5d0101;
+}
+
 #nav {
   background-color: #020d2b;
   font-family: "Forum", cursive;

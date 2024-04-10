@@ -9,8 +9,11 @@
       <a class="navbar-brand" href="/apostilas/categoria/educacao">Estudo</a>
 
       <form class="d-flex" role="search" method="GET" action="/apostilas/pesquisar">
-          <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" id="search" name="search">
+        <div class="autocomplete">
+          <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" id="search" name="search" required>
           <button class="btn btn-outline-search" type="submit"><ion-icon name="search-outline"></ion-icon></button>
+          <ul class= "list-group" id="searchResults"></ul>
+      </div>
       </form>
 
       <a class="navbar-brand" href="/apostilas/carrinho">
@@ -24,3 +27,5 @@
       
     </div>
   </nav>
+  
+  <script src="\View\js\header.js"></script>
