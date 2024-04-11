@@ -23,10 +23,11 @@
 
 
       <div class="slide s1">
-        <a href="#"><img src="/View/Images/Booklets/banner_ingles_aqui.webp"></a>
+        <a href="#"><img src="/View/Images/Booklets/banner_ingles_aqui.webp" class="banner"></a>
       </div>
+
       <div class="slide">
-        <img src="/View/Images/Booklets/aupairbanner.webp">
+        <img src="/View/Images/Booklets/aupairbanner.webp" class="banner">
       </div>
   
     </div>

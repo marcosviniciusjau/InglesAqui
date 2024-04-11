@@ -6,6 +6,21 @@ body {
   background-image: url("../../View/Images/Booklets/success_background.webp");
   background-size: cover;
 }
+@media(min-width:768px){
+  .slides {
+    display: flex;
+    width: 500%;
+    height: 50%;
+  }
+}
+@media(max-width:768px){
+  .slides {
+    display: flex;
+    width: 390%;
+    height: 50%;
+  }
+}
+
 .botao:hover {
   background-color: #5d0100;
   color: white;
@@ -35,11 +50,7 @@ body {
   top: 350px;
 }
 
-.slides {
-  display: flex;
-  width: 500%;
-  height: 50%;
-}
+
 
 .slide {
   width: 20%;

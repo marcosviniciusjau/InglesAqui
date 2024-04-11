@@ -57,13 +57,14 @@
     margin-top: 40px;
     margin-left: -45px;
   }
+
   .boleto_icon {
     display: flex;
-
     width: 25%;
     border: 1px solid #ffffff;
     border-radius: 20px;
   }
+
   .pix_icon {
     display: flex;
 
@@ -72,6 +73,7 @@
     border-radius: 20px;
   }
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -97,19 +99,6 @@ body {
   background-clip: border-box;
   border-radius: 0.25rem;
 }
-.assistente {
-  position: fixed;
-  top: 50%; /* Você pode ajustar a posição vertical conforme necessário */
-  right: 20px; /* Ajuste conforme necessário */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  width: 15%; /* Defina a largura da div conforme necessário */
-  height: 5%;
-  transform: translateY(-50%); /* Para centralizar verticalmente */
-  padding: 10px;
-  border-radius: 5px;
-}
 
 #pagar_me {
   width: 148px;
@@ -121,6 +110,7 @@ body {
   width: 50px;
   height: 50px;
 }
+
 .cartao_icon {
   display: flex;
   gap: 8px;

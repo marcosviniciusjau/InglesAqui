@@ -10,12 +10,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 
+    <?php include PATH_VIEW . '/includes/header_home.php' ?>
    </head>
   <body>
-    
-      <?php include PATH_VIEW . '/includes/header_home.php' ?>
-    <img src="/View/Images/Home/background.webp" id="fundo_img">
-  
+   <main>
+  <img src="/View/Images/Home/background.webp" id="fundo_img" width="100%">
   <div class="assistente">
   <ion-icon name="chatbubble-ellipses-outline" id="assistente" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"></ion-icon>
   </div>
@@ -86,19 +85,21 @@
         <a href="/apostilas"><button class="botao" >Ver mais</button></a>
    </div>
      </div>
-        <span class="livros">
-        <a href="/apostilas_desc?id=1"><img class="apostilas" src="View/Images/Booklets/booklet1.webp"  class="thumbnail" /></a>
+        <span class="booklets">
+        <a href="/apostilas_desc?id=1"><img class="booklets_img" src="View/Images/Booklets/booklet1.webp"/></a>
         </span>
-        <span class="livros">
-        <a href="/apostilas_desc?id=7"><img class="apostilas"  src="View/Images/Booklets/booklet2.webp"  class="thumbnail" /></a>
+        <span class="booklets">
+        <a href="/apostilas_desc?id=7"><img class="booklets_img"  src="View/Images/Booklets/booklet2.webp"/></a>
         </span>
-        <span class="livros"> 
-        <a href="/apostilas_desc?id=3"><img class="apostilas"  src="View/Images/Booklets/booklet3.webp"  class="thumbnail" /></a>
-        <br> <br>
-        <br> <br>
+        <span class="booklets"> 
+        <a href="/apostilas_desc?id=3"><img class="booklets_img"  src="View/Images/Booklets/booklet3.webp"/></a>
+        </span>
+        <span class="booklets"> 
+        <a href="/apostilas_desc?id=6"><img class="booklets_img"  src="View/Images/Booklets/booklet5.webp" id="img_booklet"/></a>
         </span>
     </div>
 <div class="d-md-flex flex-md-equal  w-100">
+  
   <img src="View/Images/Home/about.webp" class="imgs" id="azul">
       <div id="sobre">
         <div class="my-5 py-5">
@@ -129,9 +130,9 @@
       <img src="View/Images/Home/contact.webp" id="contato_imagem" class="img">
   </div>
      
-</main>
 
-<?php include PATH_VIEW . 'includes/footer.php' ?>
 
 </body>
+</main>
 </html>
+

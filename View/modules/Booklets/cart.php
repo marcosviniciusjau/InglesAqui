@@ -49,10 +49,7 @@ session_start();
         </div>
         <p class="card-text" id="price" data-price="<?= $item->price ?>" value="<?= $item->price ?>">  R$ <?=number_format($item->price,2, ',', '.') ?></p>
         <p class="card-text" id="id" data-id="<?= $item->id ?>" value="<?= $item->id ?>"></p>
-      
-   
       </div>
-
      <td><a class='btn btn-sm btn-danger' onClick="window.location.href='/apostilas/carrinho/excluir?id=<?= $item->id ?>'">
               <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
                 <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z' />
@@ -64,6 +61,10 @@ session_start();
   </div>
       </div>
       <?php endforeach ?>
+      
+
+
+
       </div>
         <p id="total_values" class="prices"></p>
         <input type="hidden" id="quantityArrayInput" name="quantityArray">

@@ -2,11 +2,42 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 
-.autocomplete {
-display:flex;
+#navbar {
+  background-color: #020d2b;
+  color: white;
+  font-family: "Forum", cursive;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
 }
-#search{
-  font-family: "Montserrat", sans-serif;
+
+@media (max-width: 768px) {
+  #searchResults li {
+    width: 180px;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+  }
+
+  #search {
+    padding-left: 5px;
+  }
+}
+
+.autocomplete {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  #search {
+    font-family: "Montserrat", sans-serif;
+    width: 300px;
+    border-radius: 10px;
+    border: 1px solid #5d0101;
+    padding-left: 10px;
+    font-size: 15px;
+    background-color: #020d2b;
+    color: white;
+  }
 }
 
 #searchResults {
@@ -16,7 +47,7 @@ display:flex;
   border: 1px solid #ccc;
   border-top: none;
   list-style-type: none;
-  margin-top:50px;
+  margin-top: 50px;
   padding: 0;
   width: 20%;
   z-index: 1;
@@ -41,10 +72,18 @@ display:flex;
   color: #5d0101;
 }
 
-
 #cart {
-  display: flex;
-  margin-top:-15px;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: white;
+  border-radius: 50%;
+}
+
+.quantity_array{
+  font-size: 20px;
+  color: white;
+  decoration: none;
 }
 
 .search {

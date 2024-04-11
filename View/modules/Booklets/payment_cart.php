@@ -46,19 +46,19 @@
   <form method="POST" data-pagarmecheckout-form enctype="multipart/form-data" id="form_pagamento">
 
  <div class="row g-3">
-            <div class="col-md-5">
-              <label class="form-label">CPF</label>
-           <select
-              id="form-checkout__identificationType"
-              class="form-select"
-              name="document_type"
-              data-pagarmecheckout-element="document_type">
-           <option value="CPF">CPF</option>
-           <option value="CNPJ">CNPJ</option>
-           </select>
-            </div>
+   <div class="col-md-5">
+      <label class="form-label">CPF</label>
+      <select
+          id="form-checkout__identificationType"
+          class="form-select"
+          name="document_type"
+          data-pagarmecheckout-element="document_type">
+      <option value="CPF">CPF</option>
+      <option value="CNPJ">CNPJ</option>
+      </select>
+    </div>
 
-           <div class="col-md-5" id="col">
+    <div class="col-md-5" id="col">
             <label class="form-label">Número do Documento (CPF, CNPJ)</label>
              <input
                 id="documentNumber"
@@ -145,7 +145,8 @@
             </div>
             <br>
                <p class="form-label">Seus dados estão seguros com <img src="https://files.readme.io/6e60e35-logo.svg" id="pagar_me"></p>
-     <div class="row g-3">
+     
+                <div class="row g-3">
         <div class="col-md-5">
           <label  class="form-label">CEP</label>
           <input
@@ -197,7 +198,7 @@
     <div>
     <p class="form-label">Seus dados estão seguros com <img src="https://files.readme.io/6ae63e9-small-Logo_DOCS.png" id="pagar_me"></p>
       
-              <span id="errorBoleto"></span>
+            <span id="errorBoleto"></span>
             <div id="pagamentos">
               <div class="cartao_icon">
                 <input type="radio" id="checkbox" name="visibility" onclick="toggleVisibility('credit_card')" value="credit_card"> 
@@ -212,7 +213,7 @@
 
             <div class="boleto_icon">
               <input type="radio" id="checkbox"  name="visibility" onclick="toggleVisibility('boleto')" value="boleto">    
-               <img src="/View/Images/Payment/boleto.png" id="icones" alt="iconGoodWare">
+               <img src="/View/Images/Payment/billet.png" id="icones" alt="iconGoodWare">
               <h1 class="form-label" id="outros_pag">Boleto</h1>
             </div>
   
@@ -325,7 +326,7 @@
     
         </div>
  
-    <div id="boleto" class="hidden row g-3">
+    <div id="boleto" class="hidden">
     <h1 id="boleto-card" class="form-label">🌍 Descomplicado: Simplificamos o processo. Basta imprimir e pagar, sem senhas complicadas.</h1>
     <h2 id="boleto-card" class="form-label">
         💸 Sem Surpresas: O boleto é como um mapa do tesouro transparente, mostrando exatamente seus investimentos sem taxas escondidas.

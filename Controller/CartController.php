@@ -39,7 +39,9 @@ class CartController extends Controller
                 $cart = self::decrypt($_COOKIE['cart'], $key);
                 foreach ($cart as $item) {
                     if ($item['id'] === $_GET['id']) {
-                        echo 'Este item já está no carrinho.';
+                        $message= 'Este item já está no carrinho.';
+                        echo $message;
+                        header('Location: /apostilas/carrinho');
                         return;
                     }
                 }
