@@ -44,5 +44,11 @@ https://github.com/marcosviniciusjau/InglesAqui/assets/82465988/0e17fcb7-232f-45
 
 https://github.com/marcosviniciusjau/InglesAqui/assets/82465988/33059b5b-d58d-40e2-8d30-e9fc3eef6b98
 
+# Updates with cart and search by booklets name and turning the website responsive:
+
+https://github.com/marcosviniciusjau/InglesAqui/assets/82465988/cfca0010-521e-4a4d-8400-c0dff7eb109f
+
+
+
 
 
