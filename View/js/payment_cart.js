@@ -163,7 +163,6 @@ else{
     xhr.onreadystatechange = function () {
       if (xhr.readyState == 4 && xhr.status == 200) {
         let response = JSON.parse(xhr.responseText)
-        console.log(response)
         updateCard(response)
       }
     }
@@ -247,9 +246,6 @@ function updateCard(data) {
     console.error("Os dados fornecidos não contêm a estrutura esperada.")
   }
 }
-
-
-
 
 function pagarCreditCard() {
   const form = document.getElementById("form_pagamento")

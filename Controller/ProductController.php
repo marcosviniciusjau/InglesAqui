@@ -9,10 +9,8 @@ use App\DAO\{BookletsDAO,CategoriaDAO};
 
 class ProductController extends Controller
 {
-
-
     public static function index()
-    {    
+    {   
         $model = new BookletsModel();
        
         $model->getAllRows();

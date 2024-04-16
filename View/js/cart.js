@@ -45,9 +45,7 @@ function updateCartQuantity() {
 document.getElementById('form_quantity').addEventListener('submit', function(event) {
   event.preventDefault();
   const quantityArrayJSON = JSON.stringify(quantityArray);
-  // Define o valor do campo de input oculto com o JSON do quantityArray
   document.getElementById('quantityArrayInput').value = quantityArrayJSON;
-  // Envie o formulário
   this.submit();
 });
 

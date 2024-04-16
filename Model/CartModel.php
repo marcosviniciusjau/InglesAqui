@@ -7,12 +7,11 @@ class BookletsModel extends Model
     public $id, $name;
     public $price, $stock,$sold, $image;
 
-public function getByCartIds($ids)
-    {
-        $dao = new BookletsDAO();
-    
-        $this->rows = $dao->getByCartIds($ids);
+    public function getByCartIds($ids){
+            $dao = new BookletsDAO();
         
-        return $this->rows;
+            $this->rows = $dao->getByCartIds($ids);
+            
+            return $this->rows;
     }
 }

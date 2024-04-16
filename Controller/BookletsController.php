@@ -18,16 +18,14 @@ ini_set('display_errors', 0);
 
 class BookletsController extends Controller
 {
-    public static function index()
-    {
+    public static function index(){
         $model = new BookletsModel();
         $model->getAllRows();
 
         parent::render('Booklets/booklets',$model);
     }
 
-    public static function see()
-    {    
+    public static function see(){    
         try {
             if (isset($_GET['id'])) {
                 $model = new BookletsModel();
@@ -41,8 +39,7 @@ class BookletsController extends Controller
         }
     }
 
-    public static function desc(BookletsModel $_model = null)
-    {
+    public static function desc(BookletsModel $_model = null){
         $model = ($_model == null) ? new BookletsModel() : $_model;
        
         $model->getAllRowsId((int) $_GET['id']);
@@ -50,7 +47,7 @@ class BookletsController extends Controller
         parent::render('Booklets/booklets_desc' ,$model);
     }
     
-    public static function getBooklets() {
+    public static function getBooklets(){
         try {
             $model = new BookletsModel();
             
@@ -73,8 +70,7 @@ class BookletsController extends Controller
         return $dao->getNumberOfResults($search);
     }
 
-    public static function categoryTrip()
-    {
+    public static function categoryTrip(){
         $model =  new BookletsModel();
        
         $model->getByCategoryTrip((int) $_GET['id']);
@@ -82,24 +78,21 @@ class BookletsController extends Controller
         parent::render('Booklets/booklets',$model);
     }
 
-    public static function categoryBusiness()
-    {
+    public static function categoryBusiness(){
         $model =  new BookletsModel();
         $model->getByCategoryBusiness((int) $_GET['id']);
 
         parent::render('Booklets/booklets',$model);
     }
 
-    public static function categoryLearn()
-    {
+    public static function categoryLearn(){
         $model =  new BookletsModel();
         $model->getByCategoryLearn((int) $_GET['id']);
 
         parent::render('Booklets/booklets',$model);
     }
     
-    public static function payment()
-    {
+    public static function payment(){
         try {
             if (isset($_GET['id'])) {
                 $model = new BookletsModel();
@@ -114,8 +107,7 @@ class BookletsController extends Controller
         }
     }
 
-    public static function paymentCreditCard()
-    {
+    public static function paymentCreditCard(){
 
         require_once  './vendor/autoload.php';
         $tokenPagarMe= getenv("TOKEN_PAGAR_ME");
@@ -289,190 +281,187 @@ class BookletsController extends Controller
         }   
     }
 
-    public static function paymentDebitCard()
-    {
+    public static function paymentDebitCard(){
 
-    require_once  './vendor/autoload.php';
-    $tokenPagarMe= getenv("TOKEN_PAGAR_ME");
-    $brassPressToken= getenv('MELHOR_ENVIO_TOKEN');
+        require_once  './vendor/autoload.php';
+        $tokenPagarMe= getenv("TOKEN_PAGAR_ME");
+        $brassPressToken= getenv('MELHOR_ENVIO_TOKEN');
 
-    try {
-        $client = new \GuzzleHttp\Client();
-        
-        $fullName = $_POST['name'] ?? '';
-        $name = $_POST['holder-name-debit'] ?? '';
-        $document_type= $_POST['document_type'];
-        $email = $_POST['email'] ?? ''; 
-        $country_code= $_POST['country_code'] ?? '';
-        $area_code= $_POST['area_code'] ?? '';
-        $number= $_POST['number'] ?? '';
-        $firstSixDigits = substr($cardNumber, 0, 6);
-        $lastFourDigits = substr($cardNumber, -4);
-        $document= $_POST['document'] ?? '';
-        $valor = $_POST['totalPurchaseDebit'] ?? '';
-        $description = $_POST['nome'] ?? '';
-        $installments= $_POST['installments'] ?? '';
-        $code = $_POST['id'] ?? '';
-        $payment_method= $_POST['visibility'];
-        $description= $_POST['description'];
-        $country= $_POST['country'];
-        $state= $_POST['state'];
-        $city= $_POST['city'];
-        $zip_code= $_POST['zip_code'];
-        $line_1= $_POST['line_1'];
-
-        $responseTokenDebit = $client->request('POST', 'https://api.pagar.me/core/v5/tokens?appId=', [
-            'body' => json_encode([
-                'type' => 'card',
-                'customer' => [
-                    'name' => $fullName,
-                    'email' => $email,
-                ],
-                "items" => [
-                    'amount' => (float)$valor * 100,
-                    'description' => $description,
-                    'code' => $code,
-                ],
-                'card' => [
-                    'number' => $_POST['card-number-debit'],
-                    'holder_name' => $name,
-                    'exp_month' => $_POST['card-exp-month-debit'] ?? '',
-                    'exp_year' => $_POST['card-exp-year-debit'] ?? '',
-                    'cvv' => $_POST['cvv-debit'] ?? '',
-                ],
-            ]),
-            'headers' => [
-                'accept' => 'application/json',
-                'content-type' => 'application/json',
-            ],
-        ]);
-
-        $responseBodyTokenDebit = $responseTokenDebit->getBody()->getContents();
-        $responseDataTokenDebit = json_decode($responseBodyTokenDebit, true);
-        $tokenIdDebit = $responseDataTokenDebit['id'];
-        
-        function typeVerify($type) {
-            global $document_type;
-                if ($document_type === 'CPF') {
-                    $type = 'individual';
-                } else {
-                    $type = 'company';
-                }
-    }
-
-    $responseOrderDebit = $client->request('POST', 'https://api.pagar.me/core/v5/orders', [
-        'body' => json_encode([
-            'customer' => [
-                'name' => $name,
-                'type' => 'individual',
-                'document_type' => $document_type,
-                'email' => $email,
-                'phones' => [
-                    'mobile_phone' => [
-                        'country_code' => $country_code,
-                        'area_code' => $area_code,
-                        'number' => $number,
-                    ],
-                ],
-                'document' => $document,
-            ],
-                
-            'items' => [
-                [
-                    'amount' => (float)$valor * 100,
-                    'description'=> $description,
-                    'quantity' => 1,
-                    'code' => $code,
-                ],
-            ],
+        try {
+            $client = new \GuzzleHttp\Client();
             
-            'payments' => [
-                [
-                    'debit_card' => [
-                   'card_token'=> $tokenIdDebit,
-                    'billing_address'=>[
-                            'country'=> $country,
-                            'state'=> $state,
-                            'city'=> $city,
-                            'zip_code'=> $zip_code,
-                            'line_1'=> $line_1,
-                            'line_2'=> $complement,
-                ],
-                ],
-                'payment_method' => 'debit_card',
-            ],
-            ],
-            
-        ]),
-            'headers' => [
-                'accept' => 'application/json',
-                'authorization' => 'Basic =', 
-                'content-type' => 'application/json',
-            ],
-        ]);
-  
-        $products = [
-                "products" => [
-                    [
-                        "name" => $name,
-                        "quantity" => 1,
-                        "unitary_value" => $valor,
+            $fullName = $_POST['name'] ?? '';
+            $name = $_POST['holder-name-debit'] ?? '';
+            $document_type= $_POST['document_type'];
+            $email = $_POST['email'] ?? ''; 
+            $country_code= $_POST['country_code'] ?? '';
+            $area_code= $_POST['area_code'] ?? '';
+            $number= $_POST['number'] ?? '';
+            $firstSixDigits = substr($cardNumber, 0, 6);
+            $lastFourDigits = substr($cardNumber, -4);
+            $document= $_POST['document'] ?? '';
+            $valor = $_POST['totalPurchaseDebit'] ?? '';
+            $description = $_POST['nome'] ?? '';
+            $installments= $_POST['installments'] ?? '';
+            $code = $_POST['id'] ?? '';
+            $payment_method= $_POST['visibility'];
+            $description= $_POST['description'];
+            $country= $_POST['country'];
+            $state= $_POST['state'];
+            $city= $_POST['city'];
+            $zip_code= $_POST['zip_code'];
+            $line_1= $_POST['line_1'];
+
+            $responseTokenDebit = $client->request('POST', 'https://api.pagar.me/core/v5/tokens?appId=', [
+                'body' => json_encode([
+                    'type' => 'card',
+                    'customer' => [
+                        'name' => $fullName,
+                        'email' => $email,
                     ],
+                    "items" => [
+                        'amount' => (float)$valor * 100,
+                        'description' => $description,
+                        'code' => $code,
+                    ],
+                    'card' => [
+                        'number' => $_POST['card-number-debit'],
+                        'holder_name' => $name,
+                        'exp_month' => $_POST['card-exp-month-debit'] ?? '',
+                        'exp_year' => $_POST['card-exp-year-debit'] ?? '',
+                        'cvv' => $_POST['cvv-debit'] ?? '',
+                    ],
+                ]),
+                'headers' => [
+                    'accept' => 'application/json',
+                    'content-type' => 'application/json',
                 ],
-        ];
+            ]);
 
-        $responseMelhorEnvio = $client->request('POST', 'https://sandbox.melhorenvio.com.br/api/v2/me/cart', [
-            'body' => json_encode(["service"=> 1,
-            "from"=>
-            ["name"=>"Marcos Vinicius","phone"=>"",
-                "email"=>"","document"=>"","address"=>"","city"=>"Jaú",
-                "country_id"=>"BR","postal_code"=>"","state_abbr"=>"SP"],
-                "to"=>["name"=>$name,"phone"=>$number,"email"=>$email,"document"=>$document, "address"=>$line_1,"number"=>$house_number,"city"=>$city,"country_id"=>$country,"postal_code"=>$zip_code,"state_abbr"=>$state],
-                $products,
-                "volumes"=>(["height"=>23,"width"=>26,"length"=>5,"weight"=>0.3]),
-            ]),
+            $responseBodyTokenDebit = $responseTokenDebit->getBody()->getContents();
+            $responseDataTokenDebit = json_decode($responseBodyTokenDebit, true);
+            $tokenIdDebit = $responseDataTokenDebit['id'];
+            
+            function typeVerify($type) {
+                global $document_type;
+                    if ($document_type === 'CPF') {
+                        $type = 'individual';
+                    } else {
+                        $type = 'company';
+                    }
+        }
 
-            'headers' => [
-                'Accept' => 'application/json',
-                'Authorization' => 'Bearer ',
-                'Content-Type' => 'application/json',
-                'User-Agent' => 'Application (email para contato técnico)',
-                ],
-            ]);  
+            $responseOrderDebit = $client->request('POST', 'https://api.pagar.me/core/v5/orders', [
+                'body' => json_encode([
+                    'customer' => [
+                        'name' => $name,
+                        'type' => 'individual',
+                        'document_type' => $document_type,
+                        'email' => $email,
+                        'phones' => [
+                            'mobile_phone' => [
+                                'country_code' => $country_code,
+                                'area_code' => $area_code,
+                                'number' => $number,
+                            ],
+                        ],
+                        'document' => $document,
+                    ],
+                        
+                    'items' => [
+                        [
+                            'amount' => (float)$valor * 100,
+                            'description'=> $description,
+                            'quantity' => 1,
+                            'code' => $code,
+                        ],
+                    ],
+                    
+                    'payments' => [
+                        [
+                            'debit_card' => [
+                        'card_token'=> $tokenIdDebit,
+                            'billing_address'=>[
+                                    'country'=> $country,
+                                    'state'=> $state,
+                                    'city'=> $city,
+                                    'zip_code'=> $zip_code,
+                                    'line_1'=> $line_1,
+                                    'line_2'=> $complement,
+                        ],
+                        ],
+                        'payment_method' => 'debit_card',
+                    ],
+                    ],
+                    
+                ]),
+                    'headers' => [
+                        'accept' => 'application/json',
+                        'authorization' => 'Basic =', 
+                        'content-type' => 'application/json',
+                    ],
+                ]);
+        
+                $products = [
+                        "products" => [
+                            [
+                                "name" => $name,
+                                "quantity" => 1,
+                                "unitary_value" => $valor,
+                            ],
+                        ],
+                ];
 
-    function renderDeliveryMin($responseDataMelhorEnvio)
-    {
-        $delivery_min = $responseDataMelhorEnvio['delivery_min'];
+                $responseMelhorEnvio = $client->request('POST', 'https://sandbox.melhorenvio.com.br/api/v2/me/cart', [
+                    'body' => json_encode(["service"=> 1,
+                    "from"=>
+                    ["name"=>"Marcos Vinicius","phone"=>"",
+                        "email"=>"","document"=>"","address"=>"","city"=>"Jaú",
+                        "country_id"=>"BR","postal_code"=>"","state_abbr"=>"SP"],
+                        "to"=>["name"=>$name,"phone"=>$number,"email"=>$email,"document"=>$document, "address"=>$line_1,"number"=>$house_number,"city"=>$city,"country_id"=>$country,"postal_code"=>$zip_code,"state_abbr"=>$state],
+                        $products,
+                        "volumes"=>(["height"=>23,"width"=>26,"length"=>5,"weight"=>0.3]),
+                    ]),
 
-        return $delivery_min . ' dias';
+                    'headers' => [
+                        'Accept' => 'application/json',
+                        'Authorization' => 'Bearer ',
+                        'Content-Type' => 'application/json',
+                        'User-Agent' => 'Application (email para contato técnico)',
+                        ],
+                    ]);  
+
+            function renderDeliveryMin($responseDataMelhorEnvio)
+            {
+                $delivery_min = $responseDataMelhorEnvio['delivery_min'];
+
+                return $delivery_min . ' dias';
+            }
+
+            function renderDeliveryMax($responseDataMelhorEnvio)
+            {
+                $delivery_max = $responseDataMelhorEnvio['delivery_max'];
+
+                return $delivery_max . ' dias';
+            }
+
+        //$responseMelhorEnvio->getBody();
+        
+            $responseBodyMelhorEnvio = $responseMelhorEnvio->getBody()->getContents();
+            $responseDataMelhorEnvio = json_decode($responseBodyMelhorEnvio, true);
+            $id= array_shift($responseDataMelhorEnvio);
+            $model = renderDeliveryMin($responseDataMelhorEnvio);
+            
+            $max = renderDeliveryMax($responseDataMelhorEnvio);
+            require_once  './email.php';
+            parent::render('Booklets/success', $id,$model,$max);
+        }
+        catch (\Exception $exception) {
+        echo json_encode(['error' => $exception->getMessage()]);
+        }
     }
 
-    function renderDeliveryMax($responseDataMelhorEnvio)
-    {
-        $delivery_max = $responseDataMelhorEnvio['delivery_max'];
-
-        return $delivery_max . ' dias';
-    }
-
-       //$responseMelhorEnvio->getBody();
-       
-       $responseBodyMelhorEnvio = $responseMelhorEnvio->getBody()->getContents();
-       $responseDataMelhorEnvio = json_decode($responseBodyMelhorEnvio, true);
-       $id= array_shift($responseDataMelhorEnvio);
-        $model = renderDeliveryMin($responseDataMelhorEnvio);
-    
-        $max = renderDeliveryMax($responseDataMelhorEnvio);
-        require_once  './email.php';
-        parent::render('Booklets/success', $id,$model,$max);
-  
-    }
-     catch (\Exception $exception) {
-    echo json_encode(['error' => $exception->getMessage()]);
-    }
-    }
-
-    public static function paymentTicket()
-    {
+    public static function paymentTicket(){
       function addWorkingDays($inicialDate, $workingDays) {
             $actualDate = new \DateTime($inicialDate);
             for ($i = 0; $i < $workingDays; $i++) {
@@ -622,14 +611,13 @@ class BookletsController extends Controller
     /** */
         require_once  './ticket_email.php';
         parent::render('Booklets/tickets', $model, $id);    
-    }
-    catch (\Exception $exception){
-        echo json_encode(['error' => $exception->getMessage()]);
-    }
+        }
+        catch (\Exception $exception){
+                echo json_encode(['error' => $exception->getMessage()]);
+        }
     }
 
-    public static function paymentPix()
-    {
+    public static function paymentPix(){
         require_once  './vendor/autoload.php';
         try {
             $client = new \GuzzleHttp\Client();
@@ -756,8 +744,7 @@ class BookletsController extends Controller
         }
     }
 
-    public static function sendPaymentSuccess()
-    {
+    public static function sendPaymentSuccess(){
        parent::render('Booklets/success', $orderId);
     }
   
