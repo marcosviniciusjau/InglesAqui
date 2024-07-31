@@ -19,16 +19,8 @@ JavaScript is the backbone of our platform.  It provides the necessary interacti
 # Bootstrap: 
 We have incorporated the Bootstrap framework to make the website responsive and elegantly styled.
 
-# Vue.js:
-Vue.js is used to make certain page components more dynamic and responsive.
-
-# AngularJS: 
-We use AngularJS to add specific functionality to the website, such as displaying messages in real time.
-
 # Site Structure
 Home Page: The home page contains information about our platform and features a virtual assistant named Paige.
-
-Virtual Assistant: Paige is a chatbot that helps users with questions and queries.  It is powered by technologies like AngularJS and JavaScript to provide an interactive experience.
 
 Study Guides: Our study guides are accessible from the home page and provide valuable material for learning English.
 
