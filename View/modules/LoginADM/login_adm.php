@@ -12,13 +12,12 @@
 	<div class="page-content">
 		<div class="form-v6-content">
 			<div class="form-left">
-				<img src="/View/Imagens/fundo.png" width="484" height="643" alt="form">
+				<img src="/View/Images/Login/login.webp" width="484" height="643" alt="form">
 			</div>
 			<form class="form-detail" action="/login_adm/autenticar" method="post" id="login_adm">
 				<br>
 				<center><h1><font style="font-family: Corbel" color="black">Sessão Administrativa</font></h1></center>
 
-				<div class="error" id="email-invalid-error">Dados Inválidos</div>
 				<br><br>
 				<div class="form-row">
 					<input type="email" name="email" id="email" class="input-text" placeholder="Email" onchange="onChangeEmail() required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" required>

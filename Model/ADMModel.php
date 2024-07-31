@@ -24,8 +24,7 @@ class ADMModel extends Model
     }
 
     public function getAllRows()
-    {      
-
+    { 
         $dao = new ADMDAO();
 
         $this->rows = $dao->getAllRows();
@@ -43,7 +42,7 @@ class ADMModel extends Model
             if(is_object($dados_adm))
                 return $dados_adm;
             else 
-                throw new Exception("User not fouhd.");
+                throw new Exception("User not found.");
 
         } catch (Exception $e) {
 

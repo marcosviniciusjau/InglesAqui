@@ -12,9 +12,9 @@ use Exception;
 
 class ADMController extends Controller
 {
-    
 public static function meusDados()
     {
+        parent::isProtected();
         $model = new ADMModel();
         $model->getAllRows();
         $ADM_dao = new ADMDAO();
@@ -37,11 +37,9 @@ public static function meusDados()
     }
     public static function meusDadosSalvar()
     {
-         parent::isAuthenticated();
-        // Verificando se o usuário colocou a senha atual correta
+         parent::isProtected();
         if (self::checkCurrentUserPassword($_POST['senha_atual_adm'])) 
         {
-            // Verificar se o usuário quer alterar a senha
             if(!empty($_POST['nova_senha_adm']))
             {
                 if($_POST['nova_senha_adm'] == $_POST['confirmacao_nova_senha_adm'])
@@ -71,7 +69,7 @@ public static function meusDados()
 
     private static function checkCurrentUserPassword($password)
     {
-        parent::isAuthenticated();
+        parent::isProtected();
         
         $ADM_dao = new ADMDAO();
 

@@ -14,7 +14,7 @@
 
 <body>
 
-  <?php include PATH_VIEW . '/includes/header.php' ?>
+  <?php include PATH_VIEW . '/includes/header_adm.php' ?>
 
   <br>
 

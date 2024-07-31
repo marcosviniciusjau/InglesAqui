@@ -10,7 +10,8 @@ use App\DAO\{BookletsDAO,CategoriaDAO};
 class ProductController extends Controller
 {
     public static function index()
-    {   
+    {     
+        parent::isProtected();
         $model = new BookletsModel();
        
         $model->getAllRows();
@@ -21,12 +22,14 @@ class ProductController extends Controller
     
     public static function form(BookletsModel $_model = null)
     {
+        parent::isProtected();
         $model = ($_model == null) ? new BookletsModel() : $_model;
         include PATH_VIEW . '/modules/Product/FormProduct.php';
     }
    
     public static function save()
     {
+        parent::isProtected();
         try {
             $model = new BookletsModel();
     
@@ -74,7 +77,8 @@ class ProductController extends Controller
     }
 
     public static function ver()
-    { 
+    {  
+        parent::isProtected();
         try {
             if (isset($_GET['id'])) {
                 $model = new BookletsModel();
@@ -93,6 +97,7 @@ class ProductController extends Controller
 
     public static function delete()
     { 
+        parent::isProtected();
         $model = new BookletsModel();
 
         $model->delete((int) $_GET['id']); 

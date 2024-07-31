@@ -14,7 +14,7 @@ class ADMDAO extends DAO
     {
         try 
         {
-            $stmt = $this->conexao->prepare("SELECT * FROM adm WHERE id = ?");
+            $stmt = $this->conn->prepare("SELECT * FROM adm WHERE id = ?");
             $stmt->bindValue(1, $id);
             $stmt->execute();
 
@@ -29,7 +29,7 @@ class ADMDAO extends DAO
     public function update(ADMModel $model)
     {
         $sql = "UPDATE adm SET  email=?,password=sha2(?) where id=?";
-        $stmt = $this->conexao->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
     
         $stmt->bindValue(1, $model->email);
         $stmt->bindValue(2, $model->password);
@@ -39,9 +39,9 @@ class ADMDAO extends DAO
 
     public function getAllRows() 
     {
-        $sql = "SELECT id, email , password FROM adm";
+        $sql = "SELECT id,email,password FROM adm";
         
-        $stmt = $this->conexao->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_CLASS);
@@ -52,7 +52,7 @@ class ADMDAO extends DAO
     {
         $sql = "DELETE FROM adm WHERE id = ? ";
         
-        $stmt = $this->conexao->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
         $stmt->bindValue(1, $id);
         $stmt->execute();
     }
@@ -60,7 +60,7 @@ class ADMDAO extends DAO
 
     public function getMyUserById($id) 
     {
-        $stmt = $this->conexao->prepare("SELECT id, email, password FROM adm WHERE id = ?");
+        $stmt = $this->conn->prepare("SELECT id, email, password FROM adm WHERE id = ?");
         $stmt->bindValue(1, $id);
         $stmt->execute();
 
@@ -69,7 +69,7 @@ class ADMDAO extends DAO
 
     public function checkUserByIdAndPassword($id, $password)
     {
-        $stmt = $this->conexao->prepare("SELECT id FROM adm WHERE id = ? AND password = sha2(?)");
+        $stmt = $this->conn->prepare("SELECT id FROM adm WHERE id = ? AND password = sha2(?)");
         $stmt->bindValue(1, $id);
         $stmt->bindValue(2, $password);
         $stmt->execute();
@@ -80,7 +80,7 @@ class ADMDAO extends DAO
 
     public function checkDuplicateEmail($email, $id_adm)
     {
-        $stmt = $this->conexao->prepare("SELECT id FROM _adm WHERE email = ?");
+        $stmt = $this->conn->prepare("SELECT id FROM _adm WHERE email = ?");
         $stmt->bindValue(1, $email);
         $stmt->execute();
 

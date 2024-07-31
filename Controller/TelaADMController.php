@@ -6,11 +6,13 @@ class TelaADMController extends Controller
 {
     public static function index()
     {
+        parent::isProtected();
         parent::render('TelaADM/tela-adm');
     }
 
     public static function logout()
     {
+        parent::isProtected();
         if (isset($_SESSION["adm_logado"])) {
             unset($_SESSION["adm_logado"]);
         }

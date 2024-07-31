@@ -3,13 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.101.0">
-    <title>Meus Dados</title>
-    <link rel="icon" href="/View/Imagens/icon.png" type="image/icon type">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+   <title>Meus Dados</title>
+    <link rel="icon" href="/View/Images/icon.png" type="image/icon type">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 
 <style type="text/css">
   
@@ -64,7 +61,7 @@
   section {
   width: 100%;
   display: inline-block;
-  background: #023418;
+  background: #020d2b;
   height: 50vh;
   text-align: center;
   font-size: 22px;
@@ -88,7 +85,7 @@
 
   </style>
 
-<?php include PATH_VIEW . 'includes/cabecalho.php' ?>
+<?php include PATH_VIEW . 'includes/header_adm.php' ?>
   <br><br><br>
 <body>
 <body>
