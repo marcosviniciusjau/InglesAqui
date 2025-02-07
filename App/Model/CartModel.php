@@ -1,14 +1,14 @@
 <?php
 namespace App\Model;
-use App\DAO\BookletsDAO;
+use App\DAO\ProductsDAO;
 
-class BookletsModel extends Model
+class ProductsModel extends Model
 {
     public $id, $name;
     public $price, $stock,$sold, $image;
 
     public function getByCartIds($ids){
-            $dao = new BookletsDAO();
+            $dao = new ProductsDAO();
         
             $this->rows = $dao->getByCartIds($ids);
             

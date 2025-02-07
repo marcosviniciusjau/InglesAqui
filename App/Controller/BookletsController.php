@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Model\BookletsModel;
+use App\Model\ProductsModel;
 
 use GuzzleHttp\Client;
 use React\EventLoop\Factory;
@@ -19,7 +19,7 @@ ini_set('display_errors', 0);
 class BookletsController extends Controller
 {
     public static function index(){
-        $model = new BookletsModel();
+        $model = new ProductsModel();
         $model->getAllRows();
 
         parent::render('Booklets/booklets',$model);
@@ -28,19 +28,19 @@ class BookletsController extends Controller
     public static function see(){    
         try {
             if (isset($_GET['id'])) {
-                $model = new BookletsModel();
+                $model = new ProductsModel();
 
-                $dados = $model->getById((int) $_GET['id']);
+                $data = $model->getById((int) $_GET['id']);
               
-                self::desc($dados);
+                self::desc($data);
             } 
         } catch (Exception $e) {
             parent::render('Home/error');  
         }
     }
 
-    public static function desc(BookletsModel $_model = null){
-        $model = ($_model == null) ? new BookletsModel() : $_model;
+    public static function desc(ProductsModel $_model = null){
+        $model = ($_model == null) ? new ProductsModel() : $_model;
        
         $model->getAllRowsId((int) $_GET['id']);
 
@@ -49,7 +49,7 @@ class BookletsController extends Controller
     
     public static function getBooklets(){
         try {
-            $model = new BookletsModel();
+            $model = new ProductsModel();
             
             if (isset($_GET['search'])) {
                 $name = $_GET['search'];
@@ -66,12 +66,12 @@ class BookletsController extends Controller
     }
     
     public function getNumberOfResults($search) {
-        $dao = new BookletsDAO();
+        $dao = new ProductsDAO();
         return $dao->getNumberOfResults($search);
     }
 
     public static function categoryTrip(){
-        $model =  new BookletsModel();
+        $model =  new ProductsModel();
        
         $model->getByCategoryTrip((int) $_GET['id']);
 
@@ -79,14 +79,14 @@ class BookletsController extends Controller
     }
 
     public static function categoryBusiness(){
-        $model =  new BookletsModel();
+        $model =  new ProductsModel();
         $model->getByCategoryBusiness((int) $_GET['id']);
 
         parent::render('Booklets/booklets',$model);
     }
 
     public static function categoryLearn(){
-        $model =  new BookletsModel();
+        $model =  new ProductsModel();
         $model->getByCategoryLearn((int) $_GET['id']);
 
         parent::render('Booklets/booklets',$model);
@@ -95,12 +95,12 @@ class BookletsController extends Controller
     public static function payment(){
         try {
             if (isset($_GET['id'])) {
-                $model = new BookletsModel();
+                $model = new ProductsModel();
 
-                $dados = $model->getById((int) $_GET['id']);
+                $data = $model->getById((int) $_GET['id']);
                 $option = $_POST['selected_quantity'];
               
-                parent::render('Booklets/payment' ,$dados);
+                parent::render('Booklets/payment' ,$data);
         } 
         } catch (Exception $e) {  
          parent::render('Home/error');

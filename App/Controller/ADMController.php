@@ -18,7 +18,7 @@ public static function meusDados()
         $model = new ADMModel();
         $model->getAllRows();
         $ADM_dao = new ADMDAO();
-        $meus_dados = $ADM_dao->getMyUserById(LoginADMController::getIdOfCurrentUser());
+        $my_data = $ADM_dao->getMyUserById(LoginADMController::getIdOfCurrentUser());
         if(isset($_GET['success']))
         {
             $retorno['positivo'] = "Dados alterados com sucesso!";
@@ -32,7 +32,7 @@ public static function meusDados()
             $retorno['senha_confirmacao_incorreta'] = "A confirmação da nova senha não confere com a nova senha.";
         }
         
-        require PATH_VIEW . 'modules/TelaADM/meus-dados-adm.php';
+        require PATH_VIEW . 'modules/TelaADM/my-data-adm.php';
     
     }
     public static function meusDadosSalvar()
@@ -46,24 +46,24 @@ public static function meusDados()
                 {
                     $nova_senha_adm = $_POST['nova_senha_adm'];
                 } else {
-                    header("Location: /adm/meus-dados-adm?wrongpasswordconfirmacation=true");
+                    header("Location: /adm/my-data-adm?wrongpasswordconfirmacation=true");
                 }
             }
             $ADM_dao = new ADMDAO();
-            $dados_para_salvar =  $ADM_dao;
+            $data_para_salvar =  $ADM_dao;
             $ADM_dao->id =  $_POST['id'];
           
             $ADM_dao->email_adm = $_POST['email_adm'];
             $ADM_dao->senha_adm =isset($nova_senha) ? $nova_senha_adm : $_POST['senha_atual_adm'];
-            $ADM_dao->update($dados_para_salvar);
-            header("Location: /TelaADM/tela-adm.php");
+            $ADM_dao->update($data_para_salvar);
+            header("Location: /TelaADM/adm-screen.php");
     
     
-            $ADM_dao->update($dados_para_salvar);
+            $ADM_dao->update($data_para_salvar);
           
-            header("Location: /adm/meus-dados-adm?success=true");            
+            header("Location: /adm/my-data-adm?success=true");            
         } else 
-            header("Location: /adm/meus-dados-adm?wrongpassword=true");
+            header("Location: /adm/my-data-adm?wrongpassword=true");
     }
 
 

@@ -113,13 +113,13 @@
         </div>
     <?php endif ?>
 
-    <form method="post" action="/adm/meus-dados-adm/salvar" enctype="multipart/form-data">
+    <form method="post" action="/adm/my-data-adm/salvar" enctype="multipart/form-data">
     
         <div class="form-row">
             <div class="form-group col-md-6">    
             <div class="form-group col-md-6">
                 <label for="email">E-mail: </label>
-                <input name="email" class="form-control" value="<?= $meus_dados->email ?>" type="email" required />
+                <input name="email" class="form-control" value="<?= $my_data->email ?>" type="email" required />
             </div>
         </div>
 <br>

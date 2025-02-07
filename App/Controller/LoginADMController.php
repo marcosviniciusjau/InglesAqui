@@ -27,7 +27,7 @@ class LoginADMController extends Controller
 
             if ($resultado !== false) {
                 $_SESSION["adm_logado"] = (array) $resultado;
-                header("Location: /tela-adm");
+                header("Location: /adm-screen");
                 exit();
             } else {
                 echo "<script language='javascript' type='text/javascript'>

@@ -1,8 +1,8 @@
 <?php
 namespace App\Model;
-use App\DAO\BookletsDAO;
+use App\DAO\ProductsDAO;
 
-class BookletsModel extends Model
+class ProductsModel extends Model
 {
     public $id, $name;
     public $price, $stock,$sold, $image;
@@ -10,19 +10,22 @@ class BookletsModel extends Model
 
     public function save()
     {
-        $dao = new BookletsDAO();
+        $dao = new ProductsDAO(); 
 
-        if (empty($this->id)) {
-            $dao->insert($this);
-        } else {
-            $dao->update($this);
-        }
+        $dao->insert($this);
+    }
+
+    public function update()
+    {
+        $dao = new ProductsDAO(); 
+
+        $dao->update($this);  
     }
 
     public function getAll()
     {
         try {
-            $dao = new BookletsDAO();
+            $dao = new ProductsDAO();
             $arr_products = $dao->select();
 
             if (is_array($arr_products))
@@ -37,38 +40,38 @@ class BookletsModel extends Model
 
     public function getAllRows()
     {
-        $dao = new BookletsDAO();
+        $dao = new ProductsDAO();
         $this->rows = $dao->select();
     }
 
     public function getByCategoryTrip(int $id)
     {
-        $dao = new BookletsDAO();
+        $dao = new ProductsDAO();
         $this->rows = $dao->getByCategoryTrip($id);
     }
 
     public function getByCategoryBusiness(int $id)
     {
-        $dao = new BookletsDAO();
+        $dao = new ProductsDAO();
         $this->rows = $dao->getByCategoryBusiness($id);
     }
 
     public function getByCategoryLearn(int $id)
     {
-        $dao = new BookletsDAO();
+        $dao = new ProductsDAO();
         $this->rows = $dao->getByCategoryLearn($id);
     }
 
     public function getAllRowsId()
     {
-        $dao = new BookletsDAO();
-        $model = new BookletsModel();
+        $dao = new ProductsDAO();
+        $model = new ProductsModel();
         $this->array_products = $dao->getAllRowsId((int)$_GET['id']);
     }
 
     public function getByCartIds($ids)
     {
-        $dao = new BookletsDAO();
+        $dao = new ProductsDAO();
     
         $this->rows = $dao->getByCartIds($ids);
         
@@ -78,7 +81,7 @@ class BookletsModel extends Model
     public function getById(int $id)
     {
         try {
-            $dao = new BookletsDAO();
+            $dao = new ProductsDAO();
             $data_product = $dao->getById($id);
 
             if (is_object($data_product))
@@ -93,19 +96,19 @@ class BookletsModel extends Model
 
     public $booklets = [];
     public function getBookletsByName($search) {
-        $dao = new BookletsDAO();
+        $dao = new ProductsDAO();
         $this->booklets = $dao->getBookletsByName($search);
     }
 
     public $number_results = 0;
     public function getNumberOfResults($search) {
-        $dao = new BookletsDAO();
+        $dao = new ProductsDAO();
         $this->number_results = $dao->getNumberOfResults($search);
     }
 
     public function delete(int $id)
     {
-        $dao = new BookletsDAO();
+        $dao = new ProductsDAO();
         $dao->delete($id);
     }
 

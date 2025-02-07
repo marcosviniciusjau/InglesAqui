@@ -33,7 +33,7 @@ if (isset($_SESSION['carrinho']) && !empty($_SESSION['carrinho'])) {
         
         echo '<p>Dados: ' . implode(', ', $item['dados']) . '</p>';
         
-        $dados=$item['dados'];
+        $data=$item['dados'];
         
         $somaTotal += $item['soma'];
         
@@ -49,7 +49,7 @@ if (isset($_SESSION['carrinho']) && !empty($_SESSION['carrinho'])) {
 <div class="container__form">
   
   <input type="hidden" data-soma="<?= $somaTotal ?>" name="somaTotal" value="<?= $somaTotal ?>" id="soma">
-  <input type="hidden" data-soma="<?= $dados ?>" name="somaTotal" value="<?= $dados ?>" id="soma">
+  <input type="hidden" data-soma="<?= $data ?>" name="somaTotal" value="<?= $data ?>" id="soma">
   <form method="POST" data-pagarmecheckout-form enctype="multipart/form-data" id="form_pagamento">
 
  <div class="row g-3">

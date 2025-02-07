@@ -2,19 +2,19 @@
 
 namespace App\DAO;
 
-use App\Model\BookletsModel;
+use App\Model\ProductsModel;
 use \PDO;
 use \PDOException;
 use \Exception;
 
-class BookletsDAO  extends DAO
+class ProductsDAO  extends DAO
 {
     public function __construct()
     {
         parent::__construct();
     }
 
-    public function insert(BookletsModel $model)
+    public function insert(ProductsModel $model)
     {
         $sql = "INSERT INTO booklets (name, price,description, image) VALUES (?, ?, ?, ?) ";
 
@@ -26,7 +26,7 @@ class BookletsDAO  extends DAO
         $stmt->execute();
     }
 
-    public function update(BookletsModel $model)
+    public function update(ProductsModel $model)
     {
         $sql = "UPDATE booklets SET name=?,price=?,description=?, image=? WHERE id=? ";
 
@@ -84,7 +84,7 @@ class BookletsDAO  extends DAO
             $stmt = $this->conn->prepare("SELECT * FROM booklets WHERE id = ?");
             $stmt->bindValue(1, $id);
             $stmt->execute();
-            return $stmt->fetchObject('App\Model\BookletsModel');
+            return $stmt->fetchObject('App\Model\ProductsModel');
             
         } catch (PDOException $e) {
 
@@ -111,7 +111,7 @@ class BookletsDAO  extends DAO
         try {
             $stmt = $this->conn->prepare("SELECT * FROM booklets WHERE id in (1,3,5,6)");
             $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_CLASS,'App\Model\BookletsModel');
+            return $stmt->fetchAll(PDO::FETCH_CLASS,'App\Model\ProductsModel');
             
         } catch (PDOException $e) {
          throw new Exception("Erro ao obter o produto no banco de dados.");
@@ -123,7 +123,7 @@ class BookletsDAO  extends DAO
         try {
             $stmt = $this->conn->prepare("SELECT * FROM booklets WHERE id = 7");
             $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_CLASS,'App\Model\BookletsModel');
+            return $stmt->fetchAll(PDO::FETCH_CLASS,'App\Model\ProductsModel');
             
         } catch (PDOException $e) {
          throw new Exception("Erro ao obter o produto no banco de dados.");
@@ -135,7 +135,7 @@ class BookletsDAO  extends DAO
         try {
             $stmt = $this->conn->prepare("SELECT * FROM booklets WHERE id in (2,4)");
             $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_CLASS,'App\Model\BookletsModel');
+            return $stmt->fetchAll(PDO::FETCH_CLASS,'App\Model\ProductsModel');
             
         } catch (PDOException $e) {
          throw new Exception("Erro ao obter o produto no banco de dados.");

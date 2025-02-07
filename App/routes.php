@@ -1,7 +1,7 @@
 <?php
 
 use App\Controller\{HomeController,BookletsController,CartController,ProductController,
-    ContactController,LoginADMController,TelaADMController,CadastrosController,ADMController};
+    ContactController,LoginADMController,TelaADMController,CadastrosController,ADMScreenController};
 
     $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -79,47 +79,51 @@ use App\Controller\{HomeController,BookletsController,CartController,ProductCont
             BookletsController::enviarPagamento();
             break;
 
-        case '/produto':
+        case '/product':
             ProductController::index();
         break;
     
-        case '/produto/form':
+        case '/product/form':
             ProductController::form();
         break;
     
-        case '/produto/form/save':
+        case '/product/form/save':
             ProductController::save();
         break;
-
-        case '/produto/ver':
-            ProductController::ver();                       
+        
+        case '/product/form/update':
+            ProductController::update();
         break;
 
-        case '/produto/delete':
+        case '/product/getById':
+            ProductController::getById();                       
+        break;
+
+        case '/product/delete':
             ProductController::delete();
         break;
         
-        case '/tela-adm/meus-dados-adm':
-            ADMController::meusDados();
+        case '/adm-screen/my-data-adm':
+            ADMScreenController::meusDados();
         break;
 
-        case '/tela-adm/meus-dados-adm/salvar':
-            ADMController::meusDadosSalvar();
+        case '/adm-screen/my-data-adm/salvar':
+            ADMScreenController::meusDadosSalvar();
         break;
         
-        case '/tela-adm':
-            TelaADMController::index();
+        case '/adm-screen':
+            ADMScreenController::index();
         break;
 
         case '/cadastros':
             CadastrosController::index();
         break;
-        case '/tela-adm/meus-dados-adm':
-            ADMController::meusDados();
+        case '/adm-screen/my-data-adm':
+            ADMScreenController::meusDados();
         break;
 
-        case '/tela-adm/meus-dados-adm/salvar':
-            ADMController::meusDadosSalvar();
+        case '/adm-screen/my-data-adm/salvar':
+            ADMScreenController::meusDadosSalvar();
         break;
 
         case '/login_adm':

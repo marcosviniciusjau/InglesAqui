@@ -84,11 +84,11 @@ class ADMDAO extends DAO
         $stmt->bindValue(1, $email);
         $stmt->execute();
 
-        $dados = $stmt->fetchObject();
+        $data = $stmt->fetchObject();
 
-        if(is_object($dados))
+        if(is_object($data))
         {
-            if($id_usuario == $dados->id)
+            if($id_usuario == $data->id)
                 return false;
             else  
                 return true;

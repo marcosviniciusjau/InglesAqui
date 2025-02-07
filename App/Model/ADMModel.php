@@ -37,10 +37,10 @@ class ADMModel extends Model
         {
             $dao = new ADMDAO();
 
-            $dados_adm = $dao->getById($id);
+            $data_adm = $dao->getById($id);
 
-            if(is_object($dados_adm))
-                return $dados_adm;
+            if(is_object($data_adm))
+                return $data_adm;
             else 
                 throw new Exception("User not found.");
 

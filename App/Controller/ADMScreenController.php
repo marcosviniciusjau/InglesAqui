@@ -2,12 +2,12 @@
 
 namespace App\Controller;
 
-class TelaADMController extends Controller
+class ADMScreenController extends Controller
 {
     public static function index()
     {
         parent::isProtected();
-        parent::render('TelaADM/tela-adm');
+        parent::render('ADMScreen/adm-screen');
     }
 
     public static function logout()

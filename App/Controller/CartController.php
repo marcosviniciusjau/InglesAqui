@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Model\BookletsModel;
+use App\Model\ProductsModel;
 
 use GuzzleHttp\Client;
 use React\EventLoop\Factory;
@@ -125,7 +125,7 @@ class CartController extends Controller
 
     public static function getCart()
 {
-    $model = new BookletsModel();
+    $model = new ProductsModel();
 
     if (isset($_COOKIE['cart'])) {
         $encryptedCart = $_COOKIE["cart"];
@@ -151,7 +151,7 @@ class CartController extends Controller
 
 public static function paymentCart()
 {
-    $model = new BookletsModel();
+    $model = new ProductsModel();
 
     // Verifique se o cookie 'cart' está definido
     if (isset($_COOKIE['cart'])) {

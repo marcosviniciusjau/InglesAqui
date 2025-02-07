@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   
-    <title>Inglês Aqui - Cadastrar Apostilas</title>
+    <title>Inglês Aqui - Atualizar Apostilas</title>
     <link rel="icon" href="/View/Imagens/icon.png" type="image/icon type">
  
 </head>
@@ -14,36 +14,46 @@
 <?php include PATH_VIEW . 'includes/header_adm.php' ?>
   <div class="container">
   <main>
-  <form method="post" action="/product/form/save" enctype="multipart/form-data" class="form-horizontal">
-
+  <form method="post" action="/product/form/update" enctype="multipart/form-data" class="form-horizontal">
+  <input id="id" name="id" type="hidden" value="<?= $model->id ?>" placeholder="ID do Produto" class="form-control input-md">
+    
       <fieldset>
-      <h4 class="mb-3">Cadastrar Novas Apostilas</h4>
+      <h4 class="mb-3">Atualizar Apostila</h4>
         <div class="row g-3">
             <div class="col-sm-6">
               <label class="form-label" for="nome">Nome</label>  
-              <input id="name" name="name" type="text" placeholder="Nome do Produto" class="form-control input-md">
+              <input id="name" name="name" type="text" value="<?= $model->name ?>" placeholder="Nome do Produto" class="form-control input-md">
         </div>
             </div>
 
       <div class="row g-3">
         <div class="col-sm-6">
           <label class="col-md-4 control-label" for="Valor">Valor</label>  
-          <input id="price" name="price" placeholder="Valor" class="form-control input-md">  
+          <input id="price" name="price" value="<?= $model->price ?>" placeholder="Valor" class="form-control input-md">  
     </div>
         </div>
 
       <div class="row g-3">
         <div class="col-sm-6">
           <label class="col-md-4 control-label" for="description">Descrição</label>  
-          <input id="description" name="description"  placeholder="Descriçao" class="form-control input-md">
+          <input id="description" name="description"   value="<?= $model->description ?>" placeholder="Descriçao" class="form-control input-md">
       </div>
       </div>
 
       <div class="form-group">
         <label class="col-md-4 control-label" for="arquivo_up">Foto</label>
-        <div class="col-md-4">  
-          <input id="arquivo_up" name="arquivo_up" class="input-file" type="file" >
-        </div>
+        <div class="col-md-4">
+        <input id="arquivo_up" name="arquivo_up"  value="<?=  $model->image  ?>" class="input-file" type="file" >
+        
+          <?php
+          if ($model->image != null) {
+            echo '
+            <img class="img-fluid" width="200" height="300" src="/View/Uploads/' . $model->image . '" alt="Booklet">
+            <input type="hidden" id="image" name="image" value="' . $model->image . '">
+            ';
+          }
+          ?>
+          </div>
       </div>
        
          <hr class="my-4">
